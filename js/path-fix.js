@@ -1,18 +1,24 @@
 (function () {
 
-    if (window.rel) return;
+    if (window.__ROOT_FIXED__) return;
+    window.__ROOT_FIXED__ = true;
 
-    const path = window.location.pathname;
+    // Apply only on GitHub Pages
+    if (!location.hostname.includes("github.io")) {
+        console.log("[Commander] Local mode - no root change");
+        return;
+    }
 
-    // detect repo name
-    const segments = path.split("/").filter(Boolean);
-    const base = segments.length ? "/" + segments[0] + "/" : "/";
+    const repo = location.pathname.split("/")[1];
+    if (!repo) return;
 
-    window.rel = function (p) {
-        if (!p || p.startsWith("http") || p.startsWith("#")) return p;
-        return base + p.replace(/^\/+/, "");
-    };
+    const base = "/" + repo + "/";
 
-    console.log("[Commander] Root:", base);
+    const baseTag = document.createElement("base");
+    baseTag.href = base;
+
+    document.head.prepend(baseTag);
+
+    console.log("[Commander] GitHub root forced:", base);
 
 })();
