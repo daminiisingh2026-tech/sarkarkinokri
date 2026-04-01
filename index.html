@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SarkarKinokri</title>
+
+<link rel="stylesheet" href="css/ticker.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <h1>SarkarKinokri</h1>
+</header>
+
+<section class="hero-section">
+    <div class="hero-content">
+        <h1 class="hero-title">YOUR GATEWAY TO GOVERNMENT JOB SUCCESS</h1>
+        <p class="hero-subtitle">Verified Alerts, Real-time Updates, Simplified</p>
+        
+    <div class="hero-search" style="position: relative;">
+    <input type="text" placeholder="Search SSC, Bank, Railway, Syllabus..." class="hero-input" id="hero-search-input" autocomplete="off">
+    
+    <div id="search-dropdown-box" style="display:none;"></div>
+    
+    <button class="hero-btn" id="search-btn">Search</button>
+    </div>
+
+
+
+        <div class="hero-trust">
+            <div>🛡️ Verified Jobs</div>
+            <div>🚀 Fast Updates</div>
+        </div>
+    </div>
+</section>
+
+<div class="ad-box" id="ad-top"></div>
+
+<div class="news-ticker">
+    <div class="ticker-label">LATEST</div>
+    <div id="ticker-content"></div>
+</div>
+
+<div class="sticky-tabs">
+    <a href="#">Home</a>
+    <a href="#recruitment">Recruitment</a>
+    <a href="#board">Latest</a>
+    <a href="#resources">Resources</a>
+    <a href="#allportals">All Portals</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</div>
+
+<section id="recruitment" class="recruitment-section">
+    <h2>Recruitment Portal</h2>
+
+    <div id="list-top" class="recruit-grid"></div>
+
+    <div class="recruit-grid">
+
+        <div class="recruit-box">
+            <button class="recruit-btn-main dropdown-indicator">RRB ▼</button>
+            <div class="dropdown-content" id="list-rrb"></div>
+        </div>
+
+        <div class="recruit-box">
+            <button class="recruit-btn-main dropdown-indicator">SSC ▼</button>
+            <div class="dropdown-content" id="list-ssc"></div>
+        </div>
+
+        <div class="recruit-box">
+            <button class="recruit-btn-main dropdown-indicator">IBPS ▼</button>
+            <div class="dropdown-content" id="list-ibps"></div>
+        </div>
+
+        <div class="recruit-box">
+            <button class="recruit-btn-main dropdown-indicator">SBI ▼</button>
+            <div class="dropdown-content" id="list-sbi"></div>
+        </div>
+
+        <div class="recruit-box">
+            <button class="recruit-btn-main dropdown-indicator">Police ▼</button>
+            <div class="dropdown-content" id="list-police"></div>
+        </div>
+
+        <div class="recruit-box">
+            <button class="recruit-btn-main dropdown-indicator">Teaching ▼</button>
+            <div class="dropdown-content" id="list-teaching"></div>
+        </div>
+
+        <div class="recruit-box">
+            <button class="recruit-btn-main dropdown-indicator">State ▼</button>
+            <div class="dropdown-content" id="list-state"></div>
+        </div>
+
+    </div>
+</section>
+
+<main id="board" class="board">
+    <div class="card"><h3 class="red">Latest Jobs</h3><ul id="list-jobs" class="list"></ul></div>
+    <div class="card"><h3 class="yellow">Admit Card</h3><ul id="list-admit" class="list"></ul></div>
+    <div class="card"><h3 class="orange">Answer Key</h3><ul id="list-answer" class="list"></ul></div>
+    <div class="card"><h3 class="green">Results</h3><ul id="list-result" class="list"></ul></div>
+    <div class="card"><h3 class="blue">Interview</h3><ul id="list-interview" class="list"></ul></div>
+    <div class="card"><h3 class="purple">DV</h3><ul id="list-dv" class="list"></ul></div>
+</main>
+
+<div class="ad-box" id="ad-middle"></div>
+
+<section id="resources" class="resources">
+    <h2>Important Resources</h2>
+    <div id="resource-grid" class="resource-grid"></div>
+</section>
+
+<div class="ad-box" id="ad-bottom"></div>
+
+<section id="allportals" class="all-portals">
+    <h2>All Portals</h2>
+    <div id="all-portal-grid" class="portal-grid"></div>
+</section>
+
+<section id="about" class="info-section">
+    <h2>About SarkarKinokri</h2>
+    <p class="seo-quote">
+        “Empowering aspirants with fast, accurate and verified government job updates across India.”
+    </p>
+    <p>
+        SarkarKinokri is a dedicated platform designed to simplify your government job search. 
+        We provide real-time updates on recruitment, admit cards, results, and official notifications 
+        from trusted sources — all in one place.
+    </p>
+</section>
+
+<section id="contact" class="info-section">
+    <h2>Contact Us</h2>
+    <p class="seo-quote">
+        “We are here to support your journey — reach out anytime.”
+    </p>
+
+    <p><strong>📞 Mobile:</strong> 7021188701</p>
+    <p><strong>📧 Email:</strong> sarkarkinokrilelo@gmail.com</p>
+</section>
+
+<section class="info-section" style="background:#fff1f2;border-color:#fecaca;">
+    <h2>Disclaimer</h2>
+    <p>
+        SarkarKinokri is an independent informational platform and is not affiliated with any 
+        government organization. We collect and present information from official sources for 
+        educational purposes only. Users are advised to verify details from official websites 
+        before taking any action.
+    </p>
+</section>
+
+<div id="popup-ad" class="popup-ad">
+    <div class="popup-content">
+        <span id="ad-close">✖</span>
+        <p>Advertisement</p>
+    </div>
+</div>
+<script src="js/path-fix.js" defer></script>
+<script src="js/loader.js" defer></script>
+<script src="js/router.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/search.js" defer></script>
+<script src="js/ticker.js" defer></script>
+
+</body>
+</html>
