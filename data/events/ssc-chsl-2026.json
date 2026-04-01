@@ -1,0 +1,79 @@
+{
+  "master_id": "ssc-chsl-2026",
+  "header_scope": [
+    "Government of India",
+    "Staff Selection Commission",
+    "Department of Personnel & Training"
+  ],
+  "notice_type": "Examination Notice",
+  "notice_no": "CHSL-2026/01",
+  "title": "Combined Higher Secondary Level (CHSL) Examination 2026",
+  "category": "Central Govt",
+  "status": "Live",
+  "last_updated": "2026-04-03T00:00:00Z",
+  "recruitment_summary": "SSC CHSL 2026 is conducted for recruitment to posts such as Lower Division Clerk (LDC), Junior Secretariat Assistant (JSA), Postal Assistant (PA), Sorting Assistant (SA) and Data Entry Operator (DEO). The selection process includes Tier-I (CBT), Tier-II (Descriptive / Skill Test) followed by Document Verification.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Official Notification",
+      "is_active": true,
+      "start_date": "2026-04-03",
+      "end_date": "2026-05-02",
+      "official_event_url": "https://ssc.gov.in/chsl-2026-notification.pdf",
+      "badge_text": "● OFFICIAL"
+    },
+    {
+      "phase": null,
+      "stage": "apply",
+      "label": "Apply Online",
+      "is_active": true,
+      "start_date": "2026-04-03",
+      "end_date": "2026-05-02",
+      "official_event_url": "https://ssc.gov.in/",
+      "status_label": "Link is Active Now",
+      "badge_text": "● OPEN"
+    },
+    {
+      "phase": "Tier-I (CBT)",
+      "stage": "admit",
+      "label": "Tier-I Admit Card",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "UPCOMING",
+      "status_label": "Expected June 2026"
+    },
+    {
+      "phase": "Tier-I (CBT)",
+      "stage": "result",
+      "label": "Tier-I Result",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "WAITING"
+    },
+    {
+      "phase": "Tier-II",
+      "stage": "admit",
+      "label": "Tier-II Admit Card",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "FUTURE"
+    },
+    {
+      "phase": "Tier-II",
+      "stage": "result",
+      "label": "Tier-II Result",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "FUTURE"
+    },
+    {
+      "phase": "Final Selection",
+      "stage": "result",
+      "label": "Final Result",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "FUTURE"
+    }
+  ]
+}

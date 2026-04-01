@@ -1,0 +1,63 @@
+{
+  "master_id": "ssc-mts-2026",
+  "header_scope": [
+    "Government of India",
+    "Staff Selection Commission",
+    "Department of Personnel & Training"
+  ],
+  "notice_type": "Examination Notice",
+  "notice_no": "MTS-2026/01",
+  "title": "SSC Multi Tasking Staff (MTS) & Havaldar Examination 2026",
+  "category": "Central Govt",
+  "status": "Live",
+  "last_updated": "2026-03-31T00:00:00Z",
+  "recruitment_summary": "SSC MTS 2026 recruitment is conducted for Multi Tasking Staff and Havaldar posts in various ministries and departments. Selection includes Computer Based Examination followed by Physical Test (for Havaldar) and Document Verification.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Official Notification",
+      "is_active": true,
+      "start_date": "2026-03-31",
+      "end_date": "2026-04-29",
+      "official_event_url": "https://ssc.gov.in/mts-2026-notification.pdf",
+      "badge_text": "● OFFICIAL"
+    },
+    {
+      "phase": null,
+      "stage": "apply",
+      "label": "Apply Online",
+      "is_active": true,
+      "start_date": "2026-03-31",
+      "end_date": "2026-04-29",
+      "official_event_url": "https://ssc.gov.in/",
+      "status_label": "Link is Active Now",
+      "badge_text": "● OPEN"
+    },
+    {
+      "phase": "CBT",
+      "stage": "admit",
+      "label": "CBT Admit Card",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "UPCOMING",
+      "status_label": "Expected June 2026"
+    },
+    {
+      "phase": "CBT",
+      "stage": "result",
+      "label": "CBT Result",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "WAITING"
+    },
+    {
+      "phase": "Final Selection",
+      "stage": "result",
+      "label": "Final Result",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "FUTURE"
+    }
+  ]
+}

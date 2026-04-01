@@ -1,0 +1,79 @@
+{
+  "master_id": "rrb-group-d-2026",
+  "header_scope": [
+    "Government of India",
+    "Ministry of Railways",
+    "Railway Recruitment Boards"
+  ],
+  "notice_type": "Centralized Employment Notice",
+  "notice_no": "CEN-GD-2026",
+  "title": "RRB Level-1 Group D Recruitment 2026",
+  "category": "Central Govt",
+  "status": "Live",
+  "last_updated": "2026-04-04T00:00:00Z",
+  "recruitment_summary": "RRB Group D 2026 recruitment is conducted for Level-1 posts including Track Maintainer, Helper, Assistant and various technical support staff in Indian Railways. The selection process includes CBT, Physical Efficiency Test (PET), Document Verification and Medical Examination.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Official Notification",
+      "is_active": true,
+      "start_date": "2026-04-04",
+      "end_date": "2026-05-03",
+      "official_event_url": "https://indianrailways.gov.in/rrb-groupd-2026-notification.pdf",
+      "badge_text": "● OFFICIAL"
+    },
+    {
+      "phase": null,
+      "stage": "apply",
+      "label": "Apply Online",
+      "is_active": true,
+      "start_date": "2026-04-04",
+      "end_date": "2026-05-03",
+      "official_event_url": "https://www.rrbapply.gov.in/",
+      "status_label": "Link is Active Now",
+      "badge_text": "● OPEN"
+    },
+    {
+      "phase": "CBT",
+      "stage": "admit",
+      "label": "CBT Admit Card",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "UPCOMING",
+      "status_label": "Expected August 2026"
+    },
+    {
+      "phase": "CBT",
+      "stage": "result",
+      "label": "CBT Result",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "WAITING"
+    },
+    {
+      "phase": "PET",
+      "stage": "admit",
+      "label": "PET Call Letter",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "FUTURE"
+    },
+    {
+      "phase": "PET",
+      "stage": "result",
+      "label": "PET Result",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "FUTURE"
+    },
+    {
+      "phase": "Final Selection",
+      "stage": "result",
+      "label": "Final Result",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "FUTURE"
+    }
+  ]
+}

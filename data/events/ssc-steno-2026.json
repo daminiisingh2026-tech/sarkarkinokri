@@ -1,0 +1,71 @@
+{
+  "master_id": "ssc-steno-2026",
+  "header_scope": [
+    "Government of India",
+    "Staff Selection Commission",
+    "Department of Personnel & Training"
+  ],
+  "notice_type": "Examination Notice",
+  "notice_no": "STENO-2026/01",
+  "title": "SSC Stenographer Grade C & D Examination 2026",
+  "category": "Central Govt",
+  "status": "Live",
+  "last_updated": "2026-03-25T00:00:00Z",
+  "recruitment_summary": "SSC Stenographer 2026 recruitment is conducted for Grade C and Grade D posts in various ministries and departments. Selection includes Computer Based Examination followed by Skill Test and Document Verification.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Official Notification",
+      "is_active": true,
+      "start_date": "2026-03-25",
+      "end_date": "2026-04-23",
+      "official_event_url": "https://ssc.gov.in/steno-2026-notification.pdf",
+      "badge_text": "● OFFICIAL"
+    },
+    {
+      "phase": null,
+      "stage": "apply",
+      "label": "Apply Online",
+      "is_active": true,
+      "start_date": "2026-03-25",
+      "end_date": "2026-04-23",
+      "official_event_url": "https://ssc.gov.in/",
+      "status_label": "Link is Active Now",
+      "badge_text": "● OPEN"
+    },
+    {
+      "phase": "CBT",
+      "stage": "admit",
+      "label": "CBT Admit Card",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "UPCOMING",
+      "status_label": "Expected June 2026"
+    },
+    {
+      "phase": "CBT",
+      "stage": "result",
+      "label": "CBT Result",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "WAITING"
+    },
+    {
+      "phase": "Skill Test",
+      "stage": "admit",
+      "label": "Skill Test Call Letter",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "FUTURE"
+    },
+    {
+      "phase": "Final Selection",
+      "stage": "result",
+      "label": "Final Result",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "FUTURE"
+    }
+  ]
+}
