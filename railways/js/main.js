@@ -15,11 +15,11 @@ document.addEventListener("DOMContentLoaded", function() {
             // Updated to reflect your 11-page structure
             const links = [
                 { name: "Home", url: "index.html" },
-                { name: "NTPC", url: "ntpc.html" },
-                { name: "ALP", url: "alp.html" },
-                { name: "Tech", url: "Technician.html" }, // Matches your filename
-                { name: "Group D", url: "groupd.html" },
-                { name: "JE", url: "je.html" },
+                { name: "NTPC", url: "rrb-ntpc.html" },
+                { name: "ALP", url: "rrb-alp.html" },
+                { name: "Tech", url: "rrb-technician.html" }, // Matches your filename
+                { name: "Group D", url: "rrb-group-d.html" },
+                { name: "JE", url: "rrb-je.html" },
                 { name: "Syllabus", url: "syllabus.html" }, // Matches your spelling
                 { name: "Medical", url: "medical.html" },
                 { name: "Salary", url: "salary.html" },
