@@ -1,34 +1,18 @@
 (function () {
 
-    // prevent duplicate execution
     if (window.rel) return;
 
-    function detectBase() {
-        const { hostname, pathname } = window.location;
+    const path = window.location.pathname;
 
-        if (hostname.includes("github.io")) {
-            const parts = pathname.split("/").filter(Boolean);
-            return parts.length ? "/" + parts[0] + "/" : "/";
-        }
-        return "/";
-    }
+    // detect repo name
+    const segments = path.split("/").filter(Boolean);
+    const base = segments.length ? "/" + segments[0] + "/" : "/";
 
-    const base = detectBase();
-
-    window.SarkarPath = {
-        base,
-        rel(path) {
-            if (!path || path.startsWith("http") || path.startsWith("#"))
-                return path;
-
-            const clean = path.replace(/^\/+/, "");
-            return base + clean;
-        }
+    window.rel = function (p) {
+        if (!p || p.startsWith("http") || p.startsWith("#")) return p;
+        return base + p.replace(/^\/+/, "");
     };
 
-    window.rel = window.SarkarPath.rel;
-
-    // only one safe log
     console.log("[Commander] Root:", base);
 
 })();
