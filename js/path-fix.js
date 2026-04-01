@@ -1,24 +1,22 @@
 (function () {
+    const isGithub = location.hostname.includes("github.io");
+    const repoRoot = "/sarkarkinokri/";
 
-    if (window.__ROOT_FIXED__) return;
-    window.__ROOT_FIXED__ = true;
+    window.SarkarPath = {
+        base: isGithub ? repoRoot : "/",
 
-    // Apply only on GitHub Pages
-    if (!location.hostname.includes("github.io")) {
-        console.log("[Commander] Local mode - no root change");
-        return;
-    }
+        rel(path) {
+            if (!path || path.startsWith("http") || path.startsWith("#")) return path;
 
-    const repo = location.pathname.split("/")[1];
-    if (!repo) return;
+            // prevent double base
+            if (path.startsWith(this.base)) return path;
 
-    const base = "/" + repo + "/";
+            const clean = path.replace(/^\/+/, "");
+            return this.base + clean;
+        }
+    };
 
-    const baseTag = document.createElement("base");
-    baseTag.href = base;
+    window.rel = window.SarkarPath.rel.bind(window.SarkarPath);
 
-    document.head.prepend(baseTag);
-
-    console.log("[Commander] GitHub root forced:", base);
-
+    console.log("%c[Commander] Root:", "color:#8b5cf6;font-weight:bold;", window.SarkarPath.base);
 })();
