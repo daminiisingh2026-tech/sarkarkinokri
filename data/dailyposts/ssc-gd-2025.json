@@ -1,0 +1,70 @@
+[
+  {
+    "master_id": "ssc-gd-2025",
+    "slug": "ssc-gd-constable-2025-recruitment-manual",
+    "organization": "Staff Selection Commission (SSC)",
+    "exam_name": "Constable (GD) in CAPFs, SSF and Rifleman (GD) 2025",
+    "notification_number": "F. No. 3-2/2024-P&P-I",
+    
+    "recruitment_summary": "The SSC GD 2025 is a massive recruitment drive for over 39,000 Constable positions in central forces including BSF, CISF, CRPF, SSB, ITBP, AR, and SSF. Following the Computer Based Examination (CBE) held in February 2025, the cycle has moved into the Physical and Medical stages. As of April 2026, results for the Physical Efficiency Test (PET) and Physical Standard Test (PST) have been processed for nearly 4 lakh shortlisted candidates, transitioning into the Detailed Medical Examination (DME) phase.",
+
+    "overview_extended": {
+      "Total_Vacancies": "39,481 (Revised)",
+      "Participating_Forces": ["BSF", "CISF", "CRPF", "SSB", "ITBP", "Assam Rifles (AR)", "SSF"],
+      "Selection_Architecture": "CBT -> PET/PST -> DME (Medical) -> DV",
+      "Pay_Scale": "Level-3 (₹21,700 to ₹69,100)"
+    },
+
+    "physical_efficiency_test_pet": {
+      "Standard_Region_Male": "5 km run in 24 minutes",
+      "Standard_Region_Female": "1.6 km run in 8 minutes 30 seconds",
+      "Ladakh_Region_Male": "1.6 km in 6 minutes 30 seconds",
+      "Ladakh_Region_Female": "800 meters in 4 minutes",
+      "Note": "PET is qualifying in nature and carries no marks toward final merit."
+    },
+
+    "physical_standard_test_pst": {
+      "Height_Requirements": {
+        "General_OBC_SC_Male": "170 cm",
+        "General_OBC_SC_Female": "157 cm",
+        "ST_Male": "162.5 cm",
+        "ST_Female": "150.0 cm",
+        "Kumaonis_Dogras_Marathas_Male": "165 cm",
+        "Kumaonis_Dogras_Marathas_Female": "155 cm"
+      },
+      "Chest_Requirements_Male": {
+        "General_OBC_SC": "80 cm (Unexpanded) with 5 cm expansion",
+        "ST_Candidates": "76 cm (Unexpanded) with 5 cm expansion"
+      },
+      "Weight_Logic": "Proportionate to height and age as per medical standards."
+    },
+
+    "detailed_medical_examination_dme": {
+      "Vision_Standards": "Better Eye: 6/6; Worse Eye: 6/9 (Without glasses).",
+      "Disqualifying_Conditions": ["Knock Knees", "Flat Foot", "Varicose Veins", "Squint in Eyes", "Color Blindness"],
+      "Tattoo_Policy": "Allowed only if religious, small in size, and on non-saluting limbs (left forearm)."
+    },
+
+    "examination_pattern_cbt": {
+      "Structure": "80 Questions | 160 Marks | 60 Minutes",
+      "Sections": [
+        {"Subject": "Intelligence & Reasoning", "Qns": 20, "Marks": 40},
+        {"Subject": "General Knowledge/Awareness", "Qns": 20, "Marks": 40},
+        {"Subject": "Elementary Mathematics", "Qns": 20, "Marks": 40},
+        {"Subject": "English/Hindi", "Qns": 20, "Marks": 40}
+      ],
+      "Marking_Scheme": "+2 for correct, -0.25 for wrong."
+    },
+
+    "syllabus_micro_breakdown": {
+      "Reasoning": ["Analogies", "Spatial Orientation", "Visual Memory", "Arithmetical Reasoning", "Figural Classification"],
+      "Mathematics": ["Number Systems", "Decimals & Fractions", "Ratio & Time", "Profit & Loss", "Mensuration", "Averages"],
+      "GK_Awareness": ["India and its Neighboring Countries", "Sports", "Culture", "Economic Scene", "General Polity"]
+    },
+
+    "application_fee": {
+      "General_OBC_EWS_Male": "₹100",
+      "Women_SC_ST_ESM": "Exempted (NIL)"
+    }
+  }
+]

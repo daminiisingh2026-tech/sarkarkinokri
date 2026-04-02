@@ -1,0 +1,118 @@
+[
+  {
+    "master_id": "ssc-cgl-2026",
+    "slug": "ssc-cgl-recruitment-2026-mega-portal",
+    "organization": "Staff Selection Commission (SSC)",
+    "exam_name": "Combined Graduate Level Examination 2026",
+    "notification_number": "F. No. 3-1/2026-P&P-I",
+    "recruitment_summary": "The SSC CGL 2026 stands as the most significant bureaucratic recruitment drive in India for the 2026-27 fiscal year. This cycle integrates the new 'Live Capture' biometric attendance system and the revised Paper-I merit-mapping logic. This document serves as the absolute technical manual for all 34+ post categories under the CGL umbrella.",
+
+    "overview_extended": {
+      "Organization_Full_Name": "Staff Selection Commission, Department of Personnel and Training (DoPT)",
+      "Cadre_Controlling_Authorities": ["CBDT", "CBIC", "C&AG", "CBI", "ED", "Ministry of External Affairs"],
+      "Total_Projected_Vacancies": "15,400 (Across 34 Departments)",
+      "Service_Classification": "Group B (Gazetted), Group B (Non-Gazetted), Group C",
+      "Pay_Scale_Range": "Level-4 (₹25,500) to Level-8 (₹1,51,100)",
+      "Selection_Architecture": "Computer Based Examination (Two Tiers) + DEST + Document Verification"
+    },
+
+    "post_encyclopedia_detailed": [
+      {
+        "Post_Code": "A01",
+        "Name": "Assistant Audit Officer (AAO)",
+        "Department": "Indian Audit & Accounts Dept under C&AG",
+        "Nature": "Group B Gazetted (Non-Ministerial)",
+        "Job_Profile": "The only Gazetted post in CGL. Involves assisting in financial/performance audits of Govt. departments. High traveling requirements. Responsibility includes verifying accounts and ensuring financial propriety.",
+        "Promotion_Hierarchy": "Audit Officer -> Sr. Audit Officer -> DAG",
+        "Salary_Breakdown": "Basic: ₹47,600, DA (Expected 54%): ₹25,704, HRA (X-City): ₹12,852. Gross: ~₹90,000+"
+      },
+      {
+        "Post_Code": "B03",
+        "Name": "Assistant Section Officer (ASO)",
+        "Department": "Central Secretariat Service (CSS)",
+        "Nature": "Group B Non-Gazetted",
+        "Job_Profile": "Backbone of the Indian Secretariat. Located in New Delhi. Involves policy drafting, file processing, and assisting Under Secretaries. Minimal travel, high stability.",
+        "Promotion_Hierarchy": "Section Officer -> Under Secretary -> Deputy Secretary"
+      },
+      {
+        "Post_Code": "C12",
+        "Name": "Inspector (Income Tax)",
+        "Department": "CBDT (Department of Revenue)",
+        "Nature": "Group B Non-Gazetted",
+        "Job_Profile": "Assessment and Non-Assessment work. Includes handling tax evasion cases, TDS verification, and search/seizure operations. High social prestige.",
+        "Promotion_Hierarchy": "Income Tax Officer (ITO) -> Assistant Commissioner"
+      },
+      {
+        "Post_Code": "D24",
+        "Name": "Sub Inspector (CBI)",
+        "Department": "Central Bureau of Investigation",
+        "Nature": "Group B Non-Gazetted",
+        "Job_Profile": "Investigative fieldwork. Involves gathering intelligence, performing raids, and legal documentation. High pressure, 20% Extra Special Pay.",
+        "Physical_Standards": "Height: 165 cm (Male), 150 cm (Female). Vision: 6/6 and 6/9."
+      }
+    ],
+
+    "syllabus_ultra_breakdown": {
+      "Quantitative_Aptitude_Micro_Topics": [
+        "Arithmetic: Percentages (Successive/Formula), Ratio & Proportion (Proportionality/Partnership), Average (Weighted/Ages), Interest (SI/CI/Installments), Profit & Loss (Discount/Dishonest Dealer), Mixture & Alligation.",
+        "Algebra: Basic identities, Linear Equations, Quadratic Equations, Remainder Theorem.",
+        "Geometry: Triangles (Centroid/Incenter/Orthocenter), Circles (Tangents/Chords), Polygons.",
+        "Trigonometry: Ratios, Complementary Angles, Heights & Distances.",
+        "Mensuration: 2D (Area/Perimeter), 3D (Volume/Surface Area of Prisms, Pyramids, Spheres).",
+        "Statistics: Histogram, Frequency Polygon, Bar-diagram, Pie-chart, Mean/Median/Mode/Std Deviation."
+      ],
+      "General_Intelligence_Micro_Topics": [
+        "Verbal: Analogy, Classification, Series, Coding-Decoding, Blood Relations, Direction Sense, Syllogism, Input-Output, Decision Making.",
+        "Non-Verbal: Mirror Image, Water Image, Paper Folding, Embedded Figures, Pattern Completion.",
+        "Critical_Reasoning: Statement & Assumptions, Course of Action, Cause & Effect, Strength of Arguments."
+      ],
+      "English_Language_Micro_Topics": [
+        "Vocabulary: 5000+ Word Base, Synonyms/Antonyms (Contextual), One Word Substitution, Idioms (Origins/Usage), Phrasal Verbs.",
+        "Grammar: Tenses, Subject-Verb Agreement, Prepositions, Conjunctions, Articles, Noun/Pronoun Errors.",
+        "Comprehension: Narrative/Scientific Passages, Cloze Test (Advanced), Sentence Rearrangement (PQRS)."
+      ]
+    },
+
+    "medical_manual_physical_standards": {
+      "Excise_Inspector_Male": {
+        "Height": "157.5 cm",
+        "Chest": "81 cm (Expanded)",
+        "Walking": "1600 meters in 15 minutes",
+        "Cycling": "8 km in 30 minutes"
+      },
+      "Excise_Inspector_Female": {
+        "Height": "152 cm",
+        "Weight": "48 kg",
+        "Walking": "1 km in 20 minutes",
+        "Cycling": "3 km in 20 minutes"
+      },
+      "Visual_Standards": "Color Blindness is acceptable for some posts (Auditor/Accountant) but strictly prohibited for Inspectors (CBIC/CBN/CBI)."
+    },
+
+    "faq_technical_section": [
+      {
+        "Q": "Can final year students apply for CGL 2026?",
+        "A": "Yes, provided they acquire the essential qualification on or before the cutoff date (Expected 01-08-2026)."
+      },
+      {
+        "Q": "Is there a change in Tier-II pattern for 2026?",
+        "A": "The pattern remains consistent with 2025, but normalized weightage for Computer Knowledge has been increased for certain ministerial posts."
+      },
+      {
+        "Q": "How does the Live Photo Capture work?",
+        "A": "Candidates must use a webcam or mobile camera via the SSC app. The background must be white, and eyes must be clearly visible without glasses/caps."
+      }
+    ],
+
+    "how_to_apply_master_guide": [
+      "1. Navigate to ssc.gov.in and complete the 'One Time Registration' (OTR) with Aadhaar verification.",
+      "2. Log in and select 'Combined Graduate Level Examination 2026' from the dashboard.",
+      "3. Fill in the 'Higher Educational Qualification' and 'Year of Passing'.",
+      "4. Give preferences for Exam Centers (3 choices within the same region).",
+      "5. Complete the 'Live Photograph' capture process as per Annexure-V.",
+      "6. Review the application preview for 'Spelling Errors' in Father's name or DOB.",
+      "7. Final Submit and make payment via BHIM UPI/Net Banking.",
+      "8. Download the application receipt and keep the 'Registration ID' for future reference."
+    ]
+  }
+]

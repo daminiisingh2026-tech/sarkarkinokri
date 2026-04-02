@@ -1,0 +1,119 @@
+[
+  {
+    "master_id": "rrb-je-2025",
+    "slug": "rrb-je-recruitment-2025-26-engineering-manual",
+    "organization": "Railway Recruitment Boards (RRB)",
+    "exam_name": "Junior Engineer (JE), DMS, CMA & IT - CEN 04/2025",
+    "notification_number": "CEN 04/2025",
+    
+    "recruitment_summary": "The RRB JE 2025-26 cycle (CEN 04/2025) is a massive technical recruitment drive for 2,588 vacancies across 17 Railway Zones. This cycle targets Junior Engineers (JE), Depot Material Superintendents (DMS), and Chemical & Metallurgical Assistants (CMA). As of April 2, 2026, the recruitment has progressed through the CBT-1 stage (held Feb-March 2026), and candidates are currently awaiting the CBT-2 technical schedule. This document provides the complete structural blueprint for the 2025-26 lifecycle.",
+
+    "overview_extended": {
+      "Organization_Full_Name": "Ministry of Railways, Railway Recruitment Boards",
+      "Total_Vacancies_Revised": "2,588 (Initial: 2,569 + 19 additional in Chennai/Jammu)",
+      "Cadre_Classification": "Group 'C' Technical",
+      "Job_Location": "Zonal Headquarters and Divisional Workshops (All India)",
+      "Selection_Architecture": "CBT-1 (Screening) -> CBT-2 (Technical Merit) -> DV -> Medical Examination",
+      "Current_Status": "Post CBT-1 / Answer Key Objection Phase"
+    },
+
+    "important_dates_manual": {
+      "Notification_Release": "28-10-2025",
+      "Online_Application_Window": "31-10-2025 to 10-12-2025",
+      "Application_Status_Check": "12-01-2026",
+      "CBT_1_Exam_Dates": "19, 20 February & 03 March 2026",
+      "CBT_1_Result_Expected": "Late April 2026",
+      "CBT_2_Exam_Window": "June-July 2026 (Tentative)",
+      "Medical_Exam_Phase": "Expected Q4 2026"
+    },
+
+    "salary_progression_structure": {
+      "Entry_Level_Pay": "Level-6 (7th CPC Pay Matrix)",
+      "Basic_Pay_Initial": "₹35,400",
+      "Training_Stipend": "₹35,400 per month (One-year training duration)",
+      "Allowances_Post_Training": {
+        "Dearness_Allowance_DA": "53% of Basic (Expected ₹18,762)",
+        "House_Rent_Allowance_HRA": "30% (X Cities), 20% (Y Cities), 10% (Z Cities)",
+        "Transport_Allowance_TA": "₹3,600 (Class A1) or ₹1,800 (Other)",
+        "NPS_Contribution": "14% Government matching share"
+      },
+      "Gross_Monthly_Salary_X_City": "₹65,000 - ₹72,000 (Approx)",
+      "In_Hand_Salary_Estimate": "₹52,000 - ₹58,000 (Post-Deductions)"
+    },
+
+    "eligibility_criteria_ultra": {
+      "Education": {
+        "Junior_Engineer": "Three-year Diploma in relevant Engineering stream OR B.E./B.Tech in relevant stream.",
+        "DMS": "Three-year Diploma in Engineering in any discipline.",
+        "CMA": "Bachelor’s Degree in Science (B.Sc.) with Physics and Chemistry (Minimum 45% marks).",
+        "Final_Year_Clause": "Final year students are NOT eligible to apply for CEN 04/2025."
+      },
+      "Age_Limit_as_on_01-01-2025": {
+        "Minimum": "18 Years",
+        "Maximum_UR": "36 Years (Extended by 3 years for 2025 cycle)",
+        "Maximum_OBC": "39 Years",
+        "Maximum_SC_ST": "41 Years"
+      }
+    },
+
+    "medical_standards_manual": [
+      {
+        "Code": "A-3",
+        "Vision_Distance": "6/9, 6/9 with/without glasses (Lens ≤ 2D)",
+        "Vision_Near": "Sn 0.6, 0.6 with/without glasses",
+        "Mandatory_Tests": "Color Vision, Binocular Vision, Night Vision",
+        "Relevant_Posts": "JE Civil, Electrical, Mechanical, S&T (Field based)"
+      },
+      {
+        "Code": "B-1",
+        "Vision_Distance": "6/9, 6/12 with/without glasses (Lens ≤ 4D)",
+        "Vision_Near": "Sn 0.6, 0.6 with/without glasses",
+        "Mandatory_Tests": "Color Vision, Binocular Vision, Night Vision",
+        "Relevant_Posts": "Depot Material Superintendent (DMS)"
+      },
+      {
+        "Code": "C-1",
+        "Vision_Distance": "6/12, 6/18 with/without glasses",
+        "Vision_Near": "Sn 0.6, 0.6 with/without glasses (Reading/Close work)",
+        "Mandatory_Tests": "General Fitness only (No extra vision tests)",
+        "Relevant_Posts": "JE IT, Administrative support roles"
+      }
+    ],
+
+    "exam_pattern_hierarchy": {
+      "CBT_1_Screening": {
+        "Total_Qns": 100,
+        "Duration": "90 Minutes",
+        "Negative_Marking": "1/3 per wrong answer",
+        "Sectional_Weightage": "Maths (30), Reasoning (25), GA (15), Gen Science (30)"
+      },
+      "CBT_2_Merit": {
+        "Total_Qns": 150,
+        "Duration": "120 Minutes",
+        "Sectional_Weightage": {
+          "General_Awareness": 15,
+          "Physics_and_Chemistry": 15,
+          "Basics_of_Computers": 10,
+          "Environment_Pollution_Control": 10,
+          "Technical_Abilities": 100
+        }
+      }
+    },
+
+    "technical_syllabus_micro_topics": {
+      "Civil_and_Allied": ["Engineering Mechanics", "Building Construction", "Surveying", "Strength of Materials", "Concrete Technology", "Steel Structures", "Hydraulics"],
+      "Electrical_and_Allied": ["Circuit Laws (KCL/KVL)", "Magnetic Circuits", "AC Fundamentals", "Electrical Machines", "Power Systems", "Utilization of Electrical Energy"],
+      "Electronics_and_Allied": ["Basic Electronics", "Digital Electronics", "Electronic Devices", "Microprocessors", "Communication Systems", "Instrumentation"],
+      "Mechanical_and_Allied": ["Engineering Mechanics", "Thermodynamics", "Internal Combustion Engines", "Fluid Mechanics", "Material Science", "Machine Design"]
+    },
+
+    "application_process_workflow": [
+      "1. Registration: Navigate to specific RRB website -> 'Apply' -> 'Create an Account'.",
+      "2. Credentials: Enter Name, DOB, Father's Name, Aadhaar (Mandatory) and verify via OTP.",
+      "3. Zone Selection: Choose the Zonal Railway (Candidates can apply to ONLY one RRB).",
+      "4. Post Preferences: Rank the posts based on your medical and educational eligibility.",
+      "5. Fee Payment: UR/OBC: ₹500 (₹400 refundable); SC/ST/Female: ₹250 (Full refundable).",
+      "6. Final Uploads: Recent color photo (JPEG, 30-70KB) and SC/ST certificate for free travel pass."
+    ]
+  }
+]

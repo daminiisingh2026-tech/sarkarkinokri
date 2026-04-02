@@ -1,0 +1,63 @@
+[
+  {
+    "master_id": "ssc-mts-2025",
+    "slug": "ssc-mts-havaldar-2025-recruitment-blueprint",
+    "organization": "Staff Selection Commission (SSC)",
+    "exam_name": "Multi-Tasking (Non-Technical) Staff, and Havaldar (CBIC & CBN) 2025",
+    
+    "recruitment_summary": "The SSC MTS 2025 cycle facilitates entry-level recruitment for the Government of India. For the 2025-26 cycle, SSC announced a total of 7,948 vacancies (MTS: 6,810; Havaldar: 1,138). The Computer Based Examination was conducted in February 2026. As of April 1, 2026, the provisional answer keys have been processed, and the final CBT result is expected by mid-April, which will shortlist candidates for Havaldar PET/PST and MTS Document Verification.",
+
+    "overview_extended": {
+      "Total_Vacancies": "7,948 (MTS: 6,810 | Havaldar: 1,138)",
+      "Age_Groups": ["18-25 Years (MTS/Havaldar CBN)", "18-27 Years (Havaldar CBIC/MTS Specific)"],
+      "Selection_Architecture": "CBT (Session I & II) -> PET/PST (Havaldar Only) -> Final Merit",
+      "Pay_Scale": "Pay Level-1 as per 7th CPC (Initial Pay approx. ₹18,000 + Allowances)"
+    },
+
+    "important_dates_manual": {
+      "Notification_Date": "26-06-2025",
+      "CBT_Exam_Dates": "04-02-2026 to 20-02-2026",
+      "Answer_Key_Release": "03-03-2026",
+      "CBT_Result_Expected": "April 2026",
+      "Havaldar_PET_Schedule": "To Be Announced (Expected May 2026)"
+    },
+
+    "exam_pattern_ultra": {
+      "Mandatory_Sessions": "Both Session I and II are conducted on the same day. Session I is qualifying; Session II determines the rank.",
+      "Session_1_Qualifying": {
+        "Subjects": ["Numerical & Mathematical Ability", "Reasoning Ability & Problem Solving"],
+        "Total_Marks": 120 (40 Questions),
+        "Duration": "45 Minutes",
+        "Negative_Marking": "NIL"
+      },
+      "Session_2_Merit": {
+        "Subjects": ["General Awareness", "English Language & Comprehension"],
+        "Total_Marks": 150 (50 Questions),
+        "Duration": "45 Minutes",
+        "Negative_Marking": "1 Mark per wrong answer"
+      }
+    },
+
+    "havaldar_physical_test_pet": {
+      "Walking_Male": "1600 meters in 15 minutes",
+      "Walking_Female": "1 km in 20 minutes",
+      "PST_Height_Male": "157.5 cm (Relaxable by 5cm for Garhwalis, etc.)",
+      "PST_Height_Female": "152 cm (Relaxable by 2.5cm)",
+      "PST_Weight_Female": "48 kg (Relaxable by 2kg)"
+    },
+
+    "syllabus_hierarchy": {
+      "Maths_Reasoning": ["Integers", "HCF/LCM", "BODMAS", "Coding-Decoding", "Matrix", "Blood Relations"],
+      "General_Awareness": ["Social Studies (History, Civics, Geography)", "Art & Culture", "General Science", "Environmental Studies up to 10th Standard"],
+      "English": ["Synonyms/Antonyms", "Sentence Structure", "Error Spotting", "Cloze Test", "Basic Grammar"]
+    },
+
+    "how_to_check_results": [
+      "1. Visit ssc.gov.in and go to the 'Result' tab.",
+      "2. Select the 'Others' tab to find MTS/Havaldar 2025 links.",
+      "3. Download the PDF containing Roll Numbers of shortlisted candidates.",
+      "4. Use 'Ctrl+F' to search for your name/roll number.",
+      "5. If listed, keep the registration details ready for the PET/PST or DV stage."
+    ]
+  }
+]
