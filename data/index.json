@@ -1,110 +1,56 @@
 {
   "entries": [
-    {
-      "master_id": "rrb-cen-09-2025",
-      "type": "jobsdata",
-      "file": "data/jobsdata/rrb-cen-09-2025.json",
-      "description": "RRB CEN 09/2025 full recruitment data"
-    },
-    {
-      "master_id": "rrb-cen-09-2025",
-      "type": "dailypost",
-      "file": "data/dailyposts/rrb-cen-09-2025.json",
-      "description": "Daily posts for RRB CEN 09/2025"
-    },
-    {
-      "master_id": "ssc-cgl-2026",
-      "type": "dailypost",
-      "file": "data/dailyposts/21-03-26.json",
-      "description": "Daily posts for SSC CGL 2026"
-    },
-    {
-      "master_id": "uppsc-psc-2026",
-      "type": "jobsdata",
-      "file": "data/jobsdata/uppsc-psc-2026.json",
-      "description": "UPPSC PSC 2026 full recruitment data"
-    },
-    {
-      "master_id": "uppsc-psc-2026",
-      "type": "dailypost",
-      "file": "data/dailyposts/21-03-26.json",
-      "description": "Daily posts for UPPSC PSC 2026"
-    },
-    {
-      "master_id": "ssc-cgl-2026",
-      "type": "jobsdata",
-      "file": "data/jobsdata/ssc-cgl-2026.json",
-      "description": "The SSC CGL 2026 is conducted to recruit Group B and C officers across various Ministries and Departments."
-    },
-    {
-      "master_id": "ib-acio-2026",
-      "type": "dailypost",
-      "file": "data/dailyposts/21-03-26.json",
-      "description": "Daily posts for IB ACIO 2026"
-    },
-    {
-      "master_id": "rbi-assistant-2026",
-      "type": "jobsdata",
-      "file": "data/jobsdata/rbi-assistant-2026.json",
-      "description": "RBI Assistant 2026 full recruitment data"
-    },
-    {
-      "master_id": "rbi-assistant-2026",
-      "type": "dailypost",
-      "file": "data/dailyposts/21-03-26.json",
-      "description": "Daily posts for RBI Assistant 2026"
-    },
-    {
-      "master_id": "bihar-police-2026",
-      "type": "dailypost",
-      "file": "data/dailyposts/21-03-26.json",
-      "description": "Daily posts for Bihar Police 2026"
-    },
+    { "master_id": "jpsc-14th-2026", "type": "jobsdata", "file": "data/jobsdata/jpsc-14th-2026.json", "description": "JPSC 14th CCE Full Recruitment Data" },
+    { "master_id": "jpsc-14th-2026", "type": "events", "file": "data/events/jpsc-14th-2026.json", "description": "JPSC 14th CCE Events Timeline" },
+    
+    { "master_id": "ssc-cgl-2026", "type": "jobsdata", "file": "data/jobsdata/ssc-cgl-2026.json", "description": "SSC CGL 2026 Recruitment Details" },
+    { "master_id": "ssc-cgl-2026", "type": "events", "file": "data/events/ssc-cgl-2026.json", "description": "SSC CGL 2026 Events Timeline" },
+    
+    { "master_id": "rrb-je-2025", "type": "jobsdata", "file": "data/jobsdata/rrb-je-2025.json", "description": "RRB JE 2025-26 Full Recruitment Data" },
+    { "master_id": "rrb-je-2025", "type": "events", "file": "data/events/rrb-je-2025.json", "description": "RRB JE 2025-26 Events Timeline" },
+    
+    { "master_id": "ssc-gd-2025", "type": "jobsdata", "file": "data/jobsdata/ssc-gd-2025.json", "description": "SSC GD Constable 2025 Full Recruitment Data" },
+    { "master_id": "ssc-gd-2025", "type": "events", "file": "data/events/ssc-gd-2025.json", "description": "SSC GD Constable 2025 Events Timeline" },
+    
+    { "master_id": "ssc-mts-2025", "type": "jobsdata", "file": "data/jobsdata/ssc-mts-2025.json", "description": "SSC MTS & Havaldar 2025 Full Recruitment Data" },
+    { "master_id": "ssc-mts-2025", "type": "events", "file": "data/events/ssc-mts-2025.json", "description": "SSC MTS 2025 Events Timeline" },
+    
+    { "master_id": "rrb-cen-09-2025", "type": "jobsdata", "file": "data/jobsdata/rrb-cen-09-2025.json", "description": "RRB Technician 2025-26 Full Data" },
+    { "master_id": "rrb-cen-09-2025", "type": "events", "file": "data/events/rrb-cen-09-2025.json", "description": "RRB Technician 2025-26 Events Timeline" },
+    
+    { "master_id": "rrb-ntpc-2026", "type": "jobsdata", "file": "data/jobsdata/rrb-ntpc-2026.json", "description": "RRB NTPC 2025-26 Full Recruitment Data" },
+    { "master_id": "rrb-ntpc-2026", "type": "events", "file": "data/events/rrb-ntpc-2026.json", "description": "RRB NTPC 2025-26 Events Timeline" },
+    
+    { "master_id": "ssc-selection-xiv", "type": "jobsdata", "file": "data/jobsdata/ssc-selection-xiv.json", "description": "SSC Selection Post Phase XIV 2026 Data" },
+    { "master_id": "ssc-selection-xiv", "type": "events", "file": "data/events/ssc-selectionpost.json", "description": "SSC Selection Post Events Timeline" },
+    
+    { "master_id": "rbi-assistant-2026", "type": "jobsdata", "file": "data/jobsdata/rbi-assistant-2026.json", "description": "RBI Assistant 2026 Recruitment Data" },
+    { "master_id": "rbi-assistant-2026", "type": "events", "file": "data/events/rbi-assistant-2026.json", "description": "RBI Assistant 2026 Events Timeline" },
+    
+    { "master_id": "sbi-po-2026", "type": "jobsdata", "file": "data/jobsdata/sbi-po-2026.json", "description": "SBI PO 2026 Probationary Officer Data" },
+    { "master_id": "sbi-po-2026", "type": "events", "file": "data/events/sbi-po-2026.json", "description": "SBI PO 2026 Events Timeline" },
+    
+    { "master_id": "ibps-po-2026", "type": "jobsdata", "file": "data/jobsdata/ibps-po-2026.json", "description": "IBPS PO CRP XVI Full Recruitment Data" },
+    { "master_id": "ibps-po-2026", "type": "events", "file": "data/events/ibps-po-2026.json", "description": "IBPS PO 2026 Events Timeline" },
+    
+    { "master_id": "ssc-chsl-2025", "type": "jobsdata", "file": "data/jobsdata/ssc-chsl-2025.json", "description": "SSC CHSL 2025 Full Recruitment Data" },
+    { "master_id": "ssc-chsl-2025", "type": "events", "file": "data/events/ssc-chsl-2025.json", "description": "SSC CHSL 2025 Events Timeline" },
+    
+    { "master_id": "ssc-steno-2025", "type": "jobsdata", "file": "data/jobsdata/ssc-steno-2025.json", "description": "SSC Stenographer Grade C & D 2025 Data" },
+    { "master_id": "ssc-steno-2025", "type": "events", "file": "data/events/ssc-steno-2025.json", "description": "SSC Steno 2025 Events Timeline" },
+    
+    { "master_id": "rrb-alp-2024", "type": "jobsdata", "file": "data/jobsdata/rrb-alp-2024.json", "description": "RRB ALP 2024-26 Full Recruitment Data" },
+    { "master_id": "rrb-alp-2024", "type": "events", "file": "data/events/rrb-alp-2024.json", "description": "RRB ALP 2024 Events Timeline" },
+    
+    { "master_id": "bihar-police-asi-2026", "type": "jobsdata", "file": "data/jobsdata/bihar-police-asi-2026.json", "description": "Bihar Police ASI 2026 Recruitment Data" },
+    { "master_id": "bihar-police-asi-2026", "type": "events", "file": "data/events/bihar-police-asi-2026.json", "description": "Bihar Police ASI 2026 Events Timeline" },
+    
+    { "master_id": "uppsc-psc-2026", "type": "jobsdata", "file": "data/jobsdata/uppsc-psc-2026.json", "description": "UPPSC PCS 2026 Full Recruitment Data" },
+    { "master_id": "uppsc-psc-2026", "type": "events", "file": "data/events/uppsc-psc-2026.json", "description": "UPPSC PCS 2026 Events Timeline" },
+    
+    { "master_id": "ib-acio-2026", "type": "jobsdata", "file": "data/jobsdata/ib-acio-2026.json", "description": "Intelligence Bureau ACIO-II 2026 Data" },
+    { "master_id": "ib-acio-2026", "type": "events", "file": "data/events/ib-acio-2026.json", "description": "IB ACIO 2026 Events Timeline" },
 
-    /* ---- EVENTS START (35) ---- */
-
-    { "master_id": "ssc-cgl-2026", "type": "events", "file": "data/events/ssc-cgl-2026.json", "description": "SSC CGL 2026 events timeline" },
-    { "master_id": "ssc-chsl-2026", "type": "events", "file": "data/events/ssc-chsl-2026.json", "description": "SSC CHSL 2026 events timeline" },
-    { "master_id": "ssc-mts-2026", "type": "events", "file": "data/events/ssc-mts-2026.json", "description": "SSC MTS 2026 events timeline" },
-    { "master_id": "ssc-gd-2026", "type": "events", "file": "data/events/ssc-gd-2026.json", "description": "SSC GD 2026 events timeline" },
-    { "master_id": "ssc-stenographer-2026", "type": "events", "file": "data/events/ssc-stenographer-2026.json", "description": "SSC Stenographer 2026 events timeline" },
-    { "master_id": "rrb-cen-05-2026", "type": "events", "file": "data/events/rrb-cen-05-2026.json", "description": "RRB CEN 05/2026 events timeline" },
-    { "master_id": "rrb-cen-09-2025", "type": "events", "file": "data/events/rrb-cen-09-2025.json", "description": "RRB CEN 09/2025 events timeline" },
-    { "master_id": "rbi-assistant-2026", "type": "events", "file": "data/events/rbi-assistant-2026.json", "description": "RBI Assistant 2026 events timeline" },
-    { "master_id": "ib-acio-2026", "type": "events", "file": "data/events/ib-acio-2026.json", "description": "IB ACIO 2026 events timeline" },
-    { "master_id": "uppsc-psc-2026", "type": "events", "file": "data/events/uppsc-psc-2026.json", "description": "UPPSC PSC 2026 events timeline" },
-    { "master_id": "bihar-police-asi-2026", "type": "events", "file": "data/events/bihar-police-asi-2026.json", "description": "Bihar Police ASI 2026 events timeline" },
-    { "master_id": "rrb-je-2026", "type": "events", "file": "data/events/rrb-je-2026.json", "description": "RRB JE 2026 events timeline" },
-    { "master_id": "rrb-ntpc-2026", "type": "events", "file": "data/events/rrb-ntpc-2026.json", "description": "RRB NTPC 2026 events timeline" },
-    { "master_id": "rrb-alp-2026", "type": "events", "file": "data/events/rrb-alp-2026.json", "description": "RRB ALP 2026 events timeline" },
-    { "master_id": "rrb-group-d-2026", "type": "events", "file": "data/events/rrb-group-d-2026.json", "description": "RRB Group D 2026 events timeline" },
-    { "master_id": "ssc-selection-post-2026", "type": "events", "file": "data/events/ssc-selection-post-2026.json", "description": "SSC Selection Post 2026 events timeline" },
-    { "master_id": "ssc-cpo-2026", "type": "events", "file": "data/events/ssc-cpo-2026.json", "description": "SSC CPO 2026 events timeline" },
-    { "master_id": "ssc-jht-2026", "type": "events", "file": "data/events/ssc-jht-2026.json", "description": "SSC JHT 2026 events timeline" },
-    { "master_id": "ssc-delhi-police-2026", "type": "events", "file": "data/events/ssc-delhi-police-2026.json", "description": "SSC Delhi Police 2026 events timeline" },
-    { "master_id": "up-police-constable-2026", "type": "events", "file": "data/events/up-police-constable-2026.json", "description": "UP Police Constable 2026 events timeline" },
-    { "master_id": "up-police-si-2026", "type": "events", "file": "data/events/up-police-si-2026.json", "description": "UP Police SI 2026 events timeline" },
-    { "master_id": "bpsc-70th-2026", "type": "events", "file": "data/events/bpsc-70th-2026.json", "description": "BPSC 70th 2026 events timeline" },
-    { "master_id": "bpsc-treasury-2026", "type": "events", "file": "data/events/bpsc-treasury-2026.json", "description": "BPSC Treasury 2026 events timeline" },
-    { "master_id": "bihar-police-constable-2026", "type": "events", "file": "data/events/bihar-police-constable-2026.json", "description": "Bihar Police Constable 2026 events timeline" },
-    { "master_id": "cisf-constable-2026", "type": "events", "file": "data/events/cisf-constable-2026.json", "description": "CISF Constable 2026 events timeline" },
-    { "master_id": "crpf-constable-2026", "type": "events", "file": "data/events/crpf-constable-2026.json", "description": "CRPF Constable 2026 events timeline" },
-    { "master_id": "bsf-constable-2026", "type": "events", "file": "data/events/bsf-constable-2026.json", "description": "BSF Constable 2026 events timeline" },
-    { "master_id": "itbp-constable-2026", "type": "events", "file": "data/events/itbp-constable-2026.json", "description": "ITBP Constable 2026 events timeline" },
-    { "master_id": "ssb-constable-2026", "type": "events", "file": "data/events/ssb-constable-2026.json", "description": "SSB Constable 2026 events timeline" },
-    { "master_id": "assam-rifles-2026", "type": "events", "file": "data/events/assam-rifles-2026.json", "description": "Assam Rifles 2026 events timeline" },
-    { "master_id": "nvs-ldc-2026", "type": "events", "file": "data/events/nvs-ldc-2026.json", "description": "NVS LDC 2026 events timeline" },
-    { "master_id": "navy-agniveer-2026", "type": "events", "file": "data/events/navy-agniveer-2026.json", "description": "Navy Agniveer 2026 events timeline" },
-    { "master_id": "airforce-agniveer-2026", "type": "events", "file": "data/events/airforce-agniveer-2026.json", "description": "Airforce Agniveer 2026 events timeline" },
-    { "master_id": "army-agniveer-2026", "type": "events", "file": "data/events/army-agniveer-2026.json", "description": "Army Agniveer 2026 events timeline" },
-    { "master_id": "rpf-constable-2026", "type": "events", "file": "data/events/rpf-constable-2026.json", "description": "RPF Constable 2026 events timeline" },
-
-    /* ---- EVENTS END ---- */
-
-    {
-      "type": "static",
-      "label": "Important Links",
-      "file": "data/importantlinks.json"
-    }
+    { "type": "static", "label": "Important Links", "file": "data/importantlinks.json" }
   ]
 }
