@@ -1,0 +1,155 @@
+[
+  {
+    "master_id": "rrb-ntpc-2025",
+    "slug": "rrb-ntpc-recruitment-2025-comprehensive-guide",
+    "organization": "Railway Recruitment Boards (RRB), Ministry of Railways",
+    "exam_name": "Non-Technical Popular Categories (NTPC) - Graduate & Undergraduate",
+    "notification_number": "CEN 06/2025 (Graduate) & CEN 07/2025 (Undergraduate)",
+    
+    "recruitment_summary": "The RRB NTPC 2025-26 recruitment is a centralized drive to fill 8,868 vacancies in non-technical cadres of the Indian Railways. This cycle is split into two notifications: CEN 06/2025 for Graduates (5,810 posts) and CEN 07/2025 for Undergraduate/12th Pass candidates (3,058 posts). The process is highly competitive, utilizing a multi-stage Computer Based Test (CBT) followed by post-specific skill tests. As of April 2026, the Graduate CBT-1 has concluded, and the Undergraduate CBT-1 is imminent.",
+
+    "overview": {
+      "Organization": "Railway Recruitment Boards (RRB)",
+      "Total_Vacancies": "8,868",
+      "Graduate_Posts": "5,810",
+      "Undergraduate_Posts": "3,058",
+      "Selection_Process": "CBT-1, CBT-2, Typing Skill Test / CBAT, Document Verification, Medical Examination",
+      "Official_Website": "https://indianrailways.gov.in"
+    },
+
+    "important_dates": {
+      "Notification_Release_Graduate": "20-10-2025",
+      "Notification_Release_Undergraduate": "November 2025",
+      "Graduate_CBT_1_Exam_Dates": "16, 17, 18, 19, 22, 23, 24, 25 & 27 March 2026",
+      "Graduate_Answer_Key_Expected": "08-04-2026 to 12-04-2026",
+      "Undergraduate_CBT_1_Exam_Dates": "May 2026 (Tentative)",
+      "Graduate_CBT_1_Result": "Expected May 2026",
+      "CBT_2_Exam_Schedule": "To be notified (Expected Q3 2026)"
+    },
+
+    "vacancy_details_post_wise": [
+      {
+        "Category": "Graduate Level (CEN 06/2025)",
+        "Post_Name": "Station Master",
+        "Pay_Level": "Level-6 (Initial Pay ₹35,400)",
+        "Medical_Standard": "A-2",
+        "Suitability_for_PwBD": "Not Suitable",
+        "Skill_Test": "Computer Based Aptitude Test (CBAT)"
+      },
+      {
+        "Post_Name": "Goods Train Manager",
+        "Pay_Level": "Level-5 (Initial Pay ₹29,200)",
+        "Medical_Standard": "A-2",
+        "Suitability_for_PwBD": "Not Suitable",
+        "Skill_Test": "None (Direct merit from CBT-2)"
+      },
+      {
+        "Post_Name": "Junior Account Assistant cum Typist",
+        "Pay_Level": "Level-5 (Initial Pay ₹29,200)",
+        "Medical_Standard": "C-2",
+        "Suitability_for_PwBD": "Suitable (VI, HI, LD, MD)",
+        "Skill_Test": "Typing Skill Test (TST)"
+      },
+      {
+        "Category": "Undergraduate Level (CEN 07/2025)",
+        "Post_Name": "Commercial cum Ticket Clerk",
+        "Pay_Level": "Level-3 (Initial Pay ₹21,700)",
+        "Medical_Standard": "B-2",
+        "Suitability_for_PwBD": "Suitable",
+        "Skill_Test": "None"
+      },
+      {
+        "Post_Name": "Junior Clerk cum Typist",
+        "Pay_Level": "Level-2 (Initial Pay ₹19,900)",
+        "Medical_Standard": "C-2",
+        "Suitability_for_PwBD": "Suitable",
+        "Skill_Test": "Typing Skill Test (TST)"
+      }
+    ],
+
+    "eligibility_criteria_manual": {
+      "Nationality": "Citizen of India, Subject of Nepal/Bhutan, or Tibetan Refugee settled before 1962.",
+      "Age_Limit_as_on_01-01-2026": {
+        "Graduate_Level": "18 to 33 Years",
+        "Undergraduate_Level": "18 to 30 Years",
+        "Relaxation": {
+          "OBC_Non_Creamy": "3 Years",
+          "SC_ST": "5 Years",
+          "PwBD_UR": "10 Years",
+          "Ex_Servicemen": "Service Years + 3 Years"
+        }
+      },
+      "Educational_Qualification": {
+        "Graduate": "Degree from a recognized University or equivalent.",
+        "Undergraduate": "12th (+2 Stage) or equivalent with at least 50% marks (50% not required for SC/ST/PwBD/Ex-SM)."
+      }
+    },
+
+    "examination_process_flow": [
+      {
+        "Stage": "CBT-1 (Screening)",
+        "Details": "Common for all posts. 100 Questions, 90 Minutes. Qualifying in nature to shortlist 20 times the vacancies for CBT-2.",
+        "Normalization": "Standard RRB formula used across multiple shifts."
+      },
+      {
+        "Stage": "CBT-2 (Merit)",
+        "Details": "Separate for each Pay Level (Level 2, 3, 5, 6). 120 Questions, 90 Minutes. Scores here determine the final merit list.",
+        "Negative_Marking": "1/3rd mark deduction for every wrong answer."
+      },
+      {
+        "Stage": "Skill Test",
+        "CBAT": "Only for Station Master/Traffic Assistant. No negative marking. Qualify in all 5 test batteries.",
+        "Typing_Test": "30 WPM in English or 25 WPM in Hindi. Qualifying only."
+      },
+      {
+        "Stage": "DV & Medical",
+        "Details": "Verification of original documents followed by a medical fitness test at Railway Hospitals."
+      }
+    ],
+
+    "syllabus_comprehensive_breakdown": {
+      "Mathematics": [
+        "Number System: Decimals, Fractions, LCM, HCF",
+        "Arithmetic: Ratio and Proportions, Percentage, Profit and Loss, Simple and Compound Interest",
+        "Time_and_Work: Time and Distance, Pipes and Cisterns",
+        "Advanced_Maths: Elementary Algebra, Geometry and Trigonometry, Elementary Statistics"
+      ],
+      "General_Intelligence_and_Reasoning": [
+        "Analogies: Number, Letter, and Meaningful words",
+        "Series: Completion of Number and Alphabetical series",
+        "Coding_Decoding: Letter shifting, Fictitious language",
+        "Logical_Reasoning: Syllogism, Jumbling, Venn Diagrams, Puzzle, Data Sufficiency",
+        "Analytical: Statement-Conclusion, Decision Making, Maps, Interpretation of Graphs"
+      ],
+      "General_Awareness": [
+        "Current_Events: National and International importance (Last 12 months focus)",
+        "History_Geography: Indian Freedom Struggle, Physical/Social/Economic Geography of India",
+        "Civics_Polity: Indian Constitution, Political System",
+        "Science: General Science and Life Science (up to 10th CBSE)",
+        "GK_Static: Art and Culture of India, Games and Sports, Indian Economy, Space and Nuclear Programs"
+      ]
+    },
+
+    "medical_standard_definitions": {
+      "A-2": "Physically fit in all respects. Distant Vision: 6/9, 6/9 without glasses. Near Vision: Sn. 0.6, 0.6 without glasses. Must pass tests for Color, Binocular, and Night Vision.",
+      "B-2": "Distant Vision: 6/9, 6/12 with or without glasses (Power not to exceed 4D). Must pass Field of Vision test.",
+      "C-2": "Distant Vision: 6/12, NIL with or without glasses. Near Vision: 0.6 combined with or without glasses while reading."
+    },
+
+    "application_fee": {
+      "General_OBC_EWS_Male": "₹500 (₹400 refunded after appearing in CBT-1)",
+      "SC_ST_Women_PwBD_ESM_Minorities": "₹250 (Full ₹250 refunded after appearing in CBT-1)",
+      "Payment_Modes": "Online via Net Banking, UPI, Credit/Debit Cards; Offline via SBI Challan"
+    },
+
+    "how_to_apply_detailed": [
+      "Step 1: Registration: Visit your chosen RRB website and click 'New Registration'. Provide Name, DOB, Aadhaar, Mobile, and Email.",
+      "Step 2: Verification: OTP validation on Mobile and Email.",
+      "Step 3: Application Part I: Fill in Educational details and Community status.",
+      "Step 4: Fee Payment: Pay using the integrated payment gateway.",
+      "Step 5: Application Part II: Set post preferences (ensure medical eligibility).",
+      "Step 6: Document Upload: JPEG Photo (35x45mm), Signature, and SC/ST Certificate (if applicable for free travel pass).",
+      "Step 7: Final Submission: Review all entries and take a printout of the application."
+    ]
+  }
+]

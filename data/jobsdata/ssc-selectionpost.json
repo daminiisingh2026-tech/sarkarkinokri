@@ -1,0 +1,64 @@
+[
+  {
+    "master_id": "ssc-selection-xiv",
+    "slug": "ssc-selection-post-phase-14-2026",
+    "organization": "Staff Selection Commission (SSC)",
+    "exam_name": "Selection Posts Phase-XIV 2026",
+    "notification_number": "Phase-XIV/2026/Selection-Posts",
+    "recruitment_summary": "Highly specialized recruitment for over 2,000+ vacancies across 300+ post categories. Candidates can apply for multiple posts but must pay separate fees for each.",
+
+    "overview": {
+      "Organization": "Staff Selection Commission (SSC)",
+      "Total_Vacancies": "2,049 (Final)",
+      "Qualification_Levels": "Matric (10th), Higher Secondary (12th), Graduate & Above",
+      "Selection_Process": "CBT (Objective) + Skill Test (where applicable) + Scrutiny + DV"
+    },
+
+    "important_dates": {
+      "Notification_Release": "31-03-2026",
+      "Application_Start": "31-03-2026",
+      "Application_End": "30-04-2026",
+      "Exam_Date_Window": "May-July 2026",
+      "Result_for_Scrutiny": "Expected August 2026"
+    },
+
+    "post_level_details": [
+      {
+        "Level": "Matriculation",
+        "Syllabus_Focus": "Basic Numerical Aptitude, General Intelligence (Non-Verbal), Elementary English",
+        "Typical_Posts": "Staff Car Driver, Laboratory Attendant, Field Attendant, MTS"
+      },
+      {
+        "Level": "Higher Secondary",
+        "Syllabus_Focus": "Arithmetic Operations, English (Grammar/Vocab), General Awareness (Scientific Observation)",
+        "Typical_Posts": "Data Entry Operator, Lower Division Clerk (LDC), Stockman"
+      },
+      {
+        "Level": "Graduate & Above",
+        "Syllabus_Focus": "Advanced Maths (Algebra/Trig), Critical Reasoning, English (Comprehension/Analysis)",
+        "Typical_Posts": "Junior Engineer, Scientific Assistant, Senior Technical Assistant, Girls Cadet Instructor"
+      }
+    ],
+
+    "application_fee": {
+      "General_OBC_EWS_Male": "₹100 (Per Post)",
+      "Exempted_Categories": ["Women candidates of all categories", "SC / ST candidates", "PwBD (Persons with Benchmark Disabilities)", "Ex-Servicemen (ESM)"],
+      "Note": "If a candidate applies for 3 posts, they must pay ₹300 (if not exempted)."
+    },
+
+    "selection_process_milestones": [
+      "1. Computer Based Examination (CBT): Objective Multiple Choice.",
+      "2. Skill Test: Typing/Data Entry/Computer Proficiency (Post-specific).",
+      "3. Scrutiny: Submission of hard copies of documents to Regional Offices for shortlisted candidates.",
+      "4. Document Verification (DV): Final check by User Department/Ministry."
+    ],
+
+    "exam_pattern": {
+      "Total_Questions": 100,
+      "Total_Marks": 200,
+      "Duration": "60 Minutes (80 Mins for Scribe users)",
+      "Negative_Marking": "0.50 Marks for every wrong answer",
+      "Subject_Weights": "25 Qns / 50 Marks per subject (Reasoning, GA, Maths, English)"
+    }
+  }
+]

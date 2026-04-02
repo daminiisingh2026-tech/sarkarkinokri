@@ -1,0 +1,96 @@
+[
+  {
+    "master_id": "jpsc-14th-2026",
+    "slug": "jpsc-14th-combined-civil-services-2026-mega-guide",
+    "organization": "Jharkhand Public Service Commission (JPSC)",
+    "exam_name": "14th Combined Civil Services Examination 2026",
+    "notification_number": "Advt. No. 01/2026",
+    "recruitment_summary": "The 14th JPSC CCE is the premier state-level civil service recruitment for Jharkhand. Released on January 29, 2026, this cycle fills 103 high-ranking administrative positions. The examination process is currently in the 'Admit Card' phase for the Preliminary test scheduled for April 19, 2026.",
+
+    "overview_extended": {
+      "Organization_Full_Name": "Jharkhand Public Service Commission, Ranchi",
+      "Total_Vacancies": "103 (Group A & B)",
+      "Key_Positions": ["Deputy Collector", "DSP", "District Commander", "Assistant Director"],
+      "Job_Location": "State of Jharkhand",
+      "Selection_Process": "Prelims (Screening) -> Mains (Written/Merit) -> Personality Test (Interview)",
+      "Exam_Mode": "Offline (OMR Based for Prelims)"
+    },
+
+    "important_dates_manual": {
+      "Notification_Release": "29-01-2026",
+      "Online_Application_Start": "31-01-2026",
+      "Online_Application_End": "20-02-2026",
+      "Application_Reopen_Window": "26-02-2026 to 09-03-2026",
+      "Admit_Card_Release": "08-04-2026 (via Official OTR Portal)",
+      "Prelims_Exam_Date": "19-04-2026 (Sunday)",
+      "Mains_Exam_Window": "Expected July 2026"
+    },
+
+    "vacancy_encyclopedia": [
+      {
+        "Post_Name": "Deputy Collector",
+        "Department": "Jharkhand Administrative Service",
+        "Total_Vacancies": "Post-specific count verified in 01/2026 PDF",
+        "Pay_Scale": "Pay Band 9300-34800 (Grade Pay 5400) - Level 9"
+      },
+      {
+        "Post_Name": "Deputy Superintendent of Police (DSP)",
+        "Department": "Jharkhand Police Service",
+        "Physical_Standards": "Height: 165cm (Male), 155cm (Female); Chest: 81cm (with 5cm expansion)",
+        "Pay_Scale": "Level 9 (7th CPC)"
+      }
+    ],
+
+    "eligibility_criteria_ultra": {
+      "nationality": "Indian Citizen (Jharkhand Domicile required for reservation benefits)",
+      "age_limit_logic": {
+        "Reference_Date": "01-08-2026",
+        "Minimum_Age": "21 Years",
+        "Unreserved_Max": "35 Years",
+        "BC_I_BC_II_Max": "37 Years",
+        "Female_UR_BC_I_II_Max": "38 Years",
+        "SC_ST_Male_Female_Max": "40 Years",
+        "PwD_Relaxation": "Additional 10 Years across categories"
+      },
+      "educational_qualification": "Degree from a recognized University or equivalent. Final year results must be declared before the application cutoff."
+    },
+
+    "syllabus_jharkhand_special_breakdown": {
+      "Prelims_Paper_1": {
+        "Total_Marks": 200,
+        "Structure": "100 Objective Questions (2 marks each)",
+        "Topics": ["History of India (Ancient/Med/Mod)", "Geography (General/Physical/Economic)", "Indian Polity & Governance", "Economic & Sustainable Development", "Science & Technology", "National/International Current Events"]
+      },
+      "Prelims_Paper_2_Jharkhand_Specific": {
+        "Total_Marks": 200,
+        "Structure": "100 Objective Questions (Jharkhand Focus)",
+        "Key_Modules": [
+          "History of Jharkhand (Munda, Oraon, Santhal Governance)",
+          "Jharkhand Movement (Tribal revolts, Statehood demand)",
+          "Specific Identity (Art, Culture, Literature, Folklore)",
+          "Environmental/Industrial/Educational Institutional in Jharkhand",
+          "Major Laws: Chhotanagpur Tenancy Act (CNT), Santhal Pargana Tenancy Act (SPT)",
+          "Disaster Management and Climate Change in Jharkhand"
+        ]
+      }
+    },
+
+    "admit_card_protocol": [
+      "1. Availability: Download starts from 08-04-2026 at jpsc.gov.in.",
+      "2. Credentials: Required Registration Number and Password/DOB.",
+      "3. Mandatory Documents: Printed Admit Card, 4 Self-Attested Colour Photographs, and Valid Govt Photo ID (Aadhaar/Voter ID).",
+      "4. Biometrics: IRIS and Fingerprint verification is mandatory at the exam center."
+    ],
+
+    "exam_shift_schedule_19_04_2026": [
+      {"Shift": "Morning (10:00 AM - 12:00 Noon)", "Paper": "GS Paper I"},
+      {"Shift": "Afternoon (3:00 PM - 5:00 PM)", "Paper": "GS Paper II (Jharkhand Specific)"}
+    ],
+
+    "application_fee_details": {
+      "UR_EWS_OBC_BC": "₹100 + Bank Charges",
+      "SC_ST_Jharkhand_Residents": "₹50 + Bank Charges",
+      "PwD_Candidates": "Exempted (NIL)"
+    }
+  }
+]
