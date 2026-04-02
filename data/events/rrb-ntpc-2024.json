@@ -1,0 +1,24 @@
+{
+  "master_id": "rrb-ntpc-2024",
+  "header_scope": [
+    "Ministry of Railways",
+    "Railway Recruitment Board"
+  ],
+  "notice_type": "CEN 05/2024",
+  "title": "RRB NTPC (Graduate)",
+  "category": "Central Govt",
+  "status": "Completed",
+  "last_updated": "2026-02-15T00:00:00Z",
+  "recruitment_summary": "Non-Technical Popular Categories (Graduate) 2024. All exam stages including CBTST are finalized.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "CEN 05/2024 Archive",
+      "is_active": true,
+      "start_date": "2024-09-14",
+      "end_date": "2026-12-14",
+      "badge_text": "ANCHOR"
+    }
+  ]
+}

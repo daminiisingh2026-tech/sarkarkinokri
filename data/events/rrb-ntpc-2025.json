@@ -1,0 +1,42 @@
+{
+  "master_id": "rrb-ntpc-2025",
+  "header_scope": [
+    "Ministry of Railways",
+    "Railway Recruitment Board"
+  ],
+  "notice_type": "Examination Notice",
+  "title": "RRB NTPC (CEN 06/2025)",
+  "category": "Central Govt",
+  "status": "Active",
+  "last_updated": "2026-03-28T00:00:00Z",
+  "recruitment_summary": "Recruitment for Graduate and Undergraduate posts. CBT-1 completed. Answer key challenge window opening soon.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "CEN 06/2025 Notification",
+      "is_active": true,
+      "start_date": "2025-06-15",
+      "end_date": "2026-09-15",
+      "badge_text": "ANCHOR"
+    },
+    {
+      "phase": "CBT-1",
+      "stage": "answer",
+      "label": "CBT-1 Provisional Answer Key",
+      "is_active": true,
+      "start_date": "2026-04-05",
+      "end_date": "2026-04-15",
+      "status_label": "Objection Link Active",
+      "badge_text": "● NEW",
+      "official_event_url": "https://www.rrbcdg.gov.in/"
+    },
+    {
+      "phase": "CBT-1",
+      "stage": "result",
+      "label": "CBT-1 Result / Scorecard",
+      "is_active": false,
+      "badge_text": "WAITING"
+    }
+  ]
+}

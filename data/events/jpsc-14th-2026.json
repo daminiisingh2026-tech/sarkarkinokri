@@ -1,0 +1,43 @@
+{
+  "master_id": "jpsc-14th-2026",
+  "header_scope": [
+    "Government of Jharkhand",
+    "Jharkhand Public Service Commission"
+  ],
+  "notice_type": "Recruitment Notice",
+  "title": "14th JPSC Combined Civil Services",
+  "category": "State Govt",
+  "status": "Active",
+  "last_updated": "2026-04-02T00:00:00Z",
+  "recruitment_summary": "14th JPSC CCE for various administrative posts. Preliminary exam scheduled for April 19. Admit cards expected to be released 10 days prior to exam.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Detailed Advertisement (14th CCE)",
+      "is_active": true,
+      "start_date": "2026-01-20",
+      "end_date": "2027-04-20",
+      "badge_text": "ANCHOR"
+    },
+    {
+      "phase": "Prelims",
+      "stage": "admit",
+      "label": "Prelims Admit Card",
+      "is_active": true,
+      "start_date": "2026-04-09",
+      "end_date": "2026-04-19",
+      "status_label": "Releasing April 9",
+      "badge_text": "● UPCOMING",
+      "official_event_url": "https://www.jpsc.gov.in/"
+    },
+    {
+      "phase": "Prelims",
+      "stage": "exam",
+      "label": "Preliminary Examination",
+      "is_active": false,
+      "start_date": "2026-04-19",
+      "status_label": "Scheduled Date"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "master_id": "ssc-chsl-2025",
+  "header_scope": [
+    "Government of India",
+    "Staff Selection Commission"
+  ],
+  "notice_type": "Examination Notice",
+  "title": "SSC CHSL (10+2) 2025 - Tier II",
+  "category": "Central Govt",
+  "status": "Active",
+  "last_updated": "2026-04-01T00:00:00Z",
+  "recruitment_summary": "Combined Higher Secondary Level Examination 2025. Tier-II (Descriptive/CBT) scheduled for April 10. City Intimation and Admit Cards are being released region-wise.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Detailed Notification (CHSL 2025)",
+      "is_active": true,
+      "start_date": "2025-04-08",
+      "end_date": "2026-07-08",
+      "badge_text": "ANCHOR",
+      "official_event_url": "https://ssc.gov.in/"
+    },
+    {
+      "phase": "Tier-II",
+      "stage": "admit",
+      "label": "Tier-II City Intimation / Admit Card",
+      "is_active": true,
+      "start_date": "2026-04-01",
+      "end_date": "2026-04-10",
+      "status_label": "Download Link Active",
+      "badge_text": "● LIVE",
+      "official_event_url": "https://ssc.gov.in/admit-card"
+    },
+    {
+      "phase": "Tier-II",
+      "stage": "result",
+      "label": "Tier-II Result",
+      "is_active": false,
+      "badge_text": "WAITING",
+      "status_label": "Expected May 2026"
+    },
+    {
+      "phase": "Final Selection",
+      "stage": "dv",
+      "label": "Document Verification",
+      "is_active": false,
+      "badge_text": "FUTURE"
+    }
+  ]
+}

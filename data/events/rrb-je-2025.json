@@ -1,0 +1,34 @@
+{
+  "master_id": "rrb-je-2025",
+  "header_scope": [
+    "Ministry of Railways",
+    "Railway Recruitment Board"
+  ],
+  "notice_type": "CEN 05/2025",
+  "title": "RRB Junior Engineer 2025",
+  "category": "Central Govt",
+  "status": "Active",
+  "last_updated": "2026-04-01T00:00:00Z",
+  "recruitment_summary": "Fresh JE recruitment cycle. CBT-1 completed in February 2026. Revised exam dates for specific regions were finalized in March.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Detailed Advt (CEN 05/2025)",
+      "is_active": true,
+      "start_date": "2025-10-10",
+      "end_date": "2027-01-10",
+      "badge_text": "NEW ANCHOR"
+    },
+    {
+      "phase": "CBT-1",
+      "stage": "result",
+      "label": "CBT-1 Result / Scorecard",
+      "is_active": true,
+      "start_date": "2026-03-30",
+      "end_date": "2026-04-25",
+      "status_label": "Expected April",
+      "badge_text": "● WAITING"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "master_id": "ibps-po-2026",
+  "header_scope": [
+    "Institute of Banking Personnel Selection",
+    "Common Recruitment Process",
+    "Participating Public Sector Banks"
+  ],
+  "notice_type": "Recruitment Notification",
+  "notice_no": "CRP PO/MT-XVI",
+  "title": "IBPS Probationary Officer / Management Trainee Recruitment 2026",
+  "category": "Banking",
+  "status": "Live",
+  "last_updated": "2026-04-01T00:00:00Z",
+  "recruitment_summary": "IBPS PO 2026 recruitment is conducted for selection of Probationary Officers in participating Public Sector Banks. Selection process includes Preliminary Exam, Main Exam and Interview followed by Provisional Allotment.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Official Notification",
+      "is_active": true,
+      "start_date": "2026-03-30",
+      "end_date": "2026-04-21",
+      "official_event_url": "https://www.ibps.in/",
+      "badge_text": "● OFFICIAL"
+    },
+    {
+      "phase": null,
+      "stage": "apply",
+      "label": "Apply Online",
+      "is_active": true,
+      "start_date": "2026-03-30",
+      "end_date": "2026-04-21",
+      "official_event_url": "https://www.ibps.in/",
+      "status_label": "Link is Active Now",
+      "badge_text": "● OPEN"
+    },
+    {
+      "phase": "Preliminary Exam",
+      "stage": "admit",
+      "label": "Prelims Admit Card",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "UPCOMING",
+      "status_label": "Expected August 2026"
+    },
+    {
+      "phase": "Preliminary Exam",
+      "stage": "result",
+      "label": "Prelims Result",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "WAITING"
+    },
+    {
+      "phase": "Main Examination",
+      "stage": "admit",
+      "label": "Mains Admit Card",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "FUTURE"
+    },
+    {
+      "phase": "Main Examination",
+      "stage": "result",
+      "label": "Mains Result",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "FUTURE"
+    },
+    {
+      "phase": "Interview",
+      "stage": "interview",
+      "label": "Interview Schedule",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "FUTURE"
+    },
+    {
+      "phase": "Final Allotment",
+      "stage": "result",
+      "label": "Final Result",
+      "is_active": false,
+      "official_event_url": "",
+      "badge_text": "FUTURE"
+    }
+  ]
+}

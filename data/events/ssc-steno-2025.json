@@ -1,0 +1,34 @@
+{
+  "master_id": "ssc-steno-2025",
+  "header_scope": [
+    "Government of India",
+    "Staff Selection Commission"
+  ],
+  "notice_type": "Examination Notice",
+  "title": "SSC Stenographer Grade C & D 2025",
+  "category": "Central Govt",
+  "status": "Active",
+  "last_updated": "2026-04-01T00:00:00Z",
+  "recruitment_summary": "Stenographer Grade C & D recruitment 2025. Skill test conducted in January. Final results are expected shortly.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Detailed Notification (Steno 2025)",
+      "is_active": true,
+      "start_date": "2025-07-26",
+      "end_date": "2026-10-26",
+      "badge_text": "ANCHOR"
+    },
+    {
+      "phase": "Skill Test",
+      "stage": "result",
+      "label": "Skill Test Result",
+      "is_active": true,
+      "start_date": "2026-03-15",
+      "end_date": "2026-04-15",
+      "status_label": "Tentative March-April",
+      "badge_text": "● WAITING"
+    }
+  ]
+}

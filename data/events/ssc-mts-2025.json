@@ -1,0 +1,34 @@
+{
+  "master_id": "ssc-mts-2025",
+  "header_scope": [
+    "Government of India",
+    "Staff Selection Commission"
+  ],
+  "notice_type": "Recruitment Notice",
+  "title": "SSC MTS & Havaldar 2025",
+  "category": "Central Govt",
+  "status": "Active",
+  "last_updated": "2026-04-01T00:00:00Z",
+  "recruitment_summary": "Multi-Tasking Staff and Havaldar (CBIC & CBN) 2025 cycle. CBT results and PET/PST shortlisting awaited.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Detailed Notification (MTS 2025)",
+      "is_active": true,
+      "start_date": "2025-06-27",
+      "end_date": "2026-09-27",
+      "badge_text": "ANCHOR"
+    },
+    {
+      "phase": "Tier-I",
+      "stage": "result",
+      "label": "CBT Result / Merit List",
+      "is_active": true,
+      "start_date": "2026-03-25",
+      "end_date": "2026-04-20",
+      "status_label": "Expected Any Moment",
+      "badge_text": "● WAITING"
+    }
+  ]
+}

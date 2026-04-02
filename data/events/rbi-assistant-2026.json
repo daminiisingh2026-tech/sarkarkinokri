@@ -1,0 +1,44 @@
+{
+  "master_id": "rbi-assistant-2026",
+  "header_scope": [
+    "Reserve Bank of India",
+    "Central Recruitment Section"
+  ],
+  "notice_type": "Recruitment Notice",
+  "title": "RBI Assistant 2026",
+  "category": "Banking",
+  "status": "Active",
+  "last_updated": "2026-04-02T00:00:00Z",
+  "recruitment_summary": "Recruitment of 650 Assistants in various offices of the Bank. Selection through Preliminary and Main online examinations followed by Language Proficiency Test (LPT).",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Detailed Advertisement (2026)",
+      "is_active": true,
+      "start_date": "2026-02-16",
+      "end_date": "2027-05-16",
+      "badge_text": "ANCHOR",
+      "official_event_url": "https://www.rbi.org.in/"
+    },
+    {
+      "phase": "Prelims",
+      "stage": "admit",
+      "label": "Prelims Admit Card / Call Letter",
+      "is_active": true,
+      "start_date": "2026-04-01",
+      "end_date": "2026-04-15",
+      "status_label": "Download Active",
+      "badge_text": "● LIVE",
+      "official_event_url": "https://opportunities.rbi.org.in/scripts/results.aspx"
+    },
+    {
+      "phase": "Prelims",
+      "stage": "exam",
+      "label": "Online Preliminary Test",
+      "is_active": false,
+      "start_date": "2026-04-15",
+      "status_label": "Scheduled April"
+    }
+  ]
+}

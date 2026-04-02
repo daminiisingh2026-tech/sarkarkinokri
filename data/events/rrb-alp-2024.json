@@ -1,0 +1,46 @@
+{
+  "master_id": "rrb-alp-2024",
+  "header_scope": [
+    "Ministry of Railways",
+    "Railway Recruitment Board"
+  ],
+  "notice_type": "CEN 01/2024",
+  "title": "RRB Assistant Loco Pilot (ALP)",
+  "category": "Central Govt",
+  "status": "Active",
+  "last_updated": "2026-04-01T00:00:00Z",
+  "recruitment_summary": "Recruitment for Assistant Loco Pilot. Major CBT stages completed. Currently in Additional Document Verification (ADV) and final empanelment stage.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "CEN 01/2024 Detailed Advt",
+      "is_active": true,
+      "start_date": "2024-01-19",
+      "end_date": "2026-07-01",
+      "badge_text": "ANCHOR",
+      "official_event_url": "https://www.rrbcdg.gov.in/"
+    },
+    {
+      "phase": "Final",
+      "stage": "dv",
+      "label": "Additional Document Verification (ADV-3)",
+      "is_active": true,
+      "start_date": "2026-04-01",
+      "end_date": "2026-04-15",
+      "status_label": "Schedule Released",
+      "badge_text": "● LIVE",
+      "official_event_url": "https://www.rrbcdg.gov.in/"
+    },
+    {
+      "phase": "Final",
+      "stage": "result",
+      "label": "Provisional Part Panel-04",
+      "is_active": true,
+      "start_date": "2026-04-01",
+      "end_date": "2026-04-20",
+      "status_label": "Panel Out",
+      "badge_text": "● NEW"
+    }
+  ]
+}

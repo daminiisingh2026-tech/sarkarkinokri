@@ -1,0 +1,23 @@
+{
+  "master_id": "sbi-po-2026",
+  "header_scope": [
+    "State Bank of India",
+    "Central Recruitment & Promotion Dept"
+  ],
+  "notice_type": "Advance Notice",
+  "title": "SBI PO 2026 (Probationary Officers)",
+  "category": "Banking",
+  "status": "Upcoming",
+  "last_updated": "2026-04-01T00:00:00Z",
+  "recruitment_summary": "Recruitment of Probationary Officers in State Bank of India. Notification expected in June 2026. Selection via Prelims, Mains, and Psychometric Test/Interview.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Expected Notification Date",
+      "is_active": false,
+      "start_date": "2026-06-01",
+      "status_label": "Expected June"
+    }
+  ]
+}

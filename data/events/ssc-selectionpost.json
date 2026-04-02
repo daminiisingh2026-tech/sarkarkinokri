@@ -1,0 +1,68 @@
+{
+  "master_id": "ssc-selectionpost",
+  "header_scope": [
+    "Government of India",
+    "Staff Selection Commission"
+  ],
+  "notice_type": "Recruitment Notice",
+  "title": "SSC Selection Posts (Phase XIV) 2026",
+  "category": "Central Govt",
+  "status": "Live",
+  "last_updated": "2026-03-28T00:00:00Z",
+  "recruitment_summary": "SSC Selection Post Phase XIV recruitment for Matriculation, Higher Secondary and Graduate level posts across Ministries and Departments. Selection through CBT followed by Document Verification.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Detailed Notification (Phase XIV)",
+      "is_active": true,
+      "start_date": "2026-02-20",
+      "end_date": "2027-05-20",
+      "badge_text": "● LIVE",
+      "official_event_url": "https://ssc.gov.in/SSCFileServer/PortalManagement/UploadedFiles/notice_selection_post_phase_xiv_2026.pdf"
+    },
+    {
+      "phase": null,
+      "stage": "apply",
+      "label": "Apply Online (Phase XIV)",
+      "is_active": false,
+      "start_date": "2026-02-26",
+      "end_date": "2026-03-28",
+      "status_label": "Application Closed",
+      "badge_text": "CLOSED",
+      "official_event_url": "https://ssc.gov.in/"
+    },
+    {
+      "phase": "CBT",
+      "stage": "admit",
+      "label": "Admit Card",
+      "is_active": false,
+      "badge_text": "UPCOMING",
+      "official_event_url": ""
+    },
+    {
+      "phase": "CBT",
+      "stage": "result",
+      "label": "CBT Result",
+      "is_active": false,
+      "badge_text": "WAITING",
+      "official_event_url": ""
+    },
+    {
+      "phase": "Document Verification",
+      "stage": "dv",
+      "label": "Document Verification",
+      "is_active": false,
+      "badge_text": "FUTURE",
+      "official_event_url": ""
+    },
+    {
+      "phase": "Final Selection",
+      "stage": "result",
+      "label": "Final Result",
+      "is_active": false,
+      "badge_text": "FUTURE",
+      "official_event_url": ""
+    }
+  ]
+}

@@ -1,1 +1,51 @@
-
+{
+  "master_id": "ssc-cgl-2026",
+  "header_scope": [
+    "Government of India",
+    "Staff Selection Commission"
+  ],
+  "notice_type": "Examination Notice",
+  "title": "SSC CGL 2026 (Combined Graduate Level)",
+  "category": "Central Govt",
+  "status": "Live",
+  "last_updated": "2026-03-31T00:00:00Z",
+  "recruitment_summary": "Official Notification for CGL 2026 released. Recruitment for Group B and C posts. Tier-I CBT is tentatively scheduled for June-July 2026.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Official Notification (CGL 2026)",
+      "is_active": true,
+      "start_date": "2026-03-31",
+      "end_date": "2027-06-30",
+      "badge_text": "● NEW",
+      "official_event_url": "https://ssc.gov.in/SSCFileServer/PortalManagement/UploadedFiles/notice_CGLE_2026.pdf"
+    },
+    {
+      "phase": null,
+      "stage": "apply",
+      "label": "Apply Online (CGL 2026 Registration)",
+      "is_active": true,
+      "start_date": "2026-03-31",
+      "end_date": "2026-04-30",
+      "status_label": "Link Active Now",
+      "badge_text": "● OPEN",
+      "official_event_url": "https://ssc.gov.in/"
+    },
+    {
+      "phase": "Tier-I",
+      "stage": "admit",
+      "label": "Tier-I Admit Card",
+      "is_active": false,
+      "badge_text": "UPCOMING",
+      "status_label": "Expected June 2026"
+    },
+    {
+      "phase": "Tier-I",
+      "stage": "result",
+      "label": "Tier-I Result",
+      "is_active": false,
+      "badge_text": "FUTURE"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "master_id": "ssc-gd-2025",
+  "header_scope": [
+    "Government of India",
+    "Staff Selection Commission"
+  ],
+  "notice_type": "Examination Notice",
+  "title": "SSC GD Constable 2025",
+  "category": "Central Govt",
+  "status": "Completed",
+  "last_updated": "2026-01-15T00:00:00Z",
+  "recruitment_summary": "Recruitment for Constable (GD) in CAPFs. Cycle completed. Training for selected candidates commenced January 2026.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Detailed Notification (GD 2025 Archive)",
+      "is_active": true,
+      "start_date": "2024-09-05",
+      "end_date": "2026-12-05",
+      "badge_text": "ANCHOR"
+    },
+    {
+      "phase": "Final",
+      "stage": "result",
+      "label": "Final Result (Merit List)",
+      "is_active": false,
+      "status_label": "Recruitment Closed"
+    }
+  ]
+}

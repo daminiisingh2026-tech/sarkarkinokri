@@ -1,0 +1,34 @@
+{
+  "master_id": "rrb-je-2024",
+  "header_scope": [
+    "Ministry of Railways",
+    "Railway Recruitment Board"
+  ],
+  "notice_type": "CEN 03/2024",
+  "title": "RRB JE/DMS/CMA",
+  "category": "Central Govt",
+  "status": "Active",
+  "last_updated": "2026-03-31T00:00:00Z",
+  "recruitment_summary": "Junior Engineer, DMS, and CMA recruitment. Cycle is nearing completion with final empanelment for various technical categories.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "CEN 03/2024 Detailed Advt",
+      "is_active": true,
+      "start_date": "2024-07-15",
+      "end_date": "2026-10-15",
+      "badge_text": "ANCHOR"
+    },
+    {
+      "phase": "Final",
+      "stage": "result",
+      "label": "Provisional Part Panel-03",
+      "is_active": true,
+      "start_date": "2026-03-31",
+      "end_date": "2026-04-15",
+      "status_label": "Panel & Cut-off Out",
+      "badge_text": "● NEW"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "master_id": "rrb-technician-2024",
+  "header_scope": [
+    "Ministry of Railways",
+    "Railway Recruitment Board"
+  ],
+  "notice_type": "CEN 02/2024",
+  "title": "RRB Technician Grade I & III",
+  "category": "Central Govt",
+  "status": "Active",
+  "last_updated": "2026-03-25T00:00:00Z",
+  "recruitment_summary": "Recruitment for Technicians (Signal Grade-I and various Grade-III posts). Selection through CBT followed by DV/Medical. Currently issuing supplementary panels.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "CEN 02/2024 Detailed Advt",
+      "is_active": true,
+      "start_date": "2024-03-08",
+      "end_date": "2026-06-08",
+      "badge_text": "ANCHOR"
+    },
+    {
+      "phase": "Final",
+      "stage": "result",
+      "label": "Provisional Panel (Part-5)",
+      "is_active": true,
+      "start_date": "2026-03-17",
+      "end_date": "2026-04-10",
+      "status_label": "Technician Gr-III Panel",
+      "badge_text": "● DECLARED"
+    }
+  ]
+}

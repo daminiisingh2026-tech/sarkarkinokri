@@ -1,0 +1,44 @@
+{
+  "master_id": "ssc-cgl-2025",
+  "header_scope": [
+    "Government of India",
+    "Staff Selection Commission"
+  ],
+  "notice_type": "Examination Notice",
+  "title": "SSC CGL 2025 (Tier-II & Final Selection)",
+  "category": "Central Govt",
+  "status": "Active",
+  "last_updated": "2026-04-02T00:00:00Z",
+  "recruitment_summary": "Final stages of CGL 2025. Tier-II exams concluded in January. Option-cum-Preference forms for department allocation were processed in March 2026. Final merit list is currently under preparation.",
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Detailed Notification (CGL 2025 Archive)",
+      "is_active": true,
+      "start_date": "2025-06-24",
+      "end_date": "2026-09-24",
+      "badge_text": "ANCHOR",
+      "official_event_url": "https://ssc.gov.in/"
+    },
+    {
+      "phase": "Tier-II",
+      "stage": "result",
+      "label": "Tier-II Final Result / Merit List",
+      "is_active": true,
+      "start_date": "2026-03-28",
+      "end_date": "2026-04-30",
+      "status_label": "Result Awaited (Expected April)",
+      "badge_text": "● WAITING",
+      "official_event_url": "https://ssc.gov.in/ssc-corp-server-backend/web/api/public/pdf-viewer/result"
+    },
+    {
+      "phase": "Final",
+      "stage": "dv",
+      "label": "Document Verification (Departmental)",
+      "is_active": false,
+      "badge_text": "FUTURE",
+      "status_label": "Post-Result Activity"
+    }
+  ]
+}
