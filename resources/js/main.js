@@ -242,7 +242,7 @@ return `
 <div class="syllabus-header">
 
 <div class="nav-top">
-<a href="../index.html" class="nav-btn back-btn">← Back</a>
+<a href="index.html" class="nav-btn back-btn">← Back</a>
 <a href="../../index.html" class="nav-btn home-btn">🏠 Home</a>
 </div>
 
