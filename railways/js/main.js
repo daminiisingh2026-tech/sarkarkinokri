@@ -1,91 +1,104 @@
 /**
- * SarkarKinokri Railway Cluster Engine
- * Location: root/railways/js/main.js
- * Context: Dedicated logic for Railway (RRB) sub-directory
+ * SarkarKinokri SSC Cluster Engine - FULL PRODUCTION VERSION
+ * Handles: Dynamic Nav, Filename Mapping, Popups, and Ad Cleanup
  */
 
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 1. RAILWAY NAVIGATION ENGINE (11-Page Logic)
-    const railwayNavigation = {
+    // 1. DYNAMIC NAVIGATION WITH FILENAME MAPPING
+    const sscNavigation = {
         init() {
             const navContainer = document.getElementById('main-nav');
             if (!navContainer) return;
 
-            // Updated to reflect your 11-page structure
+            // Updated URLs to your NEW hyphenated filenames
             const links = [
                 { name: "Home", url: "index.html" },
-                { name: "NTPC", url: "rrb-ntpc.html" },
-                { name: "ALP", url: "rrb-alp.html" },
-                { name: "Tech", url: "rrb-technician.html" }, // Matches your filename
-                { name: "Group D", url: "rrb-group-d.html" },
-                { name: "JE", url: "rrb-je.html" },
-                { name: "Syllabus", url: "syllabus.html" }, // Matches your spelling
-                { name: "Medical", url: "medical.html" },
-                { name: "Salary", url: "salary.html" },
-                { name: "Analysis", url: "analysis.html" },
+                { name: "SSC CGL", url: "ssc-cgl.html" },
+                { name: "SSC CHSL", url: "ssc-chsl.html" },
+                { name: "SSC MTS", url: "ssc-mts.html" },
+                { name: "SSC JE", url: "ssc-je.html" },
+                { name: "Selection Posts", url: "ssc-selectionpost.html" },
+                { name: "Steno", url: "ssc-steno.html" },
                 { name: "Strategy", url: "blueprint.html" }
             ];
 
-            const currentFile = window.location.pathname.split("/").pop() || "index.html";
-            
+            const path = window.location.pathname;
+            const currentFile = path.split("/").pop() || "index.html";
+
+            // Mapping for legacy URLs to prevent 404s
+            const legacyMap = {
+                "ssccgl.html": "ssc-cgl.html",
+                "sscchsl.html": "ssc-chsl.html",
+                "sscmts.html": "ssc-mts.html",
+                "sscje.html": "ssc-je.html",
+                "sscselection.html": "ssc-selectionpost.html",
+                "sscsteno.html": "ssc-steno.html"
+            };
+
+            // If user lands on old name, redirect to new name immediately
+            if (legacyMap[currentFile]) {
+                window.location.replace(legacyMap[currentFile]);
+                return;
+            }
+
             navContainer.innerHTML = links.map(link => {
-                // Using #002d57 (Rail Blue) for branding
-                const isActive = (currentFile.toLowerCase() === link.url.toLowerCase()) 
-                    ? 'class="active-tab" style="background:#002d57; color:white; border-bottom:3px solid #ff6a00;"' 
-                    : '';
+                const isActive = (currentFile === link.url) ? 
+                    'class="active-tab" style="background:#004a8f; color:white;"' : '';
                 return `<a href="${link.url}" ${isActive}>${link.name}</a>`;
             }).join('');
         }
     };
 
-    railwayNavigation.init();
+    sscNavigation.init();
 
-    // 2. RAILWAY RETENTION POPUP (Mentorship Focus)
-    const triggerRailwayPopup = () => {
-        const popup = document.getElementById('popup-ad-container');
-        if (!popup || sessionStorage.getItem('railway_v3_closed')) return;
+    // 2. YOUR ORIGINAL POPUP LOGIC (8 Second Delay)
+    const triggerSscPopup = () => {
+        if (!sessionStorage.getItem('ssc_v2_closed')) {
+            setTimeout(() => {
+                const popup = document.getElementById('popup-ad-container');
+                if (!popup) return;
+                
+                popup.style.display = 'block';
+                popup.innerHTML = `
+                    <div style="background:white; padding:20px; border-radius:15px; max-width:90%; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); border:4px solid #004a8f; box-shadow:0 0 50px rgba(0,0,0,0.5); z-index:10000; text-align:center;">
+                        <button id="close-ssc-popup" style="position:absolute; top:10px; right:10px; border:none; background:none; font-size:24px; cursor:pointer;">×</button>
+                        <h2 style="color:#e74c3c;">🔥 SSC GS VAULT 2026</h2>
+                        <p style="font-weight:bold; margin-bottom:20px;">Download 500+ Most Repeated SSC Questions PDF.</p>
+                        <a href="../details.html?id=ssc-gs-vault" style="display:block; background:#004a8f; color:white; padding:12px; text-decoration:none; border-radius:8px; font-weight:bold;">GET PDF CLUE</a>
+                    </div>
+                `;
 
-        setTimeout(() => {
-            popup.style.display = 'block';
-            popup.innerHTML = `
-                <div style="padding:25px; text-align:center; position:relative; background:#fff; border-radius:15px; border-top:5px solid #d32f2f; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-                    <span id="close-rail-popup" style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:24px; font-weight:bold; color:#888;">&times;</span>
-                    <p style="font-size:11px; color:#d32f2f; font-weight:bold; text-transform:uppercase; letter-spacing:1px;">Mentor's Choice 2026</p>
-                    <h3 style="margin:5px 0 10px 0; color:#333;">The A-1 Vision Checklist</h3>
-                    <p style="font-size:14px; color:#666; margin-bottom:20px;">Don't apply for ALP until you check your eye-power against official standards.</p>
-                    <a href="medical.html" style="display:block; background:#002d57; color:white; padding:12px; text-decoration:none; border-radius:8px; font-weight:bold; box-shadow: 0 4px 0 #001a33;">OPEN MEDICAL GUIDE</a>
-                </div>
-            `;
-
-            document.getElementById('close-rail-popup').onclick = () => {
-                popup.style.display = 'none';
-                sessionStorage.setItem('railway_v3_closed', 'true');
-            };
-        }, 12000); // Trigger after 12 seconds for Railway (deeper reading time)
+                document.getElementById('close-ssc-popup').onclick = () => {
+                    popup.style.display = 'none';
+                    sessionStorage.setItem('ssc_v2_closed', 'true');
+                };
+            }, 8000); 
+        }
     };
-    triggerRailwayPopup();
+    triggerSscPopup();
 
-    // 3. AD-BOX OPTIMIZER
+    // 3. YOUR ORIGINAL AD-BLOCKER CLEANUP
     const cleanEmptyAds = () => {
         const adBoxes = document.querySelectorAll('.ad-box');
         let attempts = 0;
         const checkInterval = setInterval(() => {
             adBoxes.forEach(box => {
                 const ins = box.querySelector('ins');
-                if (ins && ins.getAttribute('data-ad-status') === 'unfilled') {
-                    box.style.opacity = '0.5'; // Soft hide during dev
-                    if (attempts >= 5) box.style.display = 'none';
+                if (ins && ins.getAttribute('data-ad-status') === 'unfilled' && attempts >= 5) {
+                    box.style.display = 'none';
+                } else if (box.innerHTML.trim() === "" && attempts >= 5) {
+                    box.style.display = 'none';
                 }
             });
             if (++attempts > 5) clearInterval(checkInterval);
-        }, 1500);
+        }, 1000);
     };
     cleanEmptyAds();
 
-    // 4. CROSS-CLUSTER NAVIGATOR (To Dynamic Details Page)
-    window.openRailwayDetails = function(id) {
-        // Points back to your dynamic landing page outside the cluster
-        window.location.href = `../details.html?id=${id.toLowerCase().trim()}&ref=railway_cluster`;
+    // 4. YOUR ORIGINAL ROOT NAVIGATOR
+    window.promiseSscNavigator = function(id) {
+        window.location.href = `../details.html?id=${id}`;
     };
+
 });
