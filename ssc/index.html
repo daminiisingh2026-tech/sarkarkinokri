@@ -146,16 +146,6 @@
                 const navContainer = document.getElementById('main-nav');
                 if (!navContainer) return;
 
-                const links = [
-                    { name: "Home", url: "index.html" },
-                    { name: "SSC CGL", url: "ssc-cgl.html" },
-                    { name: "SSC CHSL", url: "ssc-chsl.html" },
-                    { name: "SSC MTS", url: "ssc-mts.html" },
-                    { name: "SSC JE", url: "ssc-je.html" },
-                    { name: "Selection Posts", url: "ssc-selectionpost.html" },
-                    { name: "Steno", url: "ssc-steno.html" },
-                    { name: "Strategy", url: "blueprint.html" }
-                ];
 
                 const currentFile = window.location.pathname.split("/").pop() || "index.html";
 
@@ -175,7 +165,6 @@
     </script>
     
 
-    <script src="/js/main.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
