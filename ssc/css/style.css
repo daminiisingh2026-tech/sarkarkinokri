@@ -1,253 +1,271 @@
-/* SarkarKinokri Master Centralized Styles - Cluster-v3.1 */
+/* ======================================================
+   SarkarKinokri Centralized Styles - Solid-v4.7
+   THEME: DEEP NAVY | HIGH CONTRAST | SPECULAR SHINE
+   ====================================================== */
+
 :root {
-    --ssc-blue: #004a8f;
-    --accent-red: #e74c3c;
-    --bg-light: #f4f7f9;
+    --deep-navy: #001f3f;     /* Solid Corporate Branding */
+    --solid-blue: #004a8f;    /* Primary Actions */
+    --accent-red: #c0392b;    /* Alerts & Active Tabs */
+    --bg-slate: #f1f5f9;      /* Professional background */
     --white: #ffffff;
-    --text-dark: #333333;
+    --text-main: #0f172a;     /* Deep Slate Black */
+    --text-muted: #475569;
+    --border-soft: #e2e8f0;
 }
 
-/* FIX: Prevent Screen Overflow */
+/* 1. CORE RESET & PAGE FLOW */
 html, body {
     max-width: 100%;
     overflow-x: hidden;
     position: relative;
+    background-color: var(--bg-slate);
 }
 
 * { box-sizing: border-box; }
 
 body { 
-    font-family: 'Segoe UI', sans-serif; 
+    font-family: 'Segoe UI', Roboto, sans-serif; 
     margin: 0; 
-    background: var(--bg-light); 
-    color: var(--text-dark); 
+    color: var(--text-main); 
     line-height: 1.6; 
-    padding-bottom: 80px; /* Space for the sticky bottom CTA */
+    padding-bottom: 110px; /* Increased for breathing room above dock */
 }
 
-/* 1. STYLED HEADER */
+/* 2. STYLED HEADER (Solid Depth & Increased Breathing Room) */
 .header { 
-    background: linear-gradient(135deg, var(--ssc-blue), #002d57);
-    padding: 30px 20px; 
+    background: var(--deep-navy) !important;
+    padding: 60px 20px 40px 20px; /* Increased top padding to clear space for nav buttons */
     text-align: center; 
-    border-bottom: 5px solid #ffcc00; 
-    position: relative;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-bottom: 6px solid #ffcc00; 
+    position: relative; /* Context for absolute nav */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    z-index: 1;
 }
+
 .header h1 { 
     margin: 0; 
-    color: var(--white); 
+    color: var(--white) !important;
     font-size: 26px; 
     text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    letter-spacing: 1.5px;
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-/* 2. STYLED NAV BUTTONS */
+/* 3. STICKY NAVIGATION (High-Contrast Utility Bar) */
 .sticky-tabs { 
     position: sticky; 
     top: 0; 
     background: var(--white); 
     display: flex; 
     overflow-x: auto; 
-    border-bottom: 2px solid #ddd; 
+    border-bottom: 3px solid var(--deep-navy); 
     z-index: 1000;
     scrollbar-width: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 .sticky-tabs::-webkit-scrollbar { display: none; }
 
 .sticky-tabs a { 
-    padding: 15px 20px; 
+    padding: 18px 24px; 
     text-decoration: none; 
-    color: var(--ssc-blue); 
+    color: var(--deep-navy); 
     font-weight: 800; 
-    font-size: 13px; 
+    font-size: 14px; 
     white-space: nowrap; 
-    transition: all 0.3s ease;
-    border-bottom: 3px solid transparent;
-}
-.sticky-tabs a:hover {
-    background: #f0f4f8;
-}
-.active-tab { 
-    color: var(--accent-red) !important; 
-    border-bottom: 3px solid var(--accent-red) !important;
-    background: #fff0f0;
+    transition: all 0.2s ease;
+    border-bottom: 4px solid transparent;
 }
 
-/* 3. HEADER ROUTER BUTTONS (Back/Home) */
+.active-tab { 
+    color: var(--accent-red) !important; 
+    border-bottom: 4px solid var(--accent-red) !important;
+    background: #fff8f8;
+}
+
+/* 4. EDGE ROUTER (Z-Index Fix & High Visibility Glass) */
 .header-router-nav { 
     display: flex; 
     justify-content: space-between; 
     width: 100%; 
     position: absolute; 
-    top: 10px; 
+    top: 15px; 
     left: 0;
-    padding: 0 10px; 
+    padding: 0 15px; 
     pointer-events: none; 
-}
-.nav-edge-btn { 
-    pointer-events: auto; 
-    background: rgba(255,255,255,0.2); 
-    color: white; 
-    padding: 4px 10px; 
-    border-radius: 20px; 
-    font-size: 10px; 
-    font-weight: bold; 
-    text-decoration: none; 
-    border: 1px solid rgba(255,255,255,0.5);
-    backdrop-filter: blur(5px);
+    z-index: 9999 !important; /* Force to the very top layer */
 }
 
-/* 4. PERMANENT STICKY BOTTOM CTA (Fixed Hiding Issue) */
+.nav-edge-btn { 
+    pointer-events: auto; 
+    background: rgba(255, 255, 255, 0.2) !important; 
+    color: #ffffff !important; 
+    padding: 8px 16px; 
+    border-radius: 6px; 
+    font-size: 11px; 
+    font-weight: 900; 
+    text-decoration: none; 
+    border: 1.5px solid rgba(255, 255, 255, 0.5); /* Thicker border for visibility */
+    text-transform: uppercase;
+    backdrop-filter: blur(12px); /* Stronger frost effect */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4); /* Sharper shadow to pop off blue */
+    transition: all 0.2s ease;
+}
+
+.nav-edge-btn:active {
+    transform: scale(0.9);
+    background: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* 5. STICKY BOTTOM DOCK (Metallic Shine & Sharp Glow) */
 .cta-grid-dock { 
-    position: fixed !important; /* Force stay */
+    position: fixed !important;
     bottom: 0 !important; 
     left: 0;
     right: 0;
     display: grid; 
     grid-template-columns: repeat(3, 1fr); 
-    gap: 5px; 
+    gap: 8px; 
     width: 100%; 
-    padding: 10px;
-    background: rgba(255,255,255,0.9);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid #ddd;
+    padding: 12px;
+    background: var(--white);
+    border-top: 3px solid var(--deep-navy);
     z-index: 99999; 
-    box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 -10px 25px rgba(0,0,0,0.15);
 }
 
 .glow-btn { 
-    padding: 12px 2px; 
-    color: white; 
+    position: relative;
+    overflow: hidden; /* Clips the shine streak */
+    padding: 15px 2px; 
+    color: var(--white) !important; 
     text-align: center; 
     text-decoration: none; 
-    border-radius: 6px; 
+    border-radius: 8px; 
     font-weight: 900; 
-    font-size: 10px; 
-    border: 1px solid #fff; 
+    font-size: 11px; 
     text-transform: uppercase; 
+    border: 1px solid rgba(255,255,255,0.4);
 }
 
-/* Animations */
-@keyframes flicker-blue { 0%, 100% { background: #004a8f; box-shadow: 0 0 10px #004a8f; } 50% { background: #007bff; } }
-@keyframes flicker-red { 0%, 100% { background: #e74c3c; box-shadow: 0 0 10px #e74c3c; } 50% { background: #ff0000; } }
-@keyframes flicker-green { 0%, 100% { background: #27ae60; box-shadow: 0 0 10px #27ae60; } 50% { background: #2ecc71; } }
+/* THE SPECULAR SHINE STREAK */
+.glow-btn::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 40px;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: rotate(30deg);
+    animation: cta-shine 3s infinite;
+}
 
-.btn-syllabus { animation: flicker-blue 1.5s infinite; }
-.btn-strategy { animation: flicker-red 1.2s infinite; }
-.btn-details { animation: flicker-green 1.8s infinite; }
+@keyframes cta-shine {
+    0% { left: -60%; }
+    20% { left: 120%; }
+    100% { left: 120%; }
+}
 
-/* 5. CONTAINER & CARD DEPTH */
+/* SHARP GLOW ANIMATIONS (Minimized Blur) */
+@keyframes sharp-blue {
+    0%, 100% { background: #004a8f; box-shadow: 0 0 5px #004a8f; }
+    50% { background: #007bff; box-shadow: 0 0 15px rgba(0, 123, 255, 0.8); }
+}
+@keyframes sharp-red {
+    0%, 100% { background: #c0392b; box-shadow: 0 0 5px #c0392b; }
+    50% { background: #ff4d4d; box-shadow: 0 0 15px rgba(255, 77, 77, 0.8); }
+}
+@keyframes sharp-green {
+    0%, 100% { background: #15803d; box-shadow: 0 0 5px #15803d; }
+    50% { background: #2ecc71; box-shadow: 0 0 15px rgba(46, 204, 113, 0.8); }
+}
+
+.btn-syllabus { animation: sharp-blue 2s infinite ease-in-out; }
+.btn-strategy { animation: sharp-red 1.5s infinite ease-in-out; }
+.btn-details  { animation: sharp-green 1.8s infinite ease-in-out; }
+
+.glow-btn:active { transform: scale(0.92); }
+
+/* 6. CONTENT CONTAINERS */
 .container { 
-    max-width: 100%;
-    width: 96%;
-    margin: 15px auto; 
+    max-width: 1000px;
+    width: 95%;
+    margin: 25px auto; 
     background: var(--white); 
-    padding: 20px; 
-    border-radius: 15px; /* Softer corners */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Deep soft shadow for depth */
-    border: 1px solid rgba(0,0,0,0.05);
+    padding: 30px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06); 
+    border: 1px solid var(--border-soft);
 }
 
-/* 6. EDUCATIONAL CONTENT STYLING (The "Premium" Look) */
-
-/* Section Headers as Cards */
+/* 7. SECTION TITLES (Authority & Solid Padding) */
 .section-head { 
-    background: linear-gradient(90deg, var(--ssc-blue), #005bb5);
-    color: white; 
-    padding: 14px 20px; 
-    border-radius: 8px;
-    margin-top: 40px; 
-    font-size: 18px;
+    background: var(--deep-navy);
+    color: var(--white) !important; 
+    padding: 18px 25px; 
+    border-radius: 4px;
+    margin: 45px 0 25px 0; 
+    font-size: 20px;
     font-weight: 800;
-    box-shadow: 0 4px 12px rgba(0,74,143,0.2);
     border-left: 10px solid #ffcc00;
-    display: flex;
-    align-items: center;
+    text-transform: uppercase;
 }
 
-/* Titles with Depth */
 .red-title { 
     color: var(--accent-red); 
-    font-size: 24px;
+    font-size: 26px;
     text-align: center;
-    border-bottom: 3px double var(--ssc-blue); 
-    padding-bottom: 15px; 
-    margin-bottom: 30px; 
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    border-bottom: 4px solid var(--deep-navy); 
+    padding-bottom: 12px; 
+    margin-bottom: 35px; 
+    font-weight: 900;
 }
 
-/* Sub-headers (Tier-I, Tier-II etc) */
-h3 {
-    color: var(--ssc-blue);
-    border-left: 4px solid var(--accent-red);
-    padding-left: 12px;
-    margin-top: 25px;
-    font-size: 18px;
-}
-
-/* TABLE MODERNIZATION */
-.table-wrapper { 
-    overflow-x: auto; 
-    margin: 20px 0; 
-    border-radius: 10px; 
-    border: 1px solid #ddd; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Card-like shadow for tables */
-}
-
-table { 
-    width: 100%; 
-    border-collapse: collapse; 
-    min-width: 550px; 
-    background: white;
-}
-
-/* Header Cells with Gradient */
+/* 8. MODERN SOLID TABLES */
 th { 
-    background: #f8f9fb; 
-    color: #444; 
-    text-align: left; 
-    padding: 15px; 
-    font-size: 13px; 
-    text-transform: uppercase;
-    border-bottom: 3px solid var(--ssc-blue); /* Strong border for identification */
-    border-right: 1px solid #eee;
+    background: #f8fafc; 
+    color: var(--deep-navy); 
+    padding: 18px; 
+    font-weight: 900;
+    border-bottom: 4px solid var(--deep-navy); 
+    border-right: 1px solid var(--border-soft);
 }
 
-/* Data Cells with Clear Borders */
 td { 
-    padding: 14px; 
-    border-bottom: 1px solid #edf2f7; 
-    border-right: 1px solid #edf2f7; /* Vertical borders for scannability */
-    font-size: 14px; 
-    color: #4a5568;
-    vertical-align: middle; 
+    padding: 16px; 
+    border-bottom: 1px solid var(--border-soft); 
+    border-right: 1px solid var(--border-soft); 
+    color: var(--text-main);
 }
 
-/* Zebra Striping for Readability */
-tr:nth-child(even) { background-color: #fcfdfe; }
-tr:last-child td { border-bottom: none; }
-tr:hover { background-color: #f0f7ff; } /* Highlight row on hover */
-
-/* Trusted Advisor Box (The Insight Card) */
+/* 9. ADVISOR CARDS */
 .advisor-card {
-    padding: 20px; 
-    background: linear-gradient(135deg, #fff9e6 0%, #fffcf5 100%); 
-    border-radius: 12px; 
-    border: 1px solid #f39c12;
-    margin: 30px 0;
-    box-shadow: 0 4px 10px rgba(243,156,18,0.1);
+    padding: 25px; 
+    background: #fffdf5; 
+    border-radius: 4px; 
+    border: 2px solid #f59e0b;
+    margin: 35px 0;
+    position: relative;
 }
 
-/* Mobile Tweak for Containers */
+.advisor-card::before {
+    content: "💡 EXPERT INSIGHT";
+    position: absolute;
+    top: -14px;
+    left: 20px;
+    background: #f59e0b;
+    color: white;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 900;
+    border-radius: 4px;
+}
+
+/* 10. MOBILE OPTIMIZATION */
 @media (max-width: 600px) {
-    .container { 
-        width: 100%; 
-        border-radius: 0; 
-        margin: 0; 
-        padding: 15px; 
-        box-shadow: none; 
-    }
+    .container { width: 100%; border-radius: 0; padding: 20px; }
+    .header h1 { font-size: 22px; }
+    .header { padding: 35px 15px; }
 }
