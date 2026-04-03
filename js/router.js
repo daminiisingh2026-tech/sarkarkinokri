@@ -13,7 +13,7 @@
   // NORMALIZE
   // -----------------------------
   function normalize(str) {
-    return str.replace(/-\d{4}$/, "").toLowerCase();
+    return (str || "").replace(/-\d{4}$/, "").toLowerCase();
   }
 
   // -----------------------------
@@ -43,9 +43,48 @@
   // -----------------------------
   async function route() {
 
-    // don't run inside details page
-    if (location.pathname.includes("details.html")) return;
+    const isDetails = location.pathname.includes("details.html");
 
+    // =====================================================
+    // CASE 1 : DETAILS PAGE → UPGRADE SHORT SLUG
+    // =====================================================
+    if (isDetails) {
+
+      const params = new URLSearchParams(location.search);
+      const id = params.get("id");
+      if (!id) return;
+
+      const normalized = normalize(id);
+
+      // already master id (has year)
+      if (normalized !== id) return;
+
+      const index = await fetchJSON("data/index.json");
+      if (!index) return;
+
+      let masterId = null;
+
+      for (const item of index) {
+        if (!item.master_id) continue;
+
+        if (normalize(item.master_id) === normalized) {
+          masterId = item.master_id;
+          break;
+        }
+      }
+
+      // upgrade safely
+      if (masterId && masterId !== id) {
+        const newUrl = `${location.pathname}?id=${masterId}`;
+        location.replace(newUrl);
+      }
+
+      return;
+    }
+
+    // =====================================================
+    // CASE 2 : SLUG PAGE ROUTING
+    // =====================================================
     const slug = normalize(getSlug());
 
     console.log("Router slug:", slug);
@@ -68,13 +107,10 @@
 
     let masterId = null;
 
-    // index.json is ARRAY
     for (const item of index) {
       if (!item.master_id) continue;
 
-      const norm = normalize(item.master_id);
-
-      if (norm === slug) {
+      if (normalize(item.master_id) === slug) {
         masterId = item.master_id;
         break;
       }
@@ -82,9 +118,6 @@
 
     console.log("Mapped masterId:", masterId);
 
-    // -------------------------
-    // REDIRECT
-    // -------------------------
     if (masterId) {
       const url = window.rel(`details.html?id=${masterId}`);
       location.replace(url);
