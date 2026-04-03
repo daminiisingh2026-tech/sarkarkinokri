@@ -4,19 +4,88 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Job Details | SarkarKinokri</title>
+
 <link rel="stylesheet" href="css/details.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<!-- ROUTER DIAGNOSTIC (place FIRST) -->
+<script>
+(function () {
+
+console.log("===== ROUTER DIAGNOSTIC START =====");
+
+console.log("Full URL:", location.href);
+console.log("Pathname:", location.pathname);
+console.log("Search:", location.search);
+
+const params = new URLSearchParams(location.search);
+const id = params.get("id");
+
+console.log("Received ID:", id);
+
+function normalize(str){
+  return (str || "").replace(/-\d{4}$/, "").toLowerCase();
+}
+
+console.log("Normalized ID:", normalize(id));
+
+const depth = location.pathname.split("/").filter(Boolean).length - 1;
+const rel = "../".repeat(depth);
+
+console.log("Calculated rel():", rel);
+console.log("Index path:", rel + "data/index.json");
+
+fetch(rel + "data/index.json")
+  .then(r => {
+    console.log("Index fetch status:", r.status);
+    return r.json();
+  })
+  .then(data => {
+    console.log("Index length:", data.length);
+
+    let match = null;
+
+    for (const item of data) {
+      if (!item.master_id) continue;
+      if (normalize(item.master_id) === normalize(id)) {
+        match = item.master_id;
+        break;
+      }
+    }
+
+    console.log("Matched master_id:", match);
+
+    if (!match) {
+      console.warn("❌ No mapping found in index.json");
+    } else {
+      console.log("✅ Should upgrade to:", match);
+    }
+
+    console.log("===== ROUTER DIAGNOSTIC END =====");
+  })
+  .catch(err => {
+    console.error("Index fetch failed:", err);
+  });
+
+})();
+</script>
+
 </head>
+
 <body>
+
 <div class="container">
 <div id="loader">
 <div class="spinner"></div>
 <p>Syncing Live Status...</p>
 </div>
+
 <div id="main-content" style="display:none;"></div>
 </div>
+
 <script src="js/loader.js"></script>
 <script src="js/details.js"></script>
 <script src="/js/path-fix.js"></script>
+
 </body>
 </html>
