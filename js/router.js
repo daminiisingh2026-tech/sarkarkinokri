@@ -1,76 +1,98 @@
-/**
- * router.js — UNIVERSAL NAVIGATION & SEARCH ENGINE
- * Priority: Specific Category HTML > Folder HTML > Dynamic Details > Sitemap
- */
+(function () {
+  "use strict";
 
-window.MeshRouter = {
-    // 1. DYNAMIC SEARCH MATCHER (For Search Layer Suggestions)
-    getSearchMatches(query, manifest) {
-        const term = query.toLowerCase().trim();
-        const termSquashed = term.replace(/-/g, '');
-        
-        return manifest.filter(entry => {
-            const mid = entry.master_id?.toLowerCase() || "";
-            const midSquashed = mid.replace(/-/g, '');
-            const label = (entry.label || "").toLowerCase();
-            
-            return mid.includes(term) || midSquashed.includes(termSquashed) || label.includes(term);
-        }).slice(0, 8);
-    },
+  // -----------------------------
+  // RELATIVE PATH HELPER
+  // -----------------------------
+  window.rel = function (path = "") {
+    const depth = location.pathname.split("/").filter(Boolean).length - 1;
+    return "../".repeat(depth) + path;
+  };
 
-    // 2. SMART INTERNAL ROUTING (The Waterfall)
-    async navigate(id, category = '', section = '') {
-        if (!id) return;
-        
-        const rawId = id.toLowerCase().trim();
-        const cleanId = rawId.replace(/-\d{4}$/, ''); // ssc-cgl-2026 -> ssc-cgl
-        const squashedId = rawId.replace(/-/g, '');  // ssc-cgl -> ssccgl
-        
-        // Auto-detect folder based on ID prefix
-        const folder = category || (rawId.startsWith('ssc') ? 'ssc' : (rawId.startsWith('rrb') ? 'railways' : ''));
+  // -----------------------------
+  // NORMALIZE
+  // -----------------------------
+  function normalize(str) {
+    return str.replace(/-\d{4}$/, "").toLowerCase();
+  }
 
-        // --- LAYER 1: CATEGORY/FOLDER CHECK (railways/ntpc.html etc.) ---
-        if (folder) {
-            const folderPaths = [
-                window.rel(`${folder}/${rawId}.html`),      // ssc/ssc-cgl-2026.html
-                window.rel(`${folder}/${cleanId}.html`),    // ssc/ssc-cgl.html
-                window.rel(`${folder}/${squashedId}.html`)  // ssc/ssccgl.html
-            ];
+  // -----------------------------
+  // GET SLUG
+  // -----------------------------
+  function getSlug() {
+    const file = location.pathname.split("/").pop() || "";
+    return file.replace(".html", "").toLowerCase();
+  }
 
-            for (const path of folderPaths) {
-                try {
-                    const res = await fetch(path, { method: 'HEAD' });
-                    if (res.ok) { window.location.href = path + (section ? '#' + section : ''); return; }
-                } catch (e) {}
-            }
-        }
-
-        // --- LAYER 2: RESOURCES CHECK (Syllabus/Pattern/Apply) ---
-        // Using paths from importantlinks.json structure
-        const resourceCats = ['syllabus', 'exampattern', 'apply'];
-        for (const cat of resourceCats) {
-            const resPath = window.rel(`resources/${cat}/${cleanId}.html`);
-            try {
-                const res = await fetch(resPath, { method: 'HEAD' });
-                if (res.ok) { window.location.href = resPath; return; }
-            } catch (e) {}
-        }
-
-        // --- LAYER 3: DYNAMIC DETAILS (The Source of Truth) ---
-        if (window.Loader) {
-            if (!Loader.indexManifest) await Loader.init(window.rel("data/index.json"));
-            
-            const match = Loader.indexManifest.entries.find(e => 
-                e.master_id === rawId || e.master_id.includes(cleanId) || e.master_id.replace(/-/g, '') === squashedId
-            );
-
-            if (match) {
-                window.location.href = window.rel(`details.html?id=${match.master_id}${section ? '#' + section : ''}`);
-                return;
-            }
-        }
-
-        // --- LAYER 4: FINAL FALLBACK (Sitemap) ---
-        window.location.href = window.rel(`sitemap.html?target=${rawId}`);
+  // -----------------------------
+  // FETCH JSON
+  // -----------------------------
+  async function fetchJSON(path) {
+    try {
+      const res = await fetch(window.rel(path));
+      if (!res.ok) return null;
+      return await res.json();
+    } catch (e) {
+      console.warn("fetch failed:", path);
+      return null;
     }
-};
+  }
+
+  // -----------------------------
+  // ROUTER
+  // -----------------------------
+  async function route() {
+
+    // don't run inside details page
+    if (location.pathname.includes("details.html")) return;
+
+    const slug = normalize(getSlug());
+
+    console.log("Router slug:", slug);
+
+    // -------------------------
+    // STATIC FIRST
+    // -------------------------
+    const staticMap = await fetchJSON("data/staticportals.json");
+
+    if (staticMap && staticMap[slug]) {
+      location.replace(window.rel(staticMap[slug]));
+      return;
+    }
+
+    // -------------------------
+    // INDEX LOOKUP
+    // -------------------------
+    const index = await fetchJSON("data/index.json");
+    if (!index) return;
+
+    let masterId = null;
+
+    // index.json is ARRAY
+    for (const item of index) {
+      if (!item.master_id) continue;
+
+      const norm = normalize(item.master_id);
+
+      if (norm === slug) {
+        masterId = item.master_id;
+        break;
+      }
+    }
+
+    console.log("Mapped masterId:", masterId);
+
+    // -------------------------
+    // REDIRECT
+    // -------------------------
+    if (masterId) {
+      const url = window.rel(`details.html?id=${masterId}`);
+      location.replace(url);
+    } else {
+      console.warn("No match in index.json for:", slug);
+    }
+  }
+
+  route();
+
+})();
