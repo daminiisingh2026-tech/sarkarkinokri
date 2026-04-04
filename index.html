@@ -197,5 +197,30 @@
 })();
 </script>
 
+<script>
+(async function(){
+  if(location.hostname.includes("github.io")){
+    console.log("TEST 1");
+    try{
+      const r1 = await fetch("data/index.json");
+      console.log("data/index.json →", r1.status);
+    }catch(e){
+      console.log("data/index.json ERROR", e);
+    }
+
+    console.log("TEST 2");
+    try{
+      const r2 = await fetch("/SarkarKinokri/data/index.json");
+      console.log("/SarkarKinokri/data/index.json →", r2.status);
+    }catch(e){
+      console.log("prefixed ERROR", e);
+    }
+  }
+})();
+</script>
+
+
+
+
 </body>
 </html>
