@@ -1,20 +1,40 @@
 /**
- * loader.js — STABLE UNIVERSAL LOADER (rel + PathFix compatible)
+ * loader.js — COMPATIBILITY UNIVERSAL LOADER
+ * Works with existing router.js, details.js, main.js, ticker.js
  */
+
 window.Loader = {
     indexManifest: null,
     _sharedFetch: null,
 
+    // REQUIRED by details.js
+    getBase() {
+        if (window.PathFix && window.PathFix.base) {
+            return window.PathFix.base + "/";
+        }
+
+        // fallback for Acode / localhost
+        const path = location.pathname;
+        const parts = path.split("/").filter(Boolean);
+
+        // if inside repo folder
+        if (location.hostname.includes("github.io") && parts.length) {
+            return "/" + parts[0] + "/";
+        }
+
+        return "";
+    },
+
     _resolve(path) {
         let final = path;
 
-        // Step 1: router depth resolver
+        // router depth resolver (if exists)
         if (typeof window.rel === "function") {
             final = window.rel(final);
         }
 
-        // Step 2: optional GitHub repo prefix
-        if (window.PathFix && typeof window.PathFix.resolve === "function") {
+        // github repo prefix (optional)
+        if (window.PathFix && window.PathFix.resolve) {
             final = window.PathFix.resolve(final);
         }
 
@@ -33,10 +53,11 @@ window.Loader = {
                 if (!res.ok) throw new Error("Manifest fetch failed");
 
                 this.indexManifest = await res.json();
-                console.log("%c✅ Manifest Secured", "color:#10b981;font-weight:bold;");
+                console.log("✅ Loader initialized");
                 return this.indexManifest;
+
             } catch (e) {
-                console.error("Loader init failed:", e);
+                console.error("❌ Loader init failed", e);
                 this._sharedFetch = null;
                 return null;
             }
@@ -52,7 +73,7 @@ window.Loader = {
         const raw = await this._fetchJSON(finalPath);
         if (!raw) return null;
 
-        // normalize events
+        // events normalization
         if (type === "events") {
             return {
                 ...raw,
@@ -60,7 +81,7 @@ window.Loader = {
             };
         }
 
-        // normalize jobsdata
+        // jobsdata normalization
         if (type === "jobsdata") {
             return Array.isArray(raw)
                 ? raw
@@ -75,7 +96,7 @@ window.Loader = {
             const final = this._resolve(url);
             const res = await fetch(final);
             return res.ok ? await res.json() : null;
-        } catch (e) {
+        } catch {
             return null;
         }
     },
