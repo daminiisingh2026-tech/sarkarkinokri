@@ -14,17 +14,20 @@
     resolve(path) {
       if (!path) return path;
 
-      // don't touch external URLs
+      // external
       if (/^(https?:)?\/\//.test(path)) return path;
 
-      // only modify on GitHub
+      // already absolute
+      if (path.startsWith("/")) {
+        return BASE + path;
+      }
+
+      // GitHub → force absolute from repo root
       if (BASE) {
-        // remove leading slash
-        path = path.replace(/^\/+/, "");
         return BASE + "/" + path;
       }
 
-      // Acode / localhost: leave untouched
+      // Acode → keep relative
       return path;
     }
   };
