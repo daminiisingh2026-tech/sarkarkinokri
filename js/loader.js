@@ -1,72 +1,54 @@
-/**
- * loader.js — THE HYBRID SPECIALIST
- */
-window.Loader = {
-    indexManifest: null,
-    _sharedFetch: null,
+(function () {
 
-    getBase() {
-        return (window.SarkarPath && window.SarkarPath.base) ? window.SarkarPath.base : '/';
-    },
+  if (!window.PathFix) {
+    console.error("PathFix missing");
+    return;
+  }
 
-    // 1. Manifest is always an Object with 'entries'
-    async init(path) {
-        if (this.indexManifest) return this.indexManifest;
-        if (this._sharedFetch) return this._sharedFetch;
+  const BASE = window.PathFix.base;
 
-        const finalPath = window.rel ? window.rel(path) : path;
-        this._sharedFetch = (async () => {
-            try {
-                const res = await fetch(finalPath);
-                this.indexManifest = await res.json();
-                console.log("%c✅ Manifest Secured", "color: #10b981; font-weight: bold;");
-                return this.indexManifest;
-            } catch (e) {
-                this._sharedFetch = null;
-                return null;
-            }
-        })();
-        return this._sharedFetch;
-    },
+  const build = (p) => {
+    if (!p) return BASE;
 
-    // 2. Intelligent Fetching based on 'type'
-    async fetchByMaster(id, type) {
-        const fileName = id.endsWith('.json') ? id : `${id}.json`;
-        const finalPath = window.rel ? window.rel(`data/${type}/${fileName}`) : `data/${type}/${fileName}`;
-        
-        const raw = await this._fetchJSON(finalPath);
-        if (!raw) return null;
+    if (p.startsWith("http")) return p;
+    if (p.startsWith("/")) p = p.substring(1);
 
-        // --- THE LOGIC HOOKS ---
-        if (type === "events") {
-            // Ensure it returns an Object with an events array for the hooks
-            return {
-                ...raw,
-                events: raw.events || (Array.isArray(raw) ? raw : [])
-            };
-        } 
-        
-        if (type === "jobsdata") {
-            // Ensure it returns an Array for table rendering
-            return Array.isArray(raw) ? raw : (raw.data || raw.rows || [raw]);
-        }
+    return BASE + p;
+  };
 
-        return raw; // Default for dailyposts or others
-    },
+  async function loadJSON(path) {
+    try {
+      const url = build(path);
+      const res = await fetch(url);
 
-    async _fetchJSON(url) {
-        try {
-            const res = await fetch(url);
-            return res.ok ? await res.json() : null;
-        } catch (e) { return null; }
-    },
+      if (!res.ok) throw new Error("HTTP " + res.status);
 
-    getAllMasterIds() {
-        // Correctly targets 'entries' from your index.json
-        const m = this.indexManifest;
-        if (!m) return [];
-        const list = m.entries || m.rows || (Array.isArray(m) ? m : []);
-        // Get unique IDs only
-        return [...new Set(list.map(item => item.master_id || item.id))].filter(Boolean);
+      return await res.json();
+    } catch (err) {
+      console.error("Loader JSON error:", path, err);
+      return null;
     }
-};
+  }
+
+  async function loadHTML(path) {
+    try {
+      const url = build(path);
+      const res = await fetch(url);
+
+      if (!res.ok) throw new Error("HTTP " + res.status);
+
+      return await res.text();
+    } catch (err) {
+      console.error("Loader HTML error:", path, err);
+      return "";
+    }
+  }
+
+  window.Loader = {
+    base: BASE,
+    build,
+    json: loadJSON,
+    html: loadHTML
+  };
+
+})();
