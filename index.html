@@ -177,5 +177,25 @@
 <script src="js/search.js" defer></script>
 <script src="js/ticker.js" defer></script>
 
+
+<!-- index.html -->
+... your scripts ...
+
+<script>
+(function () {
+  if (location.hostname.includes("github.io")) {
+    console.log("🧪 GitHub Debug Mode ON");
+
+    const s = document.createElement("script");
+    s.src = "https://cdn.jsdelivr.net/npm/eruda";
+    s.onload = function () {
+      eruda.init();
+      console.log("🧪 Eruda loaded");
+    };
+    document.body.appendChild(s);
+  }
+})();
+</script>
+
 </body>
 </html>
