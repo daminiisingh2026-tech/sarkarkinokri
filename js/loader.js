@@ -5,48 +5,21 @@
     return;
   }
 
-  const BASE = window.PathFix.base;
-
-  const build = (p) => {
-    if (!p) return BASE;
-
-    if (p.startsWith("http")) return p;
-    if (p.startsWith("/")) p = p.substring(1);
-
-    return BASE + p;
-  };
-
   async function loadJSON(path) {
-    try {
-      const url = build(path);
-      const res = await fetch(url);
-
-      if (!res.ok) throw new Error("HTTP " + res.status);
-
-      return await res.json();
-    } catch (err) {
-      console.error("Loader JSON error:", path, err);
-      return null;
-    }
+    const url = PathFix.build(path);
+    const res = await fetch(url);
+    return res.json();
   }
 
   async function loadHTML(path) {
-    try {
-      const url = build(path);
-      const res = await fetch(url);
-
-      if (!res.ok) throw new Error("HTTP " + res.status);
-
-      return await res.text();
-    } catch (err) {
-      console.error("Loader HTML error:", path, err);
-      return "";
-    }
+    const url = PathFix.build(path);
+    const res = await fetch(url);
+    return res.text();
   }
 
   window.Loader = {
-    base: BASE,
-    build,
+    base: PathFix.base,
+    build: PathFix.build,
     json: loadJSON,
     html: loadHTML
   };
