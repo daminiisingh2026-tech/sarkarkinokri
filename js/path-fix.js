@@ -1,22 +1,29 @@
 (function () {
-    const isGithub = location.hostname.includes("github.io");
-    const repoRoot = "/sarkarkinokri/";
+  const getBase = () => {
+    const { origin, pathname } = window.location;
 
-    window.SarkarPath = {
-        base: isGithub ? repoRoot : "/",
+    // GitHub Pages project repo support
+    // Example: username.github.io/project-name/
+    const parts = pathname.split("/").filter(Boolean);
 
-        rel(path) {
-            if (!path || path.startsWith("http") || path.startsWith("#")) return path;
+    if (origin.includes("github.io") && parts.length > 0) {
+      return origin + "/" + parts[0] + "/";
+    }
 
-            // prevent double base
-            if (path.startsWith(this.base)) return path;
+    // Normal domain
+    return origin + "/";
+  };
 
-            const clean = path.replace(/^\/+/, "");
-            return this.base + clean;
-        }
-    };
+  window.PathFix = {
+    base: getBase(),
 
-    window.rel = window.SarkarPath.rel.bind(window.SarkarPath);
+    build: function (path) {
+      if (!path) return this.base;
 
-    console.log("%c[Commander] Root:", "color:#8b5cf6;font-weight:bold;", window.SarkarPath.base);
+      if (path.startsWith("http")) return path;
+      if (path.startsWith("/")) path = path.substring(1);
+
+      return this.base + path;
+    }
+  };
 })();
