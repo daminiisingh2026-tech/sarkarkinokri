@@ -1,34 +1,37 @@
 (function () {
 
-    const isGithub = location.hostname.includes("github.io");
+  function getBase() {
+    const { hostname, pathname } = window.location;
 
-    function getRepoRoot() {
-        if (!isGithub) return "/";
-        const parts = location.pathname.split("/").filter(Boolean);
-        return parts.length ? `/${parts[0]}/` : "/";
+    // GitHub pages
+    if (hostname.includes("github.io")) {
+      const parts = pathname.split("/").filter(Boolean);
+      return parts.length ? "/" + parts[0] : "";
     }
 
-    window.SarkarPath = {
-        base: getRepoRoot(),
+    // local (acode)
+    return "";
+  }
 
-        rel(path) {
-            if (!path || path.startsWith("http") || path.startsWith("#"))
-                return path;
+  const BASE = getBase();
 
-            if (path.startsWith(this.base))
-                return path;
+  window.PathFix = {
+    base: BASE,
+    resolve: function (path) {
 
-            const clean = path.replace(/^\/+/, "");
-            return this.base + clean;
-        }
-    };
+      if (!path) return BASE;
 
-    window.rel = window.SarkarPath.rel.bind(window.SarkarPath);
+      // external link
+      if (/^(https?:)?\/\//.test(path)) return path;
 
-    console.log(
-        "%c[Commander] Root:",
-        "color:#8b5cf6;font-weight:bold;",
-        window.SarkarPath.base
-    );
+      // already prefixed
+      if (BASE && path.startsWith(BASE)) return path;
+
+      // ensure no double slash
+      if (path.startsWith("/")) path = path.slice(1);
+
+      return BASE + "/" + path;
+    }
+  };
 
 })();
