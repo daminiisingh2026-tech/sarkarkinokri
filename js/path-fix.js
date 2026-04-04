@@ -10,25 +10,12 @@
 
   window.PathFix = {
     base: BASE,
-
     resolve(path) {
-      if (!path) return path;
-
-      // external
+      if (!BASE) return path;
       if (/^(https?:)?\/\//.test(path)) return path;
 
-      // already absolute
-      if (path.startsWith("/")) {
-        return BASE + path;
-      }
-
-      // GitHub → force absolute from repo root
-      if (BASE) {
-        return BASE + "/" + path;
-      }
-
-      // Acode → keep relative
-      return path;
+      path = path.replace(/^\/+/, "");
+      return BASE + "/" + path;
     }
   };
 
