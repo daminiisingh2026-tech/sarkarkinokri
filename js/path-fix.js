@@ -1,30 +1,34 @@
 (function () {
 
-  function getBase() {
-    const { origin, pathname } = window.location;
+    const isGithub = location.hostname.includes("github.io");
 
-    // GitHub project repo detection
-    const segments = pathname.split("/").filter(Boolean);
-
-    if (origin.includes("github.io") && segments.length > 0) {
-      return origin + "/" + segments[0] + "/";
+    function getRepoRoot() {
+        if (!isGithub) return "/";
+        const parts = location.pathname.split("/").filter(Boolean);
+        return parts.length ? `/${parts[0]}/` : "/";
     }
 
-    return origin + "/";
-  }
+    window.SarkarPath = {
+        base: getRepoRoot(),
 
-  window.PathFix = {
-    base: getBase(),
+        rel(path) {
+            if (!path || path.startsWith("http") || path.startsWith("#"))
+                return path;
 
-    build: function (path) {
-      if (!path) return this.base;
+            if (path.startsWith(this.base))
+                return path;
 
-      if (/^(http|https):\/\//i.test(path)) return path;
+            const clean = path.replace(/^\/+/, "");
+            return this.base + clean;
+        }
+    };
 
-      path = path.replace(/^\/+/, "");
+    window.rel = window.SarkarPath.rel.bind(window.SarkarPath);
 
-      return this.base + path;
-    }
-  };
+    console.log(
+        "%c[Commander] Root:",
+        "color:#8b5cf6;font-weight:bold;",
+        window.SarkarPath.base
+    );
 
 })();
