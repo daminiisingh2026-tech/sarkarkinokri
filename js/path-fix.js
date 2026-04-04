@@ -1,3 +1,6 @@
+/**
+ * path-fix.js — minimal GitHub repo prefix
+ */
 (function () {
 
   const isGithub = location.hostname.includes("github.io");
@@ -10,12 +13,16 @@
 
   window.PathFix = {
     base: BASE,
+
     resolve(path) {
-      if (!BASE) return path;
+      if (!path) return path;
+
+      // ignore external
       if (/^(https?:)?\/\//.test(path)) return path;
 
       path = path.replace(/^\/+/, "");
-      return BASE + "/" + path;
+
+      return BASE ? BASE + "/" + path : path;
     }
   };
 
