@@ -1,5 +1,5 @@
 /**
- * path-fix.js — GLOBAL SAFE FETCH PREFIX (GitHub only)
+ * path-fix.js — FINAL ROBUST VERSION
  */
 (function () {
 
@@ -7,17 +7,28 @@
   let BASE = "";
 
   if (isGithub) {
-    const parts = location.pathname.split("/").filter(Boolean);
-    BASE = parts.length ? "/" + parts[0] : "";
+
+    const path = location.pathname;
+
+    // Case 1: /repo/...
+    const parts = path.split("/").filter(Boolean);
+    if (parts.length > 0) {
+      BASE = "/" + parts[0];
+    }
+
+    // Case 2: fallback — derive from URL
+    if (!BASE) {
+      const repoMatch = location.href.match(/github\.io\/([^\/]+)/);
+      if (repoMatch) BASE = "/" + repoMatch[1];
+    }
   }
+
+  console.log("🧭 PathFix BASE =", BASE);
 
   window.PathFix = {
     base: BASE,
-
     resolve(path) {
       if (!path) return path;
-
-      // ignore external
       if (/^(https?:)?\/\//.test(path)) return path;
 
       path = path.replace(/^\/+/, "");
@@ -25,21 +36,14 @@
     }
   };
 
-  // ✅ GLOBAL FETCH PATCH (required for ticker.js)
   const _fetch = window.fetch;
 
   window.fetch = function (url, options) {
 
-    if (typeof url === "string") {
-
-      // ignore external URLs
-      if (!/^(https?:)?\/\//.test(url)) {
-
-        url = url.replace(/^\/+/, "");
-
-        if (BASE && !url.startsWith(BASE)) {
-          url = BASE + "/" + url;
-        }
+    if (typeof url === "string" && !/^(https?:)?\/\//.test(url)) {
+      url = url.replace(/^\/+/, "");
+      if (BASE && !url.startsWith(BASE)) {
+        url = BASE + "/" + url;
       }
     }
 
