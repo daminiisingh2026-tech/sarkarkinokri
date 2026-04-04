@@ -1,36 +1,31 @@
 (function () {
 
-  function getBase() {
-    const { hostname, pathname } = window.location;
+  const isGithub = location.hostname.includes("github.io");
+  let BASE = "";
 
-    // GitHub pages
-    if (hostname.includes("github.io")) {
-      const parts = pathname.split("/").filter(Boolean);
-      return parts.length ? "/" + parts[0] : "";
-    }
-
-    // local (acode)
-    return "";
+  if (isGithub) {
+    const parts = location.pathname.split("/").filter(Boolean);
+    BASE = parts.length ? "/" + parts[0] : "";
   }
-
-  const BASE = getBase();
 
   window.PathFix = {
     base: BASE,
-    resolve: function (path) {
 
-      if (!path) return BASE;
+    resolve(path) {
+      if (!path) return path;
 
-      // external link
+      // don't touch external URLs
       if (/^(https?:)?\/\//.test(path)) return path;
 
-      // already prefixed
-      if (BASE && path.startsWith(BASE)) return path;
+      // only modify on GitHub
+      if (BASE) {
+        // remove leading slash
+        path = path.replace(/^\/+/, "");
+        return BASE + "/" + path;
+      }
 
-      // ensure no double slash
-      if (path.startsWith("/")) path = path.slice(1);
-
-      return BASE + "/" + path;
+      // Acode / localhost: leave untouched
+      return path;
     }
   };
 
