@@ -1,63 +1,24 @@
 /**
- * loader.js — COMPATIBILITY UNIVERSAL LOADER
- * Works with existing router.js, details.js, main.js, ticker.js
+ * loader.js — THE HYBRID SPECIALIST
  */
-
 window.Loader = {
     indexManifest: null,
     _sharedFetch: null,
 
-    // REQUIRED by details.js
-    getBase() {
-        if (window.PathFix && window.PathFix.base) {
-            return window.PathFix.base + "/";
-        }
-
-        // fallback for Acode / localhost
-        const path = location.pathname;
-        const parts = path.split("/").filter(Boolean);
-
-        // if inside repo folder
-        if (location.hostname.includes("github.io") && parts.length) {
-            return "/" + parts[0] + "/";
-        }
-
-        return "";
-    },
-
-    _resolve(path) {
-        let final = path;
-
-        // router depth resolver (if exists)
-        if (typeof window.rel === "function") {
-            final = window.rel(final);
-        }
-
-        // github repo prefix (optional)
-        if (window.PathFix && window.PathFix.resolve) {
-            final = window.PathFix.resolve(final);
-        }
-
-        return final;
-    },
-
+    // 1. Manifest Fetching Logic
     async init(path) {
         if (this.indexManifest) return this.indexManifest;
         if (this._sharedFetch) return this._sharedFetch;
 
-        const finalPath = this._resolve(path);
+        const finalPath = window.rel ? window.rel(path) : path;
 
         this._sharedFetch = (async () => {
             try {
                 const res = await fetch(finalPath);
-                if (!res.ok) throw new Error("Manifest fetch failed");
-
                 this.indexManifest = await res.json();
-                console.log("✅ Loader initialized");
+                console.log("%c✅ Manifest Secured", "color: #10b981; font-weight: bold;");
                 return this.indexManifest;
-
             } catch (e) {
-                console.error("❌ Loader init failed", e);
                 this._sharedFetch = null;
                 return null;
             }
@@ -66,49 +27,39 @@ window.Loader = {
         return this._sharedFetch;
     },
 
+    // 2. Intelligent Fetching based on 'type'
     async fetchByMaster(id, type) {
-        const fileName = id.endsWith(".json") ? id : `${id}.json`;
-        const finalPath = this._resolve(`data/${type}/${fileName}`);
-
+        const fileName = id.endsWith('.json') ? id : `${id}.json`;
+        
+        // Using the dynamic path resolution we fixed
+        const finalPath = window.rel ? window.rel(`data/${type}/${fileName}`) : `data/${type}/${fileName}`;
+        
         const raw = await this._fetchJSON(finalPath);
         if (!raw) return null;
 
-        // events normalization
+        // --- THE LOGIC HOOKS ---
         if (type === "events") {
+            // Ensure it returns an Object with an events array for the hooks
             return {
                 ...raw,
                 events: raw.events || (Array.isArray(raw) ? raw : [])
             };
-        }
+        } 
 
-        // jobsdata normalization
         if (type === "jobsdata") {
-            return Array.isArray(raw)
-                ? raw
-                : (raw.data || raw.rows || [raw]);
+            // Ensure it returns an Array for table rendering
+            return Array.isArray(raw) ? raw : (raw.data || raw.rows || [raw]);
         }
 
-        return raw;
+        return raw; // Default: for dailyposts or others
     },
 
     async _fetchJSON(url) {
         try {
-            const final = this._resolve(url);
-            const res = await fetch(final);
+            const res = await fetch(url);
             return res.ok ? await res.json() : null;
-        } catch {
-            return null;
+        } catch (e) { 
+            return null; 
         }
-    },
-
-    getAllMasterIds() {
-        const m = this.indexManifest;
-        if (!m) return [];
-
-        const list = m.entries || m.rows || (Array.isArray(m) ? m : []);
-
-        return [...new Set(
-            list.map(item => item.master_id || item.id)
-        )].filter(Boolean);
     }
 };
