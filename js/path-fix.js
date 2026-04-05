@@ -1,72 +1,22 @@
-/**
- * path-fix.js — DEBUG TEMP VERSION
- */
 (function () {
+    const isGithub = location.hostname.includes("github.io");
+    const repoRoot = "/sarkarkinokri/";
 
-  console.log("🧭 PathFix script running");
+    window.SarkarPath = {
+        base: isGithub ? repoRoot : "/",
 
-  const isGithub = location.hostname.includes("github.io");
-  let BASE = "";
+        rel(path) {
+            if (!path || path.startsWith('http') || path.startsWith('#')) return path;
 
-  if (isGithub) {
+            // prevent double base
+            if (path.startsWith(this.base)) return path;
 
-    const path = location.pathname;
+            const clean = path.replace(/^\//, "");
+            return this.base + clean;
+        }
+    };
 
-    console.log("🧭 pathname:", path);
+    window.rel = window.SarkarPath.rel.bind(window.SarkarPath);
 
-    // Case 1: /repo/...
-    const parts = path.split("/").filter(Boolean);
-    if (parts.length > 0) {
-      BASE = "/" + parts[0];
-    }
-
-    // Case 2 fallback
-    if (!BASE) {
-      const repoMatch = location.href.match(/github\.io\/([^\/]+)/);
-      if (repoMatch) BASE = "/" + repoMatch[1];
-    }
-  }
-
-  console.log("🧭 PathFix BASE =", BASE);
-
-  window.PathFix = {
-    base: BASE,
-    resolve(path) {
-      console.log("🧭 resolve input:", path);
-
-      if (!path) return path;
-      if (/^(https?:)?\/\//.test(path)) return path;
-
-      path = path.replace(/^\/+/, "");
-
-      const final = BASE ? BASE + "/" + path : path;
-
-      console.log("🧭 resolve output:", final);
-
-      return final;
-    }
-  };
-
-  const _fetch = window.fetch;
-
-  window.fetch = function (url, options) {
-
-    console.log("🌐 FETCH INPUT:", url);
-
-    if (typeof url === "string" && !/^(https?:)?\/\//.test(url)) {
-
-      const original = url;
-
-      url = url.replace(/^\/+/, "");
-
-      if (BASE && !url.startsWith(BASE)) {
-        url = BASE + "/" + url;
-      }
-
-      console.log("🌐 FETCH MODIFIED:", original, "→", url);
-    }
-
-    return _fetch(url, options);
-  };
-
-})();
+    console.log("%c[Commander] Root:", "color: #8b5cf6; font-weight: bold;", window.SarkarPath.base);
+})(); // Restored original closing from red line 22
