@@ -1,66 +1,70 @@
 /**
- * loader.js — DEEP-LINK STABILITY VERSION
+ * loader.js — GLOBAL PATH ENFORCER (GitHub Stable)
  */
 window.Loader = {
     indexManifest: null,
     _sharedFetch: null,
     _cache: new Map(),
 
+    // 1. DYNAMIC BASE DETECTOR
     getBase() {
-        return window.location.hostname.includes('github.io') ? '/sarkarkinokri/' : '/';
+        const isGitHub = window.location.hostname.includes('github.io');
+        return isGitHub ? '/sarkarkinokri/' : '/';
     },
 
+    // 2. GLOBAL PATH CLEANER (Strips ../ and fixes routing)
     _resolve(path) {
+        if (!path || typeof path !== 'string') return path;
+        // Strip any relative jumps (../) or leading slashes (/)
         const clean = path.replace(/^\.\.\//g, '').replace(/^\//, '');
-        return (this.getBase() + clean).replace(/\/+/g, '/');
+        const final = (this.getBase() + clean).replace(/\/+/g, '/');
+        return final;
     },
 
     async init(path) {
         if (this.indexManifest) return this.indexManifest;
         if (this._sharedFetch) return this._sharedFetch;
 
+        // Force resolve the manifest to its absolute GitHub path
         const finalPath = this._resolve('data/index.json');
+        
         this._sharedFetch = (async () => {
             try {
                 const res = await fetch(finalPath, { priority: 'high' });
                 if (res.ok) {
                     this.indexManifest = await res.json();
+                    console.log("%c✅ Engine Linked", "color: #10b981; font-weight: bold;");
                     return this.indexManifest;
                 }
-            } catch (e) { this._sharedFetch = null; }
+            } catch (e) { console.error("❌ Manifest Error"); }
+            this._sharedFetch = null;
             return null;
         })();
         return this._sharedFetch;
     },
 
-    // IMPROVED: Handles both Home Page (Full List) and Details Page (Single Item)
     async fetchByMaster(id, type) {
-        // 1. Generate a Cache Key that distinguishes between 'Full List' and 'Single Item'
-        const cacheKey = id ? `${type}_${id}` : `${type}_full`;
+        if (!id) return null;
+        const cacheKey = `${type}_${id}`;
         if (this._cache.has(cacheKey)) return this._cache.get(cacheKey);
 
-        const fileName = id ? (id.endsWith('.json') ? id : `${id}.json`) : 'index.json';
-        
-        // If no ID is provided, we might be looking for a category index
-        const rawPath = id ? `data/${type}/${fileName}` : `data/${type}.json`;
-        const finalPath = this._resolve(rawPath);
+        const fileName = id.endsWith('.json') ? id : `${id}.json`;
+        const finalPath = this._resolve(`data/${type}/${fileName}`);
         
         const raw = await this._fetchJSON(finalPath);
         if (!raw) return null;
 
+        // THE "ACODE" HANDSHAKE (Array vs Object Fix)
         let processed = raw;
-
-        // 2. SMART NORMALIZATION
         if (type === "events") {
             processed = { ...raw, events: raw.events || (Array.isArray(raw) ? raw : []) };
-        } 
-        else if (type === "jobsdata") {
-            // If we have an ID, extract that specific job. 
-            // If NO ID (Home Page), return the full Array so the grid can render.
-            if (id && Array.isArray(raw)) {
+        } else if (type === "jobsdata") {
+            // If it's an array (like MTS), find the matching entry.
+            // If it's an object, wrap it or find the key.
+            if (Array.isArray(raw)) {
                 processed = raw.find(item => item.master_id === id) || raw[0];
             } else {
-                processed = Array.isArray(raw) ? raw : (raw.data || raw.rows || [raw]);
+                processed = raw[id] || raw.data || raw;
             }
         }
 
@@ -70,8 +74,27 @@ window.Loader = {
 
     async _fetchJSON(url) {
         try {
+            console.log("🔍 Fetching:", url);
             const res = await fetch(url);
             return res.ok ? await res.json() : null;
         } catch (e) { return null; }
+    },
+
+    getAllMasterIds() {
+        const m = this.indexManifest;
+        if (!m) return [];
+        const list = m.entries || m.rows || (Array.isArray(m) ? m : []);
+        return [...new Set(list.map(item => item.master_id || item.id))].filter(Boolean);
     }
+};
+
+// 3. THE "NUCLEAR" FIX: Patch the global fetch to stop ../ 404s
+const originalFetch = window.fetch;
+window.fetch = function(input, init) {
+    if (typeof input === 'string' && input.includes('../data/')) {
+        const fixedUrl = window.Loader._resolve(input);
+        console.log("🛠️ Auto-Fixing Path:", input, "→", fixedUrl);
+        return originalFetch(fixedUrl, init);
+    }
+    return originalFetch(input, init);
 };
