@@ -1,64 +1,46 @@
 /* =========================================
    SHORT SLUG → MASTER ID AUTO UPGRADE
-   (runs before Loader + render)
+   (Redirects old/short IDs to full Master IDs)
 ========================================= */
 (function () {
-
   function normalize(str) {
     return (str || "").replace(/-\d{4}$/, "").toLowerCase();
   }
 
   async function upgradeShortSlug() {
-
     if (!location.pathname.includes("details.html")) return;
-
     const params = new URLSearchParams(location.search);
     const id = params.get("id");
-
     if (!id) return;
 
     const normalized = normalize(id);
-
-    // already upgraded
-    if (id !== normalized) return;
+    if (id !== normalized) return; // Already upgraded
 
     try {
       const res = await fetch("data/index.json");
       const data = await res.json();
+      const list = data.entries || data.jobsdata || data.data || data || [];
 
-      // SUPPORT BOTH STRUCTURES
-      const list =
-        data.entries ||
-        data.jobsdata ||
-        data.data ||
-        data || [];
-
-      if (!Array.isArray(list)) {
-        console.warn("Index is not array", list);
-        return;
-      }
+      if (!Array.isArray(list)) return;
 
       for (const item of list) {
-
         if (!item || !item.master_id) continue;
-
         if (normalize(item.master_id) === normalized) {
-
           console.log("Slug upgraded:", id, "→", item.master_id);
-
           location.replace(`details.html?id=${item.master_id}`);
           return;
         }
       }
-
     } catch (e) {
       console.warn("upgradeShortSlug failed", e);
     }
   }
-
   upgradeShortSlug();
-
 })();
+
+/* =========================================
+   MAIN RENDER ENGINE
+========================================= */
 (async () => {
   const loaderEl = document.getElementById('loader');
   const mainEl = document.getElementById('main-content');
@@ -68,81 +50,87 @@
     return;
   }
 
-  // ===============================
-  // UNIVERSAL PATH BUILDER
-  // ===============================
+  // 1. Initialize Loader
   const BASE = Loader.getBase();
-  const build = (p) => {
+  const buildPath = (p) => {
     if (!p || p === "#" || p.startsWith("http")) return p;
     const clean = p.startsWith('/') ? p.slice(1) : p;
     return BASE + clean;
   };
 
-  try { await Loader.init(build('data/index.json')); } catch (e) { return; }
+  try { 
+    await Loader.init(buildPath('data/index.json')); 
+  } catch (e) { 
+    loaderEl.innerHTML = `<p style="color:red;">Failed to initialize data index.</p>`;
+    return; 
+  }
 
   const params = new URLSearchParams(window.location.search);
   const masterId = params.get("id"); 
-  if (!masterId) return;
+  if (!masterId) {
+    loaderEl.innerHTML = `<p>No ID provided. <a href="index.html">Go Home</a></p>`;
+    return;
+  }
 
   /* ===============================
-     1. DATA FETCH & FALLBACK (MATCHED)
+     DATA FETCHING & NORMALIZATION
   =============================== */
   let jobsData = await Loader.fetchByMaster(masterId, "jobsdata");
   let eventsData = await Loader.fetchByMaster(masterId, "events");
-  let dailyPosts = (await Loader.fetchByMaster(masterId, "dailypost") || []).filter(p => p.master_id === masterId);
+  let dailyPosts = (await Loader.fetchByMaster(masterId, "dailypost") || [])
+                    .filter(p => p.master_id === masterId);
 
-  if (typeof jobsData === "string") { try { jobsData = JSON.parse(jobsData); } catch(e) { jobsData = null; } }
-  if (typeof eventsData === "string") { try { eventsData = JSON.parse(eventsData); } catch(e) { eventsData = null; } }
+  // Parse if strings (Legacy support)
+  if (typeof jobsData === "string") { try { jobsData = JSON.parse(jobsData); } catch(e) {} }
+  if (typeof eventsData === "string") { try { eventsData = JSON.parse(eventsData); } catch(e) {} }
 
-  let core = eventsData || {};
-  if (jobsData) {
-    let entry = Array.isArray(jobsData) ? jobsData.find(j => j.master_id === masterId) : (jobsData[masterId] || Object.values(jobsData)[0]);
-    core = { ...entry, ...core };
+  // Extract the core object from possible Arrays
+  const getCore = (data, id) => {
+    if (!data) return {};
+    if (Array.isArray(data)) return data.find(item => item.master_id === id) || data[0] || {};
+    return data[id] || data;
+  };
+
+  const jobCore = getCore(jobsData, masterId);
+  const eventCore = getCore(eventsData, masterId);
+
+  // Merge: Priority to job details, then timeline events
+  let core = { ...jobCore, ...eventCore };
+
+  // CRITICAL CHECK: If we have no title/exam name, we can't render
+  if (!core.title && !core.exam_name) {
+    console.error("Data missing or malformed for:", masterId);
+    loaderEl.innerHTML = `<div style="padding:20px; text-align:center;">
+        <p style="color:red; font-weight:bold;">⚠️ Record Not Found</p>
+        <p>The details for ${masterId} are not yet available.</p>
+        <a href="index.html" style="color:#002d57; text-decoration:underline;">Return Home</a>
+    </div>`;
+    return;
   }
 
-  if (!core.title) {
-    const fb = eventsData?.events?.[0] || dailyPosts[0] || {};
-    core.title = fb.label || fb.title || "Official Notification";
-  }
-
+  // 2. Hide Loader & Clear Container
   loaderEl.style.display = "none";
   mainEl.style.display = "block";
   mainEl.innerHTML = "";
 
   /* ===============================
-     2. EXECUTION ORDER (FIXED: Added Nav)
+     EXECUTION: RENDER COMPONENTS
   =============================== */
-
-  // NEW: Render the Back/Home buttons first
   renderNav();
-
-  // A. Header
   renderHeader(core);
   
-  // B. Summary
-  if (core.recruitment_summary) {
-      const sum = document.createElement("div");
-      sum.className = "section-box summary-box";
-      sum.innerHTML = `<div class="section-title">📢 Summary</div><p style="padding:15px; margin:0; line-height:1.6;">${core.recruitment_summary}</p>`;
-      mainEl.appendChild(sum);
-  }
-
-  // C. Daily Posts (News)
+  if (core.recruitment_summary) renderSummary(core.recruitment_summary);
   if (dailyPosts.length) renderDailyPosts(dailyPosts);
   
-  // D. Dynamic rendering (Syllabus, Pattern, Tables)
   renderDynamic(core);
 
-  // E. Final Step: Render Important Links at the BOTTOM
-  if (eventsData?.events) {
-      renderPhasedButtons(eventsData.events);
-  }
+  // Important links at the bottom
+  if (eventCore.events) renderPhasedButtons(eventCore.events);
 
   /* ===============================
-     3. RENDERING FUNCTIONS (MATCHED)
+     UI RENDERING FUNCTIONS
   =============================== */
 
-  // NEW: Navigation Function for Header
   function renderNav() {
     const nav = document.createElement("div");
     nav.style.cssText = "display:flex; justify-content:space-between; padding:10px; background:#002d57; margin-bottom:10px; border-bottom:2px solid #ff6a00;";
@@ -157,6 +145,7 @@
     const div = document.createElement("div");
     div.className = "job-header";
     const scope = (data.header_scope || ["Govt Job"]).map(s => `<span class="pill" style="background:rgba(255,255,255,0.2); color:white; border:1px solid rgba(255,255,255,0.3); padding:4px 10px; border-radius:4px; font-size:11px; margin-right:5px;">${s}</span>`).join("");
+    
     div.innerHTML = `
       <div class="meta-pills">${scope}</div>
       <h1 style="margin:10px 0; font-size:1.5rem;">${data.title || data.exam_name}</h1>
@@ -167,8 +156,15 @@
     mainEl.appendChild(div);
   }
 
+  function renderSummary(text) {
+      const sum = document.createElement("div");
+      sum.className = "section-box summary-box";
+      sum.innerHTML = `<div class="section-title">📢 Summary</div><p style="padding:15px; margin:0; line-height:1.6;">${text}</p>`;
+      mainEl.appendChild(sum);
+  }
+
   function renderDynamic(data) {
-    const skip = ["overview", "title", "slug", "master_id", "header_scope", "notice_type", "notice_no", "events", "links", "status", "recruitment_summary"];
+    const skip = ["overview", "title", "slug", "master_id", "header_scope", "notice_type", "notice_no", "events", "links", "status", "recruitment_summary", "exam_name"];
     if (data.overview) renderGrid(data.overview, "📊 Quick Highlights");
 
     Object.entries(data).forEach(([key, value]) => {
@@ -225,7 +221,7 @@
     mainEl.appendChild(sec);
   }
 
-  function renderPhasedButtons(events, target) {
+  function renderPhasedButtons(events) {
     const sec = document.createElement("div");
     sec.className = "section-box";
     sec.style.borderLeft = "8px solid #22c55e"; 
@@ -260,8 +256,7 @@
       });
       root.appendChild(g);
     });
-    
-    if (target) { target.appendChild(sec); } else { mainEl.appendChild(sec); }
+    mainEl.appendChild(sec);
   }
 
   function renderDailyPosts(posts) {
