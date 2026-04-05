@@ -1,45 +1,69 @@
 /**
- * loader.js — THE HYBRID SPECIALIST (ROOT SAFE)
+ * loader.js — THE HYBRID SPECIALIST (SMART & ROOT SAFE)
  */
 window.Loader = {
     indexManifest: null,
+    _sharedFetch: null,
+
+    // NEW: Path Resolver to handle GitHub Subfolders
+    getBase() {
+        const isGitHub = window.location.hostname.includes('github.io');
+        // If on GitHub, add your repo name. If local/Acode, stay at root.
+        const base = isGitHub ? '/sarkarkinokri/' : '/';
+        return base;
+    },
     
-    // 1. Original Manifest Fetching
+    // 1. Original Manifest Fetching (Now with Shared Fetch for stability)
     async init(path) {
         if (this.indexManifest) return this.indexManifest;
+        if (this._sharedFetch) return this._sharedFetch;
 
-        const finalPath = window.rel ? window.rel(path) : path;
+        // Resolve Path: Prioritize PathFix/rel, fallback to getBase()
+        const finalPath = window.rel ? window.rel(path) : (this.getBase() + path).replace(/\/+/g, '/');
         
-        try {
-            console.log("🔍 Fetch Manifest:", finalPath); // Restored Red line
-            const res = await fetch(finalPath);
-            this.indexManifest = await res.json();
-            console.log("%c✅ Manifest Secured", "color: #10b981; font-weight: bold;");
-            return this.indexManifest;
-        } catch (e) {
-            console.error("❌ Manifest fetch failed:", finalPath); // Restored Red line
-            return null;
-        }
+        this._sharedFetch = (async () => {
+            try {
+                console.log("🔍 Fetch Manifest:", finalPath);
+                const res = await fetch(finalPath);
+                if (!res.ok) throw new Error("Fetch failed");
+                this.indexManifest = await res.json();
+                console.log("%c✅ Manifest Secured", "color: #10b981; font-weight: bold;");
+                return this.indexManifest;
+            } catch (e) {
+                console.error("❌ Manifest fetch failed:", finalPath);
+                this._sharedFetch = null;
+                return null;
+            }
+        })();
+        return this._sharedFetch;
     },
 
-    // 2. Original Intelligent Fetching
+    // 2. SMART FETCHING: Fixes the details.js demand (Array vs Object)
     async fetchByMaster(id, type) {
         const fileName = id.endsWith('.json') ? id : `${id}.json`;
-        
-        // Restored Original Red Path Logic (Lines 39-42)
         const rawPath = `data/${type}/${fileName}`;
-        const finalPath = window.rel ? window.rel(rawPath) : rawPath;
+        
+        // Resolve Path
+        const finalPath = window.rel ? window.rel(rawPath) : (this.getBase() + rawPath).replace(/\/+/g, '/');
         
         const raw = await this._fetchJSON(finalPath);
         if (!raw) return null;
 
-        // --- THE LOGIC HOOKS ---
+        // --- THE ACODE LOGIC HOOKS ---
         if (type === "events") {
-            return raw; // Original behavior before the Object/Array wrap
+            // Fix: Ensure we have an events property even if the file is just an array
+            return {
+                ...raw,
+                events: raw.events || (Array.isArray(raw) ? raw : [])
+            };
         } 
         
         if (type === "jobsdata") {
-            return raw; // Original behavior before the Array check
+            // FIX: THE DATA HANDSHAKE
+            // Forces the data into an Array format so details.js doesn't hang on "Syncing"
+            return Array.isArray(raw)
+                ? raw
+                : (raw.data || raw.rows || [raw]);
         }
 
         return raw; 
@@ -47,11 +71,11 @@ window.Loader = {
 
     async _fetchJSON(url) {
         try {
-            console.log("🔍 Fetch:", url); // Restored Red line
+            console.log("🔍 Fetch:", url);
             const res = await fetch(url);
             return res.ok ? await res.json() : null;
         } catch (e) { 
-            console.error("❌ Fetch failed:", url); // Restored Red line
+            console.error("❌ Fetch failed:", url);
             return null; 
         }
     },
@@ -60,7 +84,6 @@ window.Loader = {
         const m = this.indexManifest;
         if (!m) return [];
 
-        // Restored Original Red Mapping (Lines 75-80)
         const list = m.entries || m.rows || (Array.isArray(m) ? m : []);
         
         return [...new Set(
