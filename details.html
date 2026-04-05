@@ -82,53 +82,27 @@ fetch(rel + "data/index.json")
 
 <div id="main-content" style="display:none;"></div>
 </div>
+<script src="js/path-fix.js"></script>
 
 <script src="js/loader.js"></script>
+
 <script src="js/details.js"></script>
-<script src="/js/path-fix.js"></script>
-
-
-
-... your scripts ...
 
 <script>
 (function () {
   if (location.hostname.includes("github.io")) {
-    console.log("🧪 GitHub Debug Mode ON");
-
     const s = document.createElement("script");
     s.src = "https://cdn.jsdelivr.net/npm/eruda";
-    s.onload = function () {
+    s.onload = () => {
       eruda.init();
-      console.log("🧪 Eruda loaded");
+      // Final Verification using the actual window.rel function
+      const testPath = window.rel("data/index.json");
+      fetch(testPath).then(r => console.log(`🚀 System Check: ${testPath} -> ${r.status}`));
     };
     document.body.appendChild(s);
   }
 })();
 </script>
-
-<script>
-(async function(){
-  if(location.hostname.includes("github.io")){
-    console.log("TEST 1");
-    try{
-      const r1 = await fetch("data/index.json");
-      console.log("data/index.json →", r1.status);
-    }catch(e){
-      console.log("data/index.json ERROR", e);
-    }
-
-    console.log("TEST 2");
-    try{
-      const r2 = await fetch("/sarkarkinokri/data/index.json");
-      console.log("/sarkarkinokri/data/index.json →", r2.status);
-    }catch(e){
-      console.log("prefixed ERROR", e);
-    }
-  }
-})();
-</script>
-
 
 
 
