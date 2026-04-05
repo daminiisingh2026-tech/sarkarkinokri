@@ -1,131 +1,88 @@
 (function () {
   "use strict";
 
-  // -----------------------------
-  // RELATIVE PATH HELPER
-  // -----------------------------
+  // 1. IMPROVED PATH HELPER (GitHub Friendly)
   window.rel = function (path = "") {
-    const depth = location.pathname.split("/").filter(Boolean).length - 1;
-    return "../".repeat(depth) + path;
+    const isGitHub = window.location.hostname.includes('github.io');
+    const base = isGitHub ? '/sarkarkinokri/' : '/';
+    // Remove leading slashes from path to prevent double slashes
+    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+    return base + cleanPath;
   };
 
-  // -----------------------------
-  // NORMALIZE
-  // -----------------------------
   function normalize(str) {
     return (str || "").replace(/-\d{4}$/, "").toLowerCase();
   }
 
-  // -----------------------------
-  // GET SLUG
-  // -----------------------------
   function getSlug() {
     const file = location.pathname.split("/").pop() || "";
     return file.replace(".html", "").toLowerCase();
   }
 
-  // -----------------------------
-  // FETCH JSON
-  // -----------------------------
   async function fetchJSON(path) {
+    // 2. Use the Loader if available for caching/stability
+    if (window.Loader && window.Loader.init) {
+        const manifest = await window.Loader.init('data/index.json');
+        if (path.includes('index.json')) return manifest;
+        // Fallback to fetch for specific files
+    }
+
     try {
       const res = await fetch(window.rel(path));
       if (!res.ok) return null;
       return await res.json();
     } catch (e) {
-      console.warn("fetch failed:", path);
       return null;
     }
   }
 
-  // -----------------------------
-  // ROUTER
-  // -----------------------------
   async function route() {
-
     const isDetails = location.pathname.includes("details.html");
+    const params = new URLSearchParams(location.search);
 
     // =====================================================
     // CASE 1 : DETAILS PAGE → UPGRADE SHORT SLUG
     // =====================================================
     if (isDetails) {
-
-      const params = new URLSearchParams(location.search);
       const id = params.get("id");
       if (!id) return;
 
       const normalized = normalize(id);
-
-      // already master id (has year)
       if (normalized !== id) return;
 
       const index = await fetchJSON("data/index.json");
       if (!index) return;
 
-      let masterId = null;
-
-      for (const item of index) {
-        if (!item.master_id) continue;
-
-        if (normalize(item.master_id) === normalized) {
-          masterId = item.master_id;
-          break;
-        }
+      const entry = index.find(item => normalize(item.master_id) === normalized);
+      
+      if (entry && entry.master_id !== id) {
+        // Use window.rel to ensure the URL is absolute to the repo
+        location.replace(window.rel(`details.html?id=${entry.master_id}`));
       }
-
-      // upgrade safely
-      if (masterId && masterId !== id) {
-        const newUrl = `${location.pathname}?id=${masterId}`;
-        location.replace(newUrl);
-      }
-
       return;
     }
 
     // =====================================================
-    // CASE 2 : SLUG PAGE ROUTING
+    // CASE 2 : SLUG PAGE ROUTING (Home/Portal)
     // =====================================================
     const slug = normalize(getSlug());
+    if (slug === "index" || slug === "") return; // Don't route the home page
 
-    console.log("Router slug:", slug);
-
-    // -------------------------
-    // STATIC FIRST
-    // -------------------------
     const staticMap = await fetchJSON("data/staticportals.json");
-
     if (staticMap && staticMap[slug]) {
       location.replace(window.rel(staticMap[slug]));
       return;
     }
 
-    // -------------------------
-    // INDEX LOOKUP
-    // -------------------------
     const index = await fetchJSON("data/index.json");
     if (!index) return;
 
-    let masterId = null;
+    const match = index.find(item => normalize(item.master_id) === slug);
 
-    for (const item of index) {
-      if (!item.master_id) continue;
-
-      if (normalize(item.master_id) === slug) {
-        masterId = item.master_id;
-        break;
-      }
-    }
-
-    console.log("Mapped masterId:", masterId);
-
-    if (masterId) {
-      const url = window.rel(`details.html?id=${masterId}`);
-      location.replace(url);
-    } else {
-      console.warn("No match in index.json for:", slug);
+    if (match) {
+      location.replace(window.rel(`details.html?id=${match.master_id}`));
     }
   }
 
   route();
-
 })();
