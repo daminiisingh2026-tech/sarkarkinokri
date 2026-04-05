@@ -1,48 +1,48 @@
 /**
- * loader.js — GLOBAL PATH ENFORCER (GitHub Stable)
+ * loader.js — PERFORMANCE & RELIABILITY VERSION
  */
 window.Loader = {
     indexManifest: null,
     _sharedFetch: null,
-    _cache: new Map(),
+    _cache: new Map(), // Prevent re-fetching the same file
 
-    // 1. DYNAMIC BASE DETECTOR
     getBase() {
-        const isGitHub = window.location.hostname.includes('github.io');
-        return isGitHub ? '/sarkarkinokri/' : '/';
+        return window.location.hostname.includes('github.io') ? '/sarkarkinokri/' : '/';
     },
 
-    // 2. GLOBAL PATH CLEANER (Strips ../ and fixes routing)
     _resolve(path) {
-        if (!path || typeof path !== 'string') return path;
-        // Strip any relative jumps (../) or leading slashes (/)
         const clean = path.replace(/^\.\.\//g, '').replace(/^\//, '');
-        const final = (this.getBase() + clean).replace(/\/+/g, '/');
-        return final;
+        return (this.getBase() + clean).replace(/\/+/g, '/');
     },
 
+    // 1. FAST INIT: Load manifest immediately with high priority
     async init(path) {
         if (this.indexManifest) return this.indexManifest;
         if (this._sharedFetch) return this._sharedFetch;
 
-        // Force resolve the manifest to its absolute GitHub path
         const finalPath = this._resolve('data/index.json');
         
         this._sharedFetch = (async () => {
-            try {
-                const res = await fetch(finalPath, { priority: 'high' });
-                if (res.ok) {
-                    this.indexManifest = await res.json();
-                    console.log("%c✅ Engine Linked", "color: #10b981; font-weight: bold;");
-                    return this.indexManifest;
+            // RETRY LOGIC: Try 3 times before giving up
+            for (let i = 0; i < 3; i++) {
+                try {
+                    const res = await fetch(finalPath, { priority: 'high' });
+                    if (res.ok) {
+                        this.indexManifest = await res.json();
+                        return this.indexManifest;
+                    }
+                } catch (e) {
+                    console.warn(`Retry ${i+1} for manifest...`);
                 }
-            } catch (e) { console.error("❌ Manifest Error"); }
+                await new Promise(r => setTimeout(r, 200 * i)); // Wait longer each time
+            }
             this._sharedFetch = null;
             return null;
         })();
         return this._sharedFetch;
     },
 
+    // 2. SMART CACHING: Fixes the "Important Links Not Fetched" issue
     async fetchByMaster(id, type) {
         if (!id) return null;
         const cacheKey = `${type}_${id}`;
@@ -54,30 +54,24 @@ window.Loader = {
         const raw = await this._fetchJSON(finalPath);
         if (!raw) return null;
 
-        // THE "ACODE" HANDSHAKE (Array vs Object Fix)
         let processed = raw;
         if (type === "events") {
             processed = { ...raw, events: raw.events || (Array.isArray(raw) ? raw : []) };
         } else if (type === "jobsdata") {
-            // If it's an array (like MTS), find the matching entry.
-            // If it's an object, wrap it or find the key.
-            if (Array.isArray(raw)) {
-                processed = raw.find(item => item.master_id === id) || raw[0];
-            } else {
-                processed = raw[id] || raw.data || raw;
-            }
+            processed = Array.isArray(raw) ? raw : (raw.data || raw.rows || [raw]);
         }
 
-        this._cache.set(cacheKey, processed);
+        this._cache.set(cacheKey, processed); // Save to memory so refresh is instant
         return processed;
     },
 
     async _fetchJSON(url) {
         try {
-            console.log("🔍 Fetching:", url);
             const res = await fetch(url);
             return res.ok ? await res.json() : null;
-        } catch (e) { return null; }
+        } catch (e) { 
+            return null; 
+        }
     },
 
     getAllMasterIds() {
@@ -86,15 +80,4 @@ window.Loader = {
         const list = m.entries || m.rows || (Array.isArray(m) ? m : []);
         return [...new Set(list.map(item => item.master_id || item.id))].filter(Boolean);
     }
-};
-
-// 3. THE "NUCLEAR" FIX: Patch the global fetch to stop ../ 404s
-const originalFetch = window.fetch;
-window.fetch = function(input, init) {
-    if (typeof input === 'string' && input.includes('../data/')) {
-        const fixedUrl = window.Loader._resolve(input);
-        console.log("🛠️ Auto-Fixing Path:", input, "→", fixedUrl);
-        return originalFetch(fixedUrl, init);
-    }
-    return originalFetch(input, init);
 };
