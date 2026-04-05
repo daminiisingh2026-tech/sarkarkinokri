@@ -1,31 +1,35 @@
 /**
- * loader.js — THE HYBRID SPECIALIST (SMART & ROOT SAFE)
+ * loader.js — REFRESH-STABLE (ABSOLUTE PATHS)
  */
 window.Loader = {
     indexManifest: null,
     _sharedFetch: null,
 
-    // NEW: Path Resolver to handle GitHub Subfolders
+    // FORCE ABSOLUTE BASE
     getBase() {
         const isGitHub = window.location.hostname.includes('github.io');
-        // If on GitHub, add your repo name. If local/Acode, stay at root.
-        const base = isGitHub ? '/sarkarkinokri/' : '/';
-        return base;
+        // This ensures paths always start from the repo root, never relative ../
+        return isGitHub ? '/sarkarkinokri/' : '/';
     },
-    
-    // 1. Original Manifest Fetching (Now with Shared Fetch for stability)
+
+    _resolve(path) {
+        // Remove any existing ../ or leading slashes to prevent doubling
+        const cleanPath = path.replace(/^\.\.\//, '').replace(/^\//, '');
+        return this.getBase() + cleanPath;
+    },
+
     async init(path) {
         if (this.indexManifest) return this.indexManifest;
         if (this._sharedFetch) return this._sharedFetch;
 
-        // Resolve Path: Prioritize PathFix/rel, fallback to getBase()
-        const finalPath = window.rel ? window.rel(path) : (this.getBase() + path).replace(/\/+/g, '/');
+        // Force resolve the manifest path to be absolute
+        const finalPath = this._resolve('data/index.json');
         
         this._sharedFetch = (async () => {
             try {
-                console.log("🔍 Fetch Manifest:", finalPath);
+                console.log("🔍 Fetch Manifest (Absolute):", finalPath);
                 const res = await fetch(finalPath);
-                if (!res.ok) throw new Error("Fetch failed");
+                if (!res.ok) throw new Error("404");
                 this.indexManifest = await res.json();
                 console.log("%c✅ Manifest Secured", "color: #10b981; font-weight: bold;");
                 return this.indexManifest;
@@ -38,20 +42,16 @@ window.Loader = {
         return this._sharedFetch;
     },
 
-    // 2. SMART FETCHING: Fixes the details.js demand (Array vs Object)
     async fetchByMaster(id, type) {
         const fileName = id.endsWith('.json') ? id : `${id}.json`;
-        const rawPath = `data/${type}/${fileName}`;
-        
-        // Resolve Path
-        const finalPath = window.rel ? window.rel(rawPath) : (this.getBase() + rawPath).replace(/\/+/g, '/');
+        // Force absolute path for every data fetch
+        const finalPath = this._resolve(`data/${type}/${fileName}`);
         
         const raw = await this._fetchJSON(finalPath);
         if (!raw) return null;
 
-        // --- THE ACODE LOGIC HOOKS ---
+        // SMART CONVERSION (Matches Acode Logic)
         if (type === "events") {
-            // Fix: Ensure we have an events property even if the file is just an array
             return {
                 ...raw,
                 events: raw.events || (Array.isArray(raw) ? raw : [])
@@ -59,11 +59,7 @@ window.Loader = {
         } 
         
         if (type === "jobsdata") {
-            // FIX: THE DATA HANDSHAKE
-            // Forces the data into an Array format so details.js doesn't hang on "Syncing"
-            return Array.isArray(raw)
-                ? raw
-                : (raw.data || raw.rows || [raw]);
+            return Array.isArray(raw) ? raw : (raw.data || raw.rows || [raw]);
         }
 
         return raw; 
@@ -83,11 +79,7 @@ window.Loader = {
     getAllMasterIds() {
         const m = this.indexManifest;
         if (!m) return [];
-
         const list = m.entries || m.rows || (Array.isArray(m) ? m : []);
-        
-        return [...new Set(
-            list.map(item => item.master_id || item.id)
-        )].filter(Boolean);
+        return [...new Set(list.map(item => item.master_id || item.id))].filter(Boolean);
     }
 };
