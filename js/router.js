@@ -1,13 +1,13 @@
 (function () {
   "use strict";
 
-  // 1. IMPROVED PATH HELPER (GitHub Friendly)
+  // 1. THE PATH FIX: Instead of calculating depth with ../
+  // we use the actual repository name as the base.
   window.rel = function (path = "") {
     const isGitHub = window.location.hostname.includes('github.io');
     const base = isGitHub ? '/sarkarkinokri/' : '/';
-    // Remove leading slashes from path to prevent double slashes
     const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-    return base + cleanPath;
+    return (base + cleanPath).replace(/\/+/g, '/');
   };
 
   function normalize(str) {
@@ -19,54 +19,54 @@
     return file.replace(".html", "").toLowerCase();
   }
 
+  // 2. INTEGRATED FETCH: This talks to your Loader
   async function fetchJSON(path) {
-    // 2. Use the Loader if available for caching/stability
-    if (window.Loader && window.Loader.init) {
-        const manifest = await window.Loader.init('data/index.json');
-        if (path.includes('index.json')) return manifest;
-        // Fallback to fetch for specific files
+    // If the Loader exists, use its manifest to save time/speed
+    if (window.Loader && window.Loader.indexManifest) {
+       if (path.includes('index.json')) return window.Loader.indexManifest;
     }
-
+    
     try {
       const res = await fetch(window.rel(path));
       if (!res.ok) return null;
       return await res.json();
     } catch (e) {
+      console.warn("fetch failed:", path);
       return null;
     }
   }
 
   async function route() {
     const isDetails = location.pathname.includes("details.html");
-    const params = new URLSearchParams(location.search);
+    const slug = normalize(getSlug());
 
     // =====================================================
-    // CASE 1 : DETAILS PAGE → UPGRADE SHORT SLUG
+    // CASE 1 : DETAILS PAGE → ENSURE MASTER ID
     // =====================================================
     if (isDetails) {
+      const params = new URLSearchParams(location.search);
       const id = params.get("id");
       if (!id) return;
 
       const normalized = normalize(id);
-      if (normalized !== id) return;
+      if (normalized !== id) return; // Already has the year/master format
 
       const index = await fetchJSON("data/index.json");
       if (!index) return;
 
-      const entry = index.find(item => normalize(item.master_id) === normalized);
-      
-      if (entry && entry.master_id !== id) {
-        // Use window.rel to ensure the URL is absolute to the repo
-        location.replace(window.rel(`details.html?id=${entry.master_id}`));
+      // Find the full master_id in the Array
+      const match = index.find(item => normalize(item.master_id || item.id) === normalized);
+
+      if (match && match.master_id !== id) {
+        location.replace(window.rel(`details.html?id=${match.master_id}`));
       }
       return;
     }
 
     // =====================================================
-    // CASE 2 : SLUG PAGE ROUTING (Home/Portal)
+    // CASE 2 : SLUG ROUTING (Home to Details)
     // =====================================================
-    const slug = normalize(getSlug());
-    if (slug === "index" || slug === "") return; // Don't route the home page
+    if (slug === "index" || slug === "") return;
 
     const staticMap = await fetchJSON("data/staticportals.json");
     if (staticMap && staticMap[slug]) {
@@ -77,9 +77,11 @@
     const index = await fetchJSON("data/index.json");
     if (!index) return;
 
-    const match = index.find(item => normalize(item.master_id) === slug);
+    // Search the Array for the slug
+    const match = index.find(item => normalize(item.master_id || item.id) === slug);
 
     if (match) {
+      console.log("Routing to:", match.master_id);
       location.replace(window.rel(`details.html?id=${match.master_id}`));
     }
   }
