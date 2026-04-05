@@ -4,7 +4,7 @@
 window.Loader = {
     indexManifest: null,
     _sharedFetch: null,
-    _cache: new Map(), // Prevent re-fetching the same file
+    _cache: new Map(), // 1. THIS IS YOUR MEMORY BANK
 
     getBase() {
         return window.location.hostname.includes('github.io') ? '/sarkarkinokri/' : '/';
@@ -15,26 +15,29 @@ window.Loader = {
         return (this.getBase() + clean).replace(/\/+/g, '/');
     },
 
-    // 1. FAST INIT: Load manifest immediately with high priority
     async init(path) {
+        // 2. CHECK CACHE FIRST: If we have the manifest, return it in 0ms
         if (this.indexManifest) return this.indexManifest;
         if (this._sharedFetch) return this._sharedFetch;
 
         const finalPath = this._resolve('data/index.json');
         
         this._sharedFetch = (async () => {
-            // RETRY LOGIC: Try 3 times before giving up
             for (let i = 0; i < 3; i++) {
                 try {
                     const res = await fetch(finalPath, { priority: 'high' });
                     if (res.ok) {
                         this.indexManifest = await res.json();
+                        
+                        // 3. SAVE MANIFEST TO CACHE: So home page loads instantly next time
+                        this._cache.set('manifest', this.indexManifest); 
+                        
                         return this.indexManifest;
                     }
                 } catch (e) {
                     console.warn(`Retry ${i+1} for manifest...`);
                 }
-                await new Promise(r => setTimeout(r, 200 * i)); // Wait longer each time
+                await new Promise(r => setTimeout(r, 200 * i));
             }
             this._sharedFetch = null;
             return null;
@@ -42,11 +45,15 @@ window.Loader = {
         return this._sharedFetch;
     },
 
-    // 2. SMART CACHING: Fixes the "Important Links Not Fetched" issue
     async fetchByMaster(id, type) {
         if (!id) return null;
         const cacheKey = `${type}_${id}`;
-        if (this._cache.has(cacheKey)) return this._cache.get(cacheKey);
+
+        // 4. CHECK CACHE: Before asking GitHub, ask the Memory Bank
+        if (this._cache.has(cacheKey)) {
+            console.log("🚀 Serving from Cache:", cacheKey);
+            return this._cache.get(cacheKey);
+        }
 
         const fileName = id.endsWith('.json') ? id : `${id}.json`;
         const finalPath = this._resolve(`data/${type}/${fileName}`);
@@ -61,7 +68,9 @@ window.Loader = {
             processed = Array.isArray(raw) ? raw : (raw.data || raw.rows || [raw]);
         }
 
-        this._cache.set(cacheKey, processed); // Save to memory so refresh is instant
+        // 5. SAVE TO CACHE: Store the result for the next click
+        this._cache.set(cacheKey, processed); 
+        
         return processed;
     },
 
