@@ -1,10 +1,10 @@
 /**
- * loader.js — PERFORMANCE & RELIABILITY VERSION
+ * loader.js — DEEP-LINK STABILITY VERSION
  */
 window.Loader = {
     indexManifest: null,
     _sharedFetch: null,
-    _cache: new Map(), // Prevent re-fetching the same file
+    _cache: new Map(),
 
     getBase() {
         return window.location.hostname.includes('github.io') ? '/sarkarkinokri/' : '/';
@@ -15,53 +15,56 @@ window.Loader = {
         return (this.getBase() + clean).replace(/\/+/g, '/');
     },
 
-    // 1. FAST INIT: Load manifest immediately with high priority
     async init(path) {
         if (this.indexManifest) return this.indexManifest;
         if (this._sharedFetch) return this._sharedFetch;
 
         const finalPath = this._resolve('data/index.json');
-        
         this._sharedFetch = (async () => {
-            // RETRY LOGIC: Try 3 times before giving up
-            for (let i = 0; i < 3; i++) {
-                try {
-                    const res = await fetch(finalPath, { priority: 'high' });
-                    if (res.ok) {
-                        this.indexManifest = await res.json();
-                        return this.indexManifest;
-                    }
-                } catch (e) {
-                    console.warn(`Retry ${i+1} for manifest...`);
+            try {
+                const res = await fetch(finalPath, { priority: 'high' });
+                if (res.ok) {
+                    this.indexManifest = await res.json();
+                    return this.indexManifest;
                 }
-                await new Promise(r => setTimeout(r, 200 * i)); // Wait longer each time
-            }
-            this._sharedFetch = null;
+            } catch (e) { this._sharedFetch = null; }
             return null;
         })();
         return this._sharedFetch;
     },
 
-    // 2. SMART CACHING: Fixes the "Important Links Not Fetched" issue
+    // IMPROVED: Handles both Home Page (Full List) and Details Page (Single Item)
     async fetchByMaster(id, type) {
-        if (!id) return null;
-        const cacheKey = `${type}_${id}`;
+        // 1. Generate a Cache Key that distinguishes between 'Full List' and 'Single Item'
+        const cacheKey = id ? `${type}_${id}` : `${type}_full`;
         if (this._cache.has(cacheKey)) return this._cache.get(cacheKey);
 
-        const fileName = id.endsWith('.json') ? id : `${id}.json`;
-        const finalPath = this._resolve(`data/${type}/${fileName}`);
+        const fileName = id ? (id.endsWith('.json') ? id : `${id}.json`) : 'index.json';
+        
+        // If no ID is provided, we might be looking for a category index
+        const rawPath = id ? `data/${type}/${fileName}` : `data/${type}.json`;
+        const finalPath = this._resolve(rawPath);
         
         const raw = await this._fetchJSON(finalPath);
         if (!raw) return null;
 
         let processed = raw;
+
+        // 2. SMART NORMALIZATION
         if (type === "events") {
             processed = { ...raw, events: raw.events || (Array.isArray(raw) ? raw : []) };
-        } else if (type === "jobsdata") {
-            processed = Array.isArray(raw) ? raw : (raw.data || raw.rows || [raw]);
+        } 
+        else if (type === "jobsdata") {
+            // If we have an ID, extract that specific job. 
+            // If NO ID (Home Page), return the full Array so the grid can render.
+            if (id && Array.isArray(raw)) {
+                processed = raw.find(item => item.master_id === id) || raw[0];
+            } else {
+                processed = Array.isArray(raw) ? raw : (raw.data || raw.rows || [raw]);
+            }
         }
 
-        this._cache.set(cacheKey, processed); // Save to memory so refresh is instant
+        this._cache.set(cacheKey, processed);
         return processed;
     },
 
@@ -69,15 +72,6 @@ window.Loader = {
         try {
             const res = await fetch(url);
             return res.ok ? await res.json() : null;
-        } catch (e) { 
-            return null; 
-        }
-    },
-
-    getAllMasterIds() {
-        const m = this.indexManifest;
-        if (!m) return [];
-        const list = m.entries || m.rows || (Array.isArray(m) ? m : []);
-        return [...new Set(list.map(item => item.master_id || item.id))].filter(Boolean);
+        } catch (e) { return null; }
     }
 };
