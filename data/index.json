@@ -18,8 +18,8 @@
     { "master_id": "rrb-cen-09-2025", "type": "jobsdata", "file": "data/jobsdata/rrb-cen-09-2025.json", "description": "RRB Technician 2025-26 Full Data" },
     { "master_id": "rrb-cen-09-2025", "type": "events", "file": "data/events/rrb-cen-09-2025.json", "description": "RRB Technician 2025-26 Events Timeline" },
     
-    { "master_id": "rrb-ntpc-2026", "type": "jobsdata", "file": "data/jobsdata/rrb-ntpc-2026.json", "description": "RRB NTPC 2025-26 Full Recruitment Data" },
-    { "master_id": "rrb-ntpc-2026", "type": "events", "file": "data/events/rrb-ntpc-2026.json", "description": "RRB NTPC 2025-26 Events Timeline" },
+    { "master_id": "rrb-ntpc-2025", "type": "jobsdata", "file": "data/jobsdata/rrb-ntpc-2025.json", "description": "RRB NTPC 2025-26 Full Recruitment Data" },
+    { "master_id": "rrb-ntpc-2025", "type": "events", "file": "data/events/rrb-ntpc-2025.json", "description": "RRB NTPC 2025-26 Events Timeline" },
     
     { "master_id": "ssc-selection-xiv", "type": "jobsdata", "file": "data/jobsdata/ssc-selection-xiv.json", "description": "SSC Selection Post Phase XIV 2026 Data" },
     { "master_id": "ssc-selection-xiv", "type": "events", "file": "data/events/ssc-selectionpost.json", "description": "SSC Selection Post Events Timeline" },
