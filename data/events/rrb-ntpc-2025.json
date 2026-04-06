@@ -8,8 +8,8 @@
   "title": "RRB NTPC (CEN 06/2025)",
   "category": "Central Govt",
   "status": "Active",
-  "last_updated": "2026-03-28T00:00:00Z",
-  "recruitment_summary": "Recruitment for Graduate and Undergraduate posts. CBT-1 completed. Answer key challenge window opening soon.",
+  "last_updated": "2026-04-01T00:00:00Z",
+  "recruitment_summary": "RRB NTPC 2025 CBT-1 completed. Provisional answer key released with objection window. Candidates can download response sheet and challenge answers within the deadline.",
   "events": [
     {
       "phase": null,
@@ -18,17 +18,18 @@
       "is_active": true,
       "start_date": "2025-06-15",
       "end_date": "2026-09-15",
-      "badge_text": "ANCHOR"
+      "badge_text": "ANCHOR",
+      "official_event_url": "https://indianrailways.gov.in/"
     },
     {
       "phase": "CBT-1",
       "stage": "answer",
-      "label": "CBT-1 Provisional Answer Key",
+      "label": "CBT-1 Answer Key / Response Sheet",
       "is_active": true,
-      "start_date": "2026-04-05",
-      "end_date": "2026-04-15",
-      "status_label": "Objection Link Active",
-      "badge_text": "● NEW",
+      "start_date": "2026-04-01",
+      "end_date": "2026-04-07",
+      "status_label": "Objection Window Active",
+      "badge_text": "● LIVE",
       "official_event_url": "https://rrb.digialm.com/EForms/loginAction.do?subAction=ViewLoginPage&formId=91775&orgId=1907"
     },
     {
@@ -36,7 +37,15 @@
       "stage": "result",
       "label": "CBT-1 Result / Scorecard",
       "is_active": false,
-      "badge_text": "WAITING"
+      "badge_text": "WAITING",
+      "status_label": "Expected May 2026"
+    },
+    {
+      "phase": "CBT-2",
+      "stage": "admit",
+      "label": "CBT-2 Admit Card",
+      "is_active": false,
+      "badge_text": "FUTURE"
     }
   ]
 }
