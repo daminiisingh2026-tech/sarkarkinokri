@@ -8,7 +8,8 @@
   "category": "PSU",
   "status": "Active",
   "last_updated": "2026-04-06T00:00:00Z",
-  "recruitment_summary": "BSNL released SET recruitment.",
+  "official_website_url": "https://www.bsnl.co.in/",
+  "recruitment_summary": "BSNL released Senior Executive Trainee recruitment.",
 
   "events": [
     {
@@ -17,7 +18,8 @@
       "label": "Notification Released",
       "is_active": true,
       "start_date": "2026-04-03",
-      "badge_text": "ANCHOR"
+      "badge_text": "ANCHOR",
+      "official_event_url": "https://www.bsnl.co.in/"
     },
     {
       "phase": "Application",
@@ -25,7 +27,15 @@
       "label": "Application Started",
       "is_active": true,
       "start_date": "2026-04-03",
-      "badge_text": "● LIVE"
+      "badge_text": "● LIVE",
+      "official_event_url": "https://www.bsnl.co.in/"
+    },
+    {
+      "phase": "Exam",
+      "stage": "exam",
+      "label": "Exam Date",
+      "is_active": false,
+      "badge_text": "FUTURE"
     }
   ]
 }
