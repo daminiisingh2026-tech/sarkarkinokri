@@ -1,24 +1,31 @@
 {
   "master_id": "bsnl-set-2026",
-  "slug": "bsnl-senior-executive-trainee-recruitment-2026",
-  "organization": "Bharat Sanchar Nigam Limited (BSNL)",
-  "exam_name": "Senior Executive Trainee Recruitment 2026",
+  "header_scope": [
+    "Bharat Sanchar Nigam Limited"
+  ],
+  "notice_type": "Recruitment Notice",
+  "title": "BSNL Senior Executive Trainee 2026",
+  "category": "PSU",
+  "status": "Active",
+  "last_updated": "2026-04-06T00:00:00Z",
+  "recruitment_summary": "BSNL released SET recruitment.",
 
-  "overview": {
-    "Total_Vacancies": "120",
-    "Job_Location": "All India",
-    "Application_Mode": "Online",
-    "Category": "PSU Job"
-  },
-
-  "important_dates": {
-    "Notification_Release": "03-04-2026",
-    "Application_Start": "03-04-2026",
-    "Last_Date": "To be notified"
-  },
-
-  "eligibility": {
-    "Education": "B.E / B.Tech",
-    "Age_Limit": "Up to 30 Years"
-  }
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Notification Released",
+      "is_active": true,
+      "start_date": "2026-04-03",
+      "badge_text": "ANCHOR"
+    },
+    {
+      "phase": "Application",
+      "stage": "apply",
+      "label": "Application Started",
+      "is_active": true,
+      "start_date": "2026-04-03",
+      "badge_text": "● LIVE"
+    }
+  ]
 }
