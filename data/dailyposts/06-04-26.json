@@ -1,0 +1,62 @@
+[
+  {
+    "master_id": "rrb-ntpc-2025",
+    "date": "2026-04-06",
+    "type": "answer_key",
+    "title": "RRB NTPC Graduate CBT-1 Answer Key Released",
+    "highlight": "Objection open till 12 April",
+    "priority": "high",
+    "category": "railway",
+    "status": "live"
+  },
+  {
+    "master_id": "btsc-lab-assistant-2026",
+    "date": "2026-04-06",
+    "type": "job",
+    "title": "BTSC Bihar Lab Assistant Recruitment 2026",
+    "highlight": "1091 Vacancies",
+    "priority": "high",
+    "category": "state",
+    "status": "active"
+  },
+  {
+    "master_id": "nic-scientist-b-2026",
+    "date": "2026-04-06",
+    "type": "job",
+    "title": "NIC Scientist B Recruitment 2026",
+    "highlight": "243 Posts",
+    "priority": "high",
+    "category": "central",
+    "status": "active"
+  },
+  {
+    "master_id": "chandigarh-clerk-2026",
+    "date": "2026-04-06",
+    "type": "job",
+    "title": "Chandigarh Clerk Recruitment 2026",
+    "highlight": "257 Posts",
+    "priority": "medium",
+    "category": "state",
+    "status": "active"
+  },
+  {
+    "master_id": "secl-apprentice-2026",
+    "date": "2026-04-06",
+    "type": "job",
+    "title": "SECL Apprentice Recruitment 2026",
+    "highlight": "1600 Vacancies",
+    "priority": "medium",
+    "category": "psu",
+    "status": "active"
+  },
+  {
+    "master_id": "bsnl-set-2026",
+    "date": "2026-04-06",
+    "type": "job",
+    "title": "BSNL Senior Executive Trainee Recruitment",
+    "highlight": "120 Posts",
+    "priority": "medium",
+    "category": "psu",
+    "status": "active"
+  }
+]
