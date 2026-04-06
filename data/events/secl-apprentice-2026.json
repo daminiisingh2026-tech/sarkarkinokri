@@ -8,7 +8,8 @@
   "category": "PSU",
   "status": "Active",
   "last_updated": "2026-04-06T00:00:00Z",
-  "recruitment_summary": "SECL released 1600 Apprentice vacancies.",
+  "official_website_url": "https://www.secl-cil.in/",
+  "recruitment_summary": "SECL released Apprentice recruitment.",
 
   "events": [
     {
@@ -17,7 +18,8 @@
       "label": "Notification Released",
       "is_active": true,
       "start_date": "2026-04-05",
-      "badge_text": "ANCHOR"
+      "badge_text": "ANCHOR",
+      "official_event_url": "https://www.secl-cil.in/"
     },
     {
       "phase": "Application",
@@ -25,7 +27,15 @@
       "label": "Application Started",
       "is_active": true,
       "start_date": "2026-04-05",
-      "badge_text": "● LIVE"
+      "badge_text": "● LIVE",
+      "official_event_url": "https://www.secl-cil.in/"
+    },
+    {
+      "phase": "Merit",
+      "stage": "result",
+      "label": "Merit List",
+      "is_active": false,
+      "badge_text": "FUTURE"
     }
   ]
 }
