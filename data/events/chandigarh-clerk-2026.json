@@ -1,26 +1,31 @@
 {
   "master_id": "chandigarh-clerk-2026",
-  "slug": "chandigarh-clerk-recruitment-2026",
-  "organization": "Chandigarh Administration",
-  "exam_name": "Clerk & Stenotypist Recruitment 2026",
-  "notification_number": "CHD/CLERK/2026",
+  "header_scope": [
+    "Chandigarh Administration"
+  ],
+  "notice_type": "Recruitment Notice",
+  "title": "Chandigarh Clerk 2026",
+  "category": "State Govt",
+  "status": "Active",
+  "last_updated": "2026-04-06T00:00:00Z",
+  "recruitment_summary": "Chandigarh Administration released Clerk recruitment.",
 
-  "overview": {
-    "Total_Vacancies": "257",
-    "Job_Location": "Chandigarh",
-    "Application_Mode": "Online",
-    "Category": "UT Government Job"
-  },
-
-  "important_dates": {
-    "Notification_Release": "06-04-2026",
-    "Application_Start": "06-04-2026",
-    "Last_Date": "To be announced"
-  },
-
-  "eligibility": {
-    "Education": "Graduate",
-    "Age_Limit": "18-37 Years",
-    "Typing": "Required"
-  }
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Notification Released",
+      "is_active": true,
+      "start_date": "2026-04-06",
+      "badge_text": "ANCHOR"
+    },
+    {
+      "phase": "Application",
+      "stage": "apply",
+      "label": "Online Application",
+      "is_active": true,
+      "start_date": "2026-04-06",
+      "badge_text": "● LIVE"
+    }
+  ]
 }
