@@ -8,6 +8,7 @@
   "category": "State Govt",
   "status": "Active",
   "last_updated": "2026-04-06T00:00:00Z",
+  "official_website_url": "https://btsc.bihar.gov.in/",
   "recruitment_summary": "BTSC released 1091 Lab Assistant vacancies. Online applications started.",
 
   "events": [
@@ -17,7 +18,8 @@
       "label": "Notification Released",
       "is_active": true,
       "start_date": "2026-04-06",
-      "badge_text": "ANCHOR"
+      "badge_text": "ANCHOR",
+      "official_event_url": "https://btsc.bihar.gov.in/"
     },
     {
       "phase": "Application",
@@ -25,7 +27,8 @@
       "label": "Online Application",
       "is_active": true,
       "start_date": "2026-04-06",
-      "badge_text": "● LIVE"
+      "badge_text": "● LIVE",
+      "official_event_url": "https://btsc.bihar.gov.in/"
     },
     {
       "phase": "Exam",
