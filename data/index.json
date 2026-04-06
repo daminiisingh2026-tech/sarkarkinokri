@@ -2,54 +2,69 @@
   "entries": [
     { "master_id": "jpsc-14th-2026", "type": "jobsdata", "file": "data/jobsdata/jpsc-14th-2026.json", "description": "JPSC 14th CCE Full Recruitment Data" },
     { "master_id": "jpsc-14th-2026", "type": "events", "file": "data/events/jpsc-14th-2026.json", "description": "JPSC 14th CCE Events Timeline" },
-    
+
     { "master_id": "ssc-cgl-2026", "type": "jobsdata", "file": "data/jobsdata/ssc-cgl-2026.json", "description": "SSC CGL 2026 Recruitment Details" },
     { "master_id": "ssc-cgl-2026", "type": "events", "file": "data/events/ssc-cgl-2026.json", "description": "SSC CGL 2026 Events Timeline" },
-    
+
     { "master_id": "rrb-je-2025", "type": "jobsdata", "file": "data/jobsdata/rrb-je-2025.json", "description": "RRB JE 2025-26 Full Recruitment Data" },
     { "master_id": "rrb-je-2025", "type": "events", "file": "data/events/rrb-je-2025.json", "description": "RRB JE 2025-26 Events Timeline" },
-    
+
     { "master_id": "ssc-gd-2025", "type": "jobsdata", "file": "data/jobsdata/ssc-gd-2025.json", "description": "SSC GD Constable 2025 Full Recruitment Data" },
     { "master_id": "ssc-gd-2025", "type": "events", "file": "data/events/ssc-gd-2025.json", "description": "SSC GD Constable 2025 Events Timeline" },
-    
+
     { "master_id": "ssc-mts-2025", "type": "jobsdata", "file": "data/jobsdata/ssc-mts-2025.json", "description": "SSC MTS & Havaldar 2025 Full Recruitment Data" },
     { "master_id": "ssc-mts-2025", "type": "events", "file": "data/events/ssc-mts-2025.json", "description": "SSC MTS 2025 Events Timeline" },
-    
+
     { "master_id": "rrb-cen-09-2025", "type": "jobsdata", "file": "data/jobsdata/rrb-cen-09-2025.json", "description": "RRB Technician 2025-26 Full Data" },
     { "master_id": "rrb-cen-09-2025", "type": "events", "file": "data/events/rrb-cen-09-2025.json", "description": "RRB Technician 2025-26 Events Timeline" },
-    
+
     { "master_id": "rrb-ntpc-2025", "type": "jobsdata", "file": "data/jobsdata/rrb-ntpc-2025.json", "description": "RRB NTPC 2025-26 Full Recruitment Data" },
     { "master_id": "rrb-ntpc-2025", "type": "events", "file": "data/events/rrb-ntpc-2025.json", "description": "RRB NTPC 2025-26 Events Timeline" },
-    
+
     { "master_id": "ssc-selection-xiv", "type": "jobsdata", "file": "data/jobsdata/ssc-selection-xiv.json", "description": "SSC Selection Post Phase XIV 2026 Data" },
     { "master_id": "ssc-selection-xiv", "type": "events", "file": "data/events/ssc-selectionpost.json", "description": "SSC Selection Post Events Timeline" },
-    
+
     { "master_id": "rbi-assistant-2026", "type": "jobsdata", "file": "data/jobsdata/rbi-assistant-2026.json", "description": "RBI Assistant 2026 Recruitment Data" },
     { "master_id": "rbi-assistant-2026", "type": "events", "file": "data/events/rbi-assistant-2026.json", "description": "RBI Assistant 2026 Events Timeline" },
-    
+
     { "master_id": "sbi-po-2026", "type": "jobsdata", "file": "data/jobsdata/sbi-po-2026.json", "description": "SBI PO 2026 Probationary Officer Data" },
     { "master_id": "sbi-po-2026", "type": "events", "file": "data/events/sbi-po-2026.json", "description": "SBI PO 2026 Events Timeline" },
-    
+
     { "master_id": "ibps-po-2026", "type": "jobsdata", "file": "data/jobsdata/ibps-po-2026.json", "description": "IBPS PO CRP XVI Full Recruitment Data" },
     { "master_id": "ibps-po-2026", "type": "events", "file": "data/events/ibps-po-2026.json", "description": "IBPS PO 2026 Events Timeline" },
-    
+
     { "master_id": "ssc-chsl-2025", "type": "jobsdata", "file": "data/jobsdata/ssc-chsl-2025.json", "description": "SSC CHSL 2025 Full Recruitment Data" },
     { "master_id": "ssc-chsl-2025", "type": "events", "file": "data/events/ssc-chsl-2025.json", "description": "SSC CHSL 2025 Events Timeline" },
-    
+
     { "master_id": "ssc-steno-2025", "type": "jobsdata", "file": "data/jobsdata/ssc-steno-2025.json", "description": "SSC Stenographer Grade C & D 2025 Data" },
     { "master_id": "ssc-steno-2025", "type": "events", "file": "data/events/ssc-steno-2025.json", "description": "SSC Steno 2025 Events Timeline" },
-    
+
     { "master_id": "rrb-alp-2024", "type": "jobsdata", "file": "data/jobsdata/rrb-alp-2024.json", "description": "RRB ALP 2024-26 Full Recruitment Data" },
     { "master_id": "rrb-alp-2024", "type": "events", "file": "data/events/rrb-alp-2024.json", "description": "RRB ALP 2024 Events Timeline" },
-    
+
     { "master_id": "bihar-police-asi-2026", "type": "jobsdata", "file": "data/jobsdata/bihar-police-asi-2026.json", "description": "Bihar Police ASI 2026 Recruitment Data" },
     { "master_id": "bihar-police-asi-2026", "type": "events", "file": "data/events/bihar-police-asi-2026.json", "description": "Bihar Police ASI 2026 Events Timeline" },
-    
+
     { "master_id": "uppsc-psc-2026", "type": "jobsdata", "file": "data/jobsdata/uppsc-psc-2026.json", "description": "UPPSC PCS 2026 Full Recruitment Data" },
     { "master_id": "uppsc-psc-2026", "type": "events", "file": "data/events/uppsc-psc-2026.json", "description": "UPPSC PCS 2026 Events Timeline" },
-    
+
     { "master_id": "ib-acio-2026", "type": "jobsdata", "file": "data/jobsdata/ib-acio-2026.json", "description": "Intelligence Bureau ACIO-II 2026 Data" },
     { "master_id": "ib-acio-2026", "type": "events", "file": "data/events/ib-acio-2026.json", "description": "IB ACIO 2026 Events Timeline" },
+
+    { "master_id": "btsc-lab-assistant-2026", "type": "jobsdata", "file": "data/jobsdata/btsc-lab-assistant-2026.json", "description": "BTSC Bihar Lab Assistant 2026 Recruitment Data" },
+    { "master_id": "btsc-lab-assistant-2026", "type": "events", "file": "data/events/btsc-lab-assistant-2026.json", "description": "BTSC Lab Assistant 2026 Events Timeline" },
+
+    { "master_id": "chandigarh-clerk-2026", "type": "jobsdata", "file": "data/jobsdata/chandigarh-clerk-2026.json", "description": "Chandigarh Clerk 2026 Recruitment Data" },
+    { "master_id": "chandigarh-clerk-2026", "type": "events", "file": "data/events/chandigarh-clerk-2026.json", "description": "Chandigarh Clerk 2026 Events Timeline" },
+
+    { "master_id": "secl-apprentice-2026", "type": "jobsdata", "file": "data/jobsdata/secl-apprentice-2026.json", "description": "SECL Apprentice 2026 Recruitment Data" },
+    { "master_id": "secl-apprentice-2026", "type": "events", "file": "data/events/secl-apprentice-2026.json", "description": "SECL Apprentice 2026 Events Timeline" },
+
+    { "master_id": "nic-scientist-b-2026", "type": "jobsdata", "file": "data/jobsdata/nic-scientist-b-2026.json", "description": "NIC Scientist B 2026 Recruitment Data" },
+    { "master_id": "nic-scientist-b-2026", "type": "events", "file": "data/events/nic-scientist-b-2026.json", "description": "NIC Scientist B 2026 Events Timeline" },
+
+    { "master_id": "bsnl-set-2026", "type": "jobsdata", "file": "data/jobsdata/bsnl-set-2026.json", "description": "BSNL Senior Executive Trainee 2026 Data" },
+    { "master_id": "bsnl-set-2026", "type": "events", "file": "data/events/bsnl-set-2026.json", "description": "BSNL SET 2026 Events Timeline" },
 
     { "type": "static", "label": "Important Links", "file": "data/importantlinks.json" }
   ]
