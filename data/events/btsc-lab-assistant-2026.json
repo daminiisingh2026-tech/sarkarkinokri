@@ -1,27 +1,38 @@
 {
   "master_id": "btsc-lab-assistant-2026",
-  "slug": "btsc-bihar-lab-assistant-recruitment-2026",
-  "organization": "Bihar Technical Service Commission (BTSC)",
-  "exam_name": "Laboratory Assistant Recruitment 2026",
-  "notification_number": "BTSC/LA/2026",
+  "header_scope": [
+    "Bihar Technical Service Commission"
+  ],
+  "notice_type": "Recruitment Notice",
+  "title": "BTSC Lab Assistant 2026",
+  "category": "State Govt",
+  "status": "Active",
+  "last_updated": "2026-04-06T00:00:00Z",
+  "recruitment_summary": "BTSC released 1091 Lab Assistant vacancies. Online applications started.",
 
-  "overview": {
-    "Total_Vacancies": "1091",
-    "Job_Location": "Bihar",
-    "Application_Mode": "Online",
-    "Category": "State Government Job"
-  },
-
-  "important_dates": {
-    "Notification_Release": "06-04-2026",
-    "Application_Start": "06-04-2026",
-    "Last_Date": "To be announced",
-    "Exam_Date": "To be notified"
-  },
-
-  "eligibility": {
-    "Education": "12th Pass with Science",
-    "Age_Limit": "18-37 Years",
-    "Age_Relaxation": "As per Bihar Govt rules"
-  }
+  "events": [
+    {
+      "phase": null,
+      "stage": "notification",
+      "label": "Notification Released",
+      "is_active": true,
+      "start_date": "2026-04-06",
+      "badge_text": "ANCHOR"
+    },
+    {
+      "phase": "Application",
+      "stage": "apply",
+      "label": "Online Application",
+      "is_active": true,
+      "start_date": "2026-04-06",
+      "badge_text": "● LIVE"
+    },
+    {
+      "phase": "Exam",
+      "stage": "exam",
+      "label": "Exam Date",
+      "is_active": false,
+      "badge_text": "FUTURE"
+    }
+  ]
 }
