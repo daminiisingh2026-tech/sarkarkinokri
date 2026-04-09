@@ -89,8 +89,8 @@ return txt
 }
 
 Promise.all([
-fetch("/data/importantlinks.json").then(r=>r.json()),
-fetch("../data/staticportals.json").then(r=>r.json())
+fetch("data/importantlinks.json").then(r=>r.json()),
+fetch("data/staticportals.json").then(r=>r.json())
 ])
 .then(([sitemap, portals])=>{
 
