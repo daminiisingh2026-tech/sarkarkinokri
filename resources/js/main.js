@@ -259,7 +259,10 @@ const d=this.data;
 
 /* SAFE FALLBACKS (no breaking old JSON) */
 const hubLabel = d.redirect_buttons?.hub_label || "Railway Hub";
-const hubUrl   = d.redirect_buttons?.hub_url   || "/railways/index.html";
+let hubUrl     = d.redirect_buttons?.hub_url   || "/railways/index.html";
+
+/* NORMALIZE (remove leading slash so repo base works) */
+hubUrl = hubUrl.replace(/^\/+/, "");
 
 return `
 <div class="logic-card">
@@ -276,7 +279,7 @@ class="logic-btn btn-static">
 ${hubLabel}
 </a>
 
-<a href="/details.html?slug=${d.master_id}"
+<a href="details.html?id=${d.master_id}"
 class="logic-btn btn-dynamic">
 ONGOING RECRUITMENT
 </a>
@@ -286,7 +289,6 @@ ONGOING RECRUITMENT
 </div>
 `;
 },
-
 examPhases(){
 
 const phases=this.data.exam_phases||[];
