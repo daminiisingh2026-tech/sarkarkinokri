@@ -257,12 +257,19 @@ redirectButtons(){
 
 const d=this.data;
 
-/* SAFE FALLBACKS (no breaking old JSON) */
+/* SAFE FALLBACKS */
 const hubLabel = d.redirect_buttons?.hub_label || "Railway Hub";
 let hubUrl     = d.redirect_buttons?.hub_url   || "/railways/index.html";
 
-/* NORMALIZE (remove leading slash so repo base works) */
+/* normalize */
 hubUrl = hubUrl.replace(/^\/+/, "");
+
+/* resolve via PathFix */
+hubUrl = window.PathFix ? PathFix.resolve(hubUrl) : hubUrl;
+
+const detailsUrl = window.PathFix
+? PathFix.resolve(`details.html?id=${d.master_id}`)
+: `details.html?id=${d.master_id}`;
 
 return `
 <div class="logic-card">
@@ -279,7 +286,7 @@ class="logic-btn btn-static">
 ${hubLabel}
 </a>
 
-<a href="details.html?id=${d.master_id}"
+<a href="${detailsUrl}"
 class="logic-btn btn-dynamic">
 ONGOING RECRUITMENT
 </a>
@@ -289,6 +296,7 @@ ONGOING RECRUITMENT
 </div>
 `;
 },
+  
 examPhases(){
 
 const phases=this.data.exam_phases||[];
