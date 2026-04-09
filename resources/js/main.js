@@ -1,3 +1,24 @@
+/* ===== GLOBAL BASE FIX (GitHub Pages safe) ===== */
+(function () {
+
+if (document.querySelector("base")) return;
+
+let base = "/";
+
+if (location.hostname.includes("github.io")) {
+  const repo = location.pathname.split("/")[1];
+  base = "/" + repo + "/";
+}
+
+const baseTag = document.createElement("base");
+baseTag.href = base;
+
+document.head.prepend(baseTag);
+
+console.log("🌐 Base href =", baseTag.href);
+
+})();
+
 /* ===== UNIVERSAL ID DETECTION (STATIC + DYNAMIC) ===== */
 
 const params = new URLSearchParams(window.location.search);
@@ -242,8 +263,8 @@ return `
 <div class="syllabus-header">
 
 <div class="nav-top">
-<a href="index.html" class="nav-btn back-btn">← Back</a>
-<a href="../../index.html" class="nav-btn home-btn">🏠 Home</a>
+<a href="/index.html" class="nav-btn back-btn">← Back</a>
+<a href="/index.html" class="nav-btn home-btn">🏠 Home</a>
 </div>
 
 <h1>${d.exam_name} ${d.year}</h1>
@@ -252,24 +273,12 @@ return `
 </div>
 `;
 },
-
 redirectButtons(){
 
 const d=this.data;
 
-/* SAFE FALLBACKS */
 const hubLabel = d.redirect_buttons?.hub_label || "Railway Hub";
-let hubUrl     = d.redirect_buttons?.hub_url   || "/railways/index.html";
-
-/* normalize */
-hubUrl = hubUrl.replace(/^\/+/, "");
-
-/* resolve via PathFix */
-hubUrl = window.PathFix ? PathFix.resolve(hubUrl) : hubUrl;
-
-const detailsUrl = window.PathFix
-? PathFix.resolve(`details.html?id=${d.master_id}`)
-: `details.html?id=${d.master_id}`;
+const hubUrl   = d.redirect_buttons?.hub_url   || "/railways/index.html";
 
 return `
 <div class="logic-card">
@@ -286,7 +295,7 @@ class="logic-btn btn-static">
 ${hubLabel}
 </a>
 
-<a href="${detailsUrl}"
+<a href="/details.html?id=${d.master_id}"
 class="logic-btn btn-dynamic">
 ONGOING RECRUITMENT
 </a>
